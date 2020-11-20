@@ -1,4 +1,4 @@
 # openSWplatform
 Youties : youtube review website
 
-홍진서 1971058
+박지수 1917015
