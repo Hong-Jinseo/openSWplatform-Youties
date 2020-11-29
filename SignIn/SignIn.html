@@ -1,21 +1,52 @@
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to Youties</title>
+	<link rel="stylesheet" href="signIn_style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-	<div id="app">
-		<img src="youties_logo.png" alt="YOUTIES" height="100dp"/>
+	<div class="app">
 
-		<section id="sign-in-container">
+		<figure>
+			<img src="youties_logo.png" id="logo_small" alt="YOUTIES" height="100dp"/><br>
+		</figure>
 
-            Email <textarea rows="1" cols="30" style="resize: none;"></textarea><br>
-            Password <textarea rows="1" cols="30" style="resize: none;"></textarea>
+		
+		<div id="sign-in-container">
 
-            <button id="startSignIn">Sign in</button>
-            <br><button id="gotoCreateAccount">Create a new account</button>
+			<div class="div1">
+				<h2>Sign in</h2>
+			</div>
+			
+			<div class="div2 text">Email</div>
+			
+			
+			<div class="div3">
+				<input type="email" id="user_email" pattern=".+@globex.com" size="30" placeholder="Enter your email" required><br>			
+			</div>
 
-		</section>
+			<div class="div4" style="float: inherit;">
+				<input type="submit" id="startSignIn" value="Sign in">
+			</div>
+
+
+			<div class="div5 text">Password</div>
+					
+			<div class="div6">
+				<input type="password" id="user_password" minlength="8" maxlength="20" size="30" placeholder="Enter your password" required>
+			</div>
+
+			<div></div>
+
+			<div id="div7">
+				<button id="gotoCreateAccount">Create a new account</button>
+			</div>
+		
+		</div>
 	</div>
+
+	<footer class="youtiesFooter">
+		team 4 : Youties
+	</footer>
 </body>
