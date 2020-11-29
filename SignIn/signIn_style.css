@@ -4,6 +4,13 @@ section, div {display: block;}
 
 figure {text-align: center;}
 
+#main_header{
+    background: #c0412b;
+    padding: 25px;
+    text-align: right;
+    margin: none;
+}
+
 .youtiesFooter{
     position: absolute;
     left: 0;
@@ -132,7 +139,7 @@ figure {text-align: center;}
 
 /* == 회원가입 == */
 #logo_small{
-    margin-top: 70;
+    margin-top: 10;
 }
 
 #createAccount {

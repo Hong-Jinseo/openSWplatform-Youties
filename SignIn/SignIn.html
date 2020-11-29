@@ -3,9 +3,21 @@
 	<title>Welcome to Youties</title>
 	<link rel="stylesheet" href="signIn_style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script type = "text/javascript">
+		function goCreatePage() { 
+			location.href="SignUp.html";
+		}
+	</script>
+
+
 </head>
 
 <body>
+	<header id="main_header"></header>
+
+	<script type="text/javascript" src="SignIn.js"></script>
+
 	<div class="app">
 
 		<figure>
@@ -40,7 +52,7 @@
 			<div></div>
 
 			<div id="div7">
-				<button id="gotoCreateAccount">Create a new account</button>
+				<button id="gotoCreateAccount" onclick="goCreatePage()">Create a new account</button>
 			</div>
 		
 		</div>
