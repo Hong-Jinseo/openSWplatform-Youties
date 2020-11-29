@@ -1,0 +1,112 @@
+/* == 공통 == 
+
+* {text-align: center;}
+
+*/
+
+h2 { font: bold 14px; text-align: center; }
+section, div {display: block;}
+
+
+
+figure {text-align: center;}
+
+
+/* == 로그인 == */
+#logo_big{
+    margin-top: 200;
+}
+
+#user_email{
+    padding: 11px 10px;
+    background: none;
+    width: calc(100% - 105px);
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 14px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#uesr_password{
+    padding: 11px 10px;
+    background: none;
+    width: calc(100% - 105px);
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 14px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* == 회원가입 == */
+#logo_small{
+    margin-top: 70;
+}
+
+#createAccount {
+    width: 350px;
+    border: 2px solid rgb(139, 136, 136);
+    margin: 0 auto;
+}
+
+#sign-up-container{
+    width: 350px;
+}
+
+#inputData label{
+    font-size: 20;
+    position: static;
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 2px;
+}
+
+#inputData input {
+    padding: 11px 10px;
+    width:300px;
+    height:30px;
+    font-size: 15px;
+    margin: 2px 20px 20px 20px;      /* 상 우 하 좌 */
+}
+
+#pw_caution label{
+    font-size: 14;
+    color: rgb(107, 114, 114);
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+#create_btn{
+    width:250px;
+    height:42px;
+    font-size:15px;
+    margin: 0px 400px 20px 40px;        /* 상 우 하 좌 */
+    color: white;
+    background-color:rgb(192, 57, 43);
+    border-color: none;
+    cursor: pointer;
+}
+
+#create_btn:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

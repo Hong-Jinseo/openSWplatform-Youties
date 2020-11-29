@@ -1,31 +1,48 @@
 <head>
 	<meta charset="utf-8">
 	<title>Youties : Sign up</title>
+	<link rel="stylesheet" href="signIn_style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-	<div id=app>
+	<section class="app">
 
-		<img src="youties_logo.png" alt="YOUTIES" height="60dp"/><br>
-		
-		<p id="title">Create account</p>
+		<figure>
+			<img src="youties_logo.png" id="logo_small" alt="YOUTIES" height="70dp"/><br>
+		</figure>
 
-		<section id="sign-up-container">
+		<div id="createAccount">
+			<h2>Create account</h2>
 
-            Email<br>
-            <textarea rows="1" cols="30" style="resize: none;"></textarea><br><br>
-            Password<br>
-            <textarea rows="1" cols="30" style="resize: none;"></textarea><br><br>
-            Re-enter password<br>
-            <textarea rows="1" cols="30" style="resize: none;"></textarea><br><br>
-            Your name<br>
-            <textarea rows="1" cols="30" style="resize: none;"></textarea><br><br>
+			<div id="sign-up-container">
 
+				<div id="inputData">
+					<label for="email" style="text-align:left">Email </label><br>
+					<input type="email" id="email" pattern=".+@globex.com" size="30" required><br>
+				</div>
+				
+				<div id="inputData">
+					<label for="password"> Password </label><br>
+					<div id="pw_caution">
+						<label> Passwords must be at least 8 characters.</label>
+					</div>
+					<input type="password" id="password" minlength="8" maxlength="20" size="30" required><br>
+				</div>
 
-            <button id="create">Create your YOUTIES acount</button>
-            
+				<div id="inputData">
+					<label for="password"> Re-enter password </label><br>
+					<input type="password" id="password" minlength="8" maxlength="20" size="30" required><br>
+				</div>
 
-		</section>
-	</div>
+				<div id="inputData">
+					<label for="text"> Your name </label><br>
+					<input type="text" rows="1" cols="30" style="resize: none;"><br><br>
+				</div>
+			</div>
+			
+			<input type="submit" id="create_btn" value="Create your YOUTIES account"></submit>
+
+		</div>
+	</section>
 </body>
