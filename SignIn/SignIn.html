@@ -1,39 +1,38 @@
-<head>
-	<meta charset="utf-8">
-	<title>Welcome to Youties</title>
-	<link rel="stylesheet" href="signIn_style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Welcome to Youties</title>
+		<link rel="stylesheet" href="signIn_style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<script type = "text/javascript">
-		function goCreatePage() { 
-			location.href="SignUp.html";
-		}
-	</script>
+		<script type = "text/javascript">
+			function goCreatePage() { 
+				location.href="SignUp.html";
+			}
+		</script>
 
 
-</head>
+	</head>
 
-<body>
-	<header id="main_header"></header>
-
-	<script type="text/javascript" src="SignIn.js"></script>
-
-	<div class="app">
-
-		<figure>
-			<img src="youties_logo.png" id="logo_small" alt="YOUTIES" height="100dp"/><br>
-		</figure>
-
-		
-		<div id="sign-in-container">
-
-			<div class="div1">
+	<body>	
+		<header id="main_header_logo">
+			<img src="youties_logo_header.png" id="logo_header" alt="YOUTIES" height="60dp"/><br>
+		</header>
+	
+		<div class="app">
+			<figure>
+				<img src="투명.png"  alt="YOUTIES Sign in" height="100dp"/><br>
+			</figure>
+				
+			<!--grid 형식으로 배치하기 위해 div 이름 통일함-->
+			<div id="sign-in-container">
+				<div class="div1">
 				<h2>Sign in</h2>
 			</div>
-			
+				
 			<div class="div2 text">Email</div>
-			
-			
+
 			<div class="div3">
 				<input type="email" id="user_email" pattern=".+@globex.com" size="30" placeholder="Enter your email" required><br>			
 			</div>
@@ -44,7 +43,7 @@
 
 
 			<div class="div5 text">Password</div>
-					
+						
 			<div class="div6">
 				<input type="password" id="user_password" minlength="8" maxlength="20" size="30" placeholder="Enter your password" required>
 			</div>
@@ -54,11 +53,12 @@
 			<div id="div7">
 				<button id="gotoCreateAccount" onclick="goCreatePage()">Create a new account</button>
 			</div>
-		
+				
+			</div>
 		</div>
-	</div>
 
-	<footer class="youtiesFooter">
-		team 4 : Youties
-	</footer>
-</body>
+		<footer class="youtiesFooter">
+			team 4 : Youties
+		</footer>
+	</body>
+</html>

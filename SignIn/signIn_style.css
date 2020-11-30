@@ -4,12 +4,25 @@ section, div {display: block;}
 
 figure {text-align: center;}
 
+#main_header_logo{
+    background: #c0412b;
+    padding-top: 3px;
+    padding-left: 10px;
+    text-align: left;
+    margin: none;
+}
+
 #main_header{
     background: #c0412b;
-    padding: 25px;
+    padding: 30px;
     text-align: right;
     margin: none;
 }
+
+#logo_header{
+    padding: 0px;
+}
+
 
 .youtiesFooter{
     position: absolute;
@@ -20,6 +33,14 @@ figure {text-align: center;}
     text-align: center;
 	color: rgb(192, 57, 43);
 }
+
+
+
+
+
+
+
+
 
 /* == 로그인 == */
 .app{ text-align: center;}
@@ -130,13 +151,6 @@ figure {text-align: center;}
 
 
 
-
-
-
-
-
-
-
 /* == 회원가입 == */
 #logo_small{
     margin-top: 10;
@@ -154,20 +168,39 @@ figure {text-align: center;}
     width: 350px;
 }
 
-#inputData label{
-    font-size: 20;
-    position: static;
+#inputData{
+    text-align: center;
+}
+
+#inner_inputData{
+    margin-left: 25px;
     text-align: left;
-    margin-left: 20px;
+    font-size: 17px;
     margin-bottom: 2px;
 }
 
-#inputData input {
+#inner_inputData_caution{
+    margin-left: 25px;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+#inputData input{
+    text-align: left;
     padding: 11px 10px;
-    width:300px;
-    height:30px;
-    font-size: 15px;
-    margin: 2px 20px 20px 20px;      /* 상 우 하 좌 */
+    margin-bottom: 10px;
+    background: none;
+    width: 300px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 14px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 #pw_caution label{
@@ -181,7 +214,7 @@ figure {text-align: center;}
     width:250px;
     height:42px;
     font-size:15px;
-    margin: 0px 400px 20px 40px;        /* 상 우 하 좌 */
+    margin: 0px 0px 20px 50px;        /* 상 우 하 좌 */
     color: white;
     background-color:rgb(192, 57, 43);
     border-color: none;

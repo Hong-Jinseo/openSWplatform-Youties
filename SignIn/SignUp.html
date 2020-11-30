@@ -1,56 +1,89 @@
-<head>
-	<meta charset="utf-8">
-	<title>Youties : Sign up</title>
-	<link rel="stylesheet" href="signIn_style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Youties : Sign up</title>
+		<link rel="stylesheet" href="signIn_style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<body>
+		<!--script type = "text/javascript">
+			function checking() { 
+				document.test.submit();
+          
+                var userEmail = document.test.email.value;
+                var userPassword = document.test.password.value;
+				var userPassword_chk = document.test.password_chk.value;
+				var userName = document.test.userName.value;
 
-	<header id="main_header"></header>
+                if (userEmail == "") alert("Enter your email");
+                else if (userPassword == "") alert("Enter your password");
+                else if (userPassword_chk == "") alert("Enter your password again.");
+				else if (userName == "") alert("Enter your name.");
+				else if (userPassword != userPassword_chk) alert("Please check your password again.");
+                else alert("Welcome to youties!");
+			}
+		</script-->
+		
+	</head>
 
-	<section class="app2">
+	<body>
+		<form action="Signin.php" method="post">
+			<header id="main_header"></header>
 
-		<figure>
-			<img src="youties_logo.png" id="logo_small" alt="YOUTIES" height="70dp"/><br>
-		</figure>
+			<section class="app2">
 
-		<div id="createAccount">
-			<h2>Create account</h2>
+				<figure>
+					<img src="youties_logo.png" id="logo_small" alt="YOUTIES" height="70dp"/><br>
+				</figure>
 
-			<div id="sign-up-container">
+				<div id="createAccount">
+					<h2>Create account</h2>
 
-				<div id="inputData">
-					<label for="email" style="text-align:left">Email </label><br>
-					<input type="email" id="email" pattern=".+@globex.com" size="30" required><br>
-				</div>
-				
-				<div id="inputData">
-					<label for="password"> Password </label><br>
-					<div id="pw_caution">
-						<label> Passwords must be at least 8 characters.</label>
+					<div id="sign-up-container">
+
+						<div id="inputData">
+							<div id=inner_inputData>
+								<label for="email" style="text-align:left">Email </label><br>
+							</div>
+							<input type="text" id="email" name="email" size="30" value="" required><br>	<!--pattern=".+@+." 뺐음-->
+						</div>
+						
+						<div id="inputData">
+							<div id=inner_inputData>
+								<label for="password"> Password </label><br>
+							</div>
+							<div id="pw_caution">
+								<div id=inner_inputData_caution>
+									<label> Passwords must be at least 8 characters.</label>
+								</div>
+							</div>
+							<input type="password" id="password" name="password" minlength="8" maxlength="20" size="30" value="" required><br>
+						</div>
+
+						<div id="inputData">
+							<div id=inner_inputData>
+								<label for="password"> Re-enter password </label><br>
+							</div>
+							<input type="password" id="password_chk" minlength="8" maxlength="20" size="30" value="" required><br>
+						</div>
+
+						<div id="inputData">
+							<div id=inner_inputData>
+								<label for="name"> Your name </label><br>
+							</div>
+							<input type="text" id="userName" name="name" rows="1" cols="30" style="resize: none;" value="" required><br><br>
+						</div>
 					</div>
-					<input type="password" id="password" minlength="8" maxlength="20" size="30" required><br>
+					
+					<input type="submit" onclick="checking()" id="create_btn" value="Create your YOUTIES account"></submit>
+
 				</div>
+			</section>
 
-				<div id="inputData">
-					<label for="password"> Re-enter password </label><br>
-					<input type="password" id="password" minlength="8" maxlength="20" size="30" required><br>
-				</div>
+			<footer class="youtiesFooter">
+				team 4 : Youties
+			</footer>
+		</form>
 
-				<div id="inputData">
-					<label for="text"> Your name </label><br>
-					<input type="text" rows="1" cols="30" style="resize: none;"><br><br>
-				</div>
-			</div>
-			
-			<input type="submit" id="create_btn" value="Create your YOUTIES account"></submit>
-
-		</div>
-	</section>
-
-	<footer class="youtiesFooter">
-		team 4 : Youties
-	</footer>
-
-</body>
+	</body>
+</html>
