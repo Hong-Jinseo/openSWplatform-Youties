@@ -1,3 +1,7 @@
+<?
+ include"session.php";   //session.php파일을 포함
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,9 +24,12 @@
 	</head>
 
 	<body>	
+    <form name="join" method="post" action="checkSignIn.php">
 
 		<header id="main_header_logo">
-			<img src="logo2_removebg.jpg" id="logo_header" alt="YOUTIES" width="150"/><br>
+			<a href="main.html">
+				<img src = "logo2_removebg.jpg" width="150">
+			</a>
 		</header>
 	
 		<div class="app">
@@ -39,7 +46,7 @@
 			<div class="div2 text">Email</div>
 
 			<div class="div3">
-				<input type="email" id="user_email" pattern=".+@globex.com" size="30" placeholder="Enter your email" required><br>			
+				<input type="email" name="email" id="user_email" size="30" placeholder="Enter your email" required><br>			
 			</div>
 
 			<div class="div4" style="float: inherit;">
@@ -50,7 +57,7 @@
 			<div class="div5 text">Password</div>
 						
 			<div class="div6">
-				<input type="password" id="user_password" minlength="8" maxlength="20" size="30" placeholder="Enter your password" required>
+				<input type="password" name="pwd" id="user_password" minlength="8" maxlength="20" size="30" placeholder="Enter your password" required>
 			</div>
 
 			<div></div>
@@ -64,6 +71,8 @@
 
 		<footer class="youtiesFooter">
 			team 4 : Youties
-		</footer>
+        </footer>
+        
+    </form>
 	</body>
 </html>

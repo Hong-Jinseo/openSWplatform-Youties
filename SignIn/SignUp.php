@@ -4,36 +4,47 @@
 		<meta charset="utf-8">
 		<title>Youties : Sign up</title>
 		<link rel="stylesheet" href="signIn_style.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">		
 
-		<!--script type = "text/javascript">
-			function checking() { 
-				document.test.submit();
-          
-                var userEmail = document.test.email.value;
-                var userPassword = document.test.password.value;
-				var userPassword_chk = document.test.password_chk.value;
-				var userName = document.test.userName.value;
-
-                if (userEmail == "") alert("Enter your email");
-                else if (userPassword == "") alert("Enter your password");
-                else if (userPassword_chk == "") alert("Enter your password again.");
-				else if (userName == "") alert("Enter your name.");
-				else if (userPassword != userPassword_chk) alert("Please check your password again.");
-                else alert("Welcome to youties!");
+		<script type = "text/javascript">
+			function openCheckId(){
+				var email=document.all.email.value;
+				if(email){
+					url="idcheck.php?email="+email;
+					window.open(url, "chkid", "width=500, height=250, menubar=no, toolbar=no");
+				}else{
+					alert("이메일을 입력하세요.");
+				}
 			}
-		</script-->
-		
+
+			function chkForm(){
+				var checkid=document.all.checkid.value;
+				var pwd = document.all.pwd.value;
+				var pwd2 = document.all.pwd2.value;
+				if(checkid==0){
+					alert("이메일 중복 확인을 해 주세요.");
+					return false;
+				}
+				else if(pwd!=pwd2){
+					alert("비밀번호가 일치하지 않습니다.");
+					return false;
+				}
+				return true;
+			}
+		</script>
+
 	</head>
 
 	<body>
-		<form action="Signin.php" method="post">
+        <form name="join" method="post" action="memberSave.php" enctype="multipart/form-data" onSubmit="return chkForm();">
 			<header id="main_header"></header>
 
 			<section class="app2">
 
 				<figure>
-					<img src="youties_logo.png" id="logo_small" alt="YOUTIES" height="70dp"/><br>
+					<a href="main.html">
+						<img src="youties_logo.png" id="logo_small" alt="YOUTIES" height="70dp"/><br>
+					</a>
 				</figure>
 
 				<div id="createAccount">
@@ -49,7 +60,7 @@
 
 						<div id="inputData_email">
 							<input type="text" id="email" name="email" size="30" value="" required>	<!--pattern=".+@+." 뺐음-->
-							<button type="button" id="chk_id"></button>
+							<button type="button" id="chk_id" formmethod="get" onClick="openCheckId();"></button>
 							<input type="hidden" name="checkid" value=0>
 						</div>
 						
@@ -62,7 +73,7 @@
 									<label> Passwords must be at least 8 characters.</label>
 								</div>
 							</div>
-							<input type="password" id="password" name="password" minlength="8" maxlength="20" size="30" value="" required><br>
+							<input type="password" id="password" name="pwd" minlength="8" maxlength="20" size="30" value="" required><br>
 						</div>
 
 						<div id="inputData">
@@ -88,7 +99,6 @@
 			<footer class="youtiesFooter">
 				team 4 : Youties
 			</footer>
-		</form>
-
+        </form>
 	</body>
 </html>
