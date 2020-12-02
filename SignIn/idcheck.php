@@ -14,7 +14,11 @@ $cnt = mysqli_num_rows($rst);     //DB에서 rst에 해당하는 내용의 개�
 
 <html>
     <head>
-
+        <meta charset="utf-8">
+		<title>이메일 중복 확인</title>
+		<link rel="stylesheet" href="signIn_style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+        
         <script type="text/javascript">
             function useID(v){
                 opener.document.all.checkid.value=1;
@@ -41,23 +45,26 @@ $cnt = mysqli_num_rows($rst);     //DB에서 rst에 해당하는 내용의 개�
     </head>
 
     <body>
-
-        <figure>
-            <img src="youties_logo.png" alt="YOUTIES" height="60dp"/><br>
-        </figure>
+        <header id="main_header_logo">
+			<img src = "logo2_removebg.jpg" width="150">
+		</header>
             
         <?php        
-        if($cnt){?>
+        if($cnt){?> <br>
             <?php echo $email?> : 이미 존재하는 이메일입니다.<br/>
-            <form>
-                <input type=text name="email">
-                <input type=button value="ID중복확인" onClick="chkId();">
-            </form>
+            <div>
+                <br><input type=text id="idcheck_text" name="email">
+                <input type=button id="idcheck_btn" value="ID중복확인" onClick="chkId();">
+            </div>
         <?php
-        }else{?>
-            <?php echo $email?> : 사용 가능한 이메일입니다.<br/>
-            <a href="#" onClick="useID('<?php=$userid?>');">사용하기</a> 
-            <a href="#" onClick="window.close();">닫기</a>
+        }else{?><br>
+            <?php echo $email?> : 사용 가능한 이메일입니다.<br><br>
+
+            <div>
+                <input type=button id="idcheck_btn" value="사용하기" onClick="useID('<?php=$userid?>');">
+                <input type=button id="idcheck_btn" value="닫기" onClick="window.close();">
+            </div>
+
         <?php
         }?>
 

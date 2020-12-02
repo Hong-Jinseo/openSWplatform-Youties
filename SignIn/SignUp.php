@@ -11,7 +11,7 @@
 				var email=document.all.email.value;
 				if(email){
 					url="idcheck.php?email="+email;
-					window.open(url, "chkid", "width=500, height=350, menubar=no, toolbar=no");
+					window.open(url, "chkid", "width=500, height=250, menubar=no, toolbar=no");
 				}else{
 					alert("이메일을 입력하세요.");
 				}
