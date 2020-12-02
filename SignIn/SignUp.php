@@ -4,30 +4,23 @@
 		<meta charset="utf-8">
 		<title>Youties : Sign up</title>
 		<link rel="stylesheet" href="signIn_style.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">		
 
-		<!--script type = "text/javascript">
+		<script type = "text/javascript">
 			function checking() { 
 				document.test.submit();
-          
-                var userEmail = document.test.email.value;
+				
                 var userPassword = document.test.password.value;
 				var userPassword_chk = document.test.password_chk.value;
-				var userName = document.test.userName.value;
 
-                if (userEmail == "") alert("Enter your email");
-                else if (userPassword == "") alert("Enter your password");
-                else if (userPassword_chk == "") alert("Enter your password again.");
-				else if (userName == "") alert("Enter your name.");
-				else if (userPassword != userPassword_chk) alert("Please check your password again.");
-                else alert("Welcome to youties!");
+                if (userPassword != userPassword_chk) alert("Please check your password again.");
 			}
-		</script-->
-		
+		</script>
+
 	</head>
 
 	<body>
-		<form action="Signin.php" method="post">
+        <form name="join" method="post" action="memberSave.php">
 			<header id="main_header"></header>
 
 			<section class="app2">
@@ -57,7 +50,7 @@
 									<label> Passwords must be at least 8 characters.</label>
 								</div>
 							</div>
-							<input type="password" id="password" name="password" minlength="8" maxlength="20" size="30" value="" required><br>
+							<input type="password" id="password" name="pwd" minlength="8" maxlength="20" size="30" value="" required><br>
 						</div>
 
 						<div id="inputData">
@@ -83,7 +76,41 @@
 			<footer class="youtiesFooter">
 				team 4 : Youties
 			</footer>
-		</form>
-
+        </form>
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php 
+/*
+    $host="127.0.0.1"               //서버: 자기자신
+    $dbid="root";
+    $dbpw="데이터베이스 비밀번호";
+    $dbname="db1"                   //사용할 데이터베이스 이름
+
+    //DB 연결 함수
+    function connect_db($host, $dbid, $dbpw, $dbname){
+        return mysqli_connect($host, $dbid, $dbpw, $dbname)
+    }
+
+    $connect = connect_db($host, $dbid, $dbpw, $dbname);
+
+    $data_stream="'".$_POST['name'].",".$_POST['email'].",".$_POST['password']."'";
+    $query="insert into userinfo(name, email, password) values (".$data_stream")";
+    $result = mysqli_query($connect, $query);
+
+    mysqli_close($connect); */
+?>
