@@ -47,7 +47,7 @@ $cnt = mysqli_num_rows($rst);     //DB에서 rst에 해당하는 내용의 개�
     <body>
         <header id="main_header_logo">
 			<img src = "logo2_removebg.jpg" width="150">
-		</header>
+        </header>
             
         <?php        
         if($cnt){?> <br>

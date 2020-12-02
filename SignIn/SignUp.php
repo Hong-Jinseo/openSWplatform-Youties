@@ -19,8 +19,14 @@
 
 			function chkForm(){
 				var checkid=document.all.checkid.value;
+				var pwd = document.all.pwd.value;
+				var pwd2 = document.all.pwd2.value;
 				if(checkid==0){
 					alert("이메일 중복 확인을 해 주세요.");
+					return false;
+				}
+				else if(pwd!=pwd2){
+					alert("비밀번호가 일치하지 않습니다.");
 					return false;
 				}
 				return true;
