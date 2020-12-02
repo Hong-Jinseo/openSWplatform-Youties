@@ -7,26 +7,38 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">		
 
 		<script type = "text/javascript">
-			function checking() { 
-				document.test.submit();
-				
-                var userPassword = document.test.password.value;
-				var userPassword_chk = document.test.password_chk.value;
+			function openCheckId(){
+				var email=document.all.email.value;
+				if(email){
+					url="idcheck.php?email="+email;
+					window.open(url, "chkid", "width=500, height=350, menubar=no, toolbar=no");
+				}else{
+					alert("이메일을 입력하세요.");
+				}
+			}
 
-                if (userPassword != userPassword_chk) alert("Please check your password again.");
+			function chkForm(){
+				var checkid=document.all.checkid.value;
+				if(checkid==0){
+					alert("이메일 중복 확인을 해 주세요.");
+					return false;
+				}
+				return true;
 			}
 		</script>
 
 	</head>
 
 	<body>
-        <form name="join" method="post" action="memberSave.php">
+        <form name="join" method="post" action="memberSave.php" enctype="multipart/form-data" onSubmit="return chkForm();">
 			<header id="main_header"></header>
 
 			<section class="app2">
 
 				<figure>
-					<img src="youties_logo.png" id="logo_small" alt="YOUTIES" height="70dp"/><br>
+					<a href="main.html">
+						<img src="youties_logo.png" id="logo_small" alt="YOUTIES" height="70dp"/><br>
+					</a>
 				</figure>
 
 				<div id="createAccount">
@@ -38,7 +50,12 @@
 							<div id=inner_inputData>
 								<label for="email" style="text-align:left">Email </label><br>
 							</div>
-							<input type="text" id="email" name="email" size="30" value="" required><br>	<!--pattern=".+@+." 뺐음-->
+						</div>
+
+						<div id="inputData_email">
+							<input type="text" id="email" name="email" size="30" value="" required>	<!--pattern=".+@+." 뺐음-->
+							<button type="button" id="chk_id" formmethod="get" onClick="openCheckId();"></button>
+							<input type="hidden" name="checkid" value=0>
 						</div>
 						
 						<div id="inputData">
@@ -79,38 +96,3 @@
         </form>
 	</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php 
-/*
-    $host="127.0.0.1"               //서버: 자기자신
-    $dbid="root";
-    $dbpw="데이터베이스 비밀번호";
-    $dbname="db1"                   //사용할 데이터베이스 이름
-
-    //DB 연결 함수
-    function connect_db($host, $dbid, $dbpw, $dbname){
-        return mysqli_connect($host, $dbid, $dbpw, $dbname)
-    }
-
-    $connect = connect_db($host, $dbid, $dbpw, $dbname);
-
-    $data_stream="'".$_POST['name'].",".$_POST['email'].",".$_POST['password']."'";
-    $query="insert into userinfo(name, email, password) values (".$data_stream")";
-    $result = mysqli_query($connect, $query);
-
-    mysqli_close($connect); */
-?>

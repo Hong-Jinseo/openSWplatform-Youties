@@ -21,6 +21,8 @@ figure {text-align: center;}
 
 #logo_header{
     padding: 0px;
+    width: 150px;
+    height: px;
 }
 
 
@@ -172,6 +174,10 @@ figure {text-align: center;}
     text-align: center;
 }
 
+#inputData_email{
+    text-align: center;
+}
+
 #inner_inputData{
     margin-left: 25px;
     text-align: left;
@@ -203,6 +209,45 @@ figure {text-align: center;}
     appearance: none;
 }
 
+#email{
+    text-align: left;
+    padding: 11px 10px;
+    margin-bottom: 10px;
+    background: none;
+    width: 243px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 14px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#chk_id{
+    width: 50px;
+    height: 40px;
+    margin-bottom: 10px;
+
+    background: rgb(193, 57, 43);
+    border: 1px solid rgb(193, 57, 43);
+
+    padding: 11px 10px; 
+    
+    box-sizing: border-box;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+#chk_id:hover{
+    box-shadow: 0 10px 14px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 #pw_caution label{
     font-size: 14;
     color: rgb(107, 114, 114);
@@ -217,7 +262,7 @@ figure {text-align: center;}
     margin: 0px 0px 20px 50px;        /* 상 우 하 좌 */
     color: white;
     background-color:rgb(193, 57, 43);
-    border-color: none;
+    border-color: rgb(193, 57, 43);
     cursor: pointer;
 }
 

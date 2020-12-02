@@ -27,7 +27,9 @@
     <form name="join" method="post" action="checkSignIn.php">
 
 		<header id="main_header_logo">
-			<img src="logo2_removebg.jpg" id="logo_header" alt="YOUTIES" width="150"/><br>
+			<a href="main.html">
+				<img src = "logo2_removebg.jpg" width="150">
+			</a>
 		</header>
 	
 		<div class="app">
