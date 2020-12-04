@@ -43,7 +43,7 @@
 
 				<figure>
 					<a href="main.html">
-						<img src="youties_logo.png" id="logo_small" alt="YOUTIES" height="70dp"/><br>
+						<img src="image/youties_logo.png" id="logo_small" alt="YOUTIES" height="70dp"/><br>
 					</a>
 				</figure>
 
