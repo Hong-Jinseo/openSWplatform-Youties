@@ -1,0 +1,155 @@
+/*공통*/
+.div-background{
+    background-color: rgb(224,224,224);
+}
+
+.div-background-full{
+    height: min-content;
+}
+
+
+/*상단바*/
+#main_header_logo{
+    background: #c0412b;
+    padding-top: 3px;
+}
+
+#channel-intro{
+    /*전체 텍스트 가운데 배치*/
+    text-align: center;
+    margin-top: 60px;
+    margin-left: 180px;
+    margin-right: 180px;
+
+    /*삭제해야 함~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    width:1100px;
+}
+
+#channel-intro-grid{
+    /*텍스트 내용 왼쪽 정렬*/
+    text-align: left;  
+
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    /* grid 내 row 간격 */
+    row-gap: 30px;
+
+    /* grid 내 column 간격 */
+    column-gap: 30px;
+    
+    border: 2px solid rgb(179, 34, 18);     /*투명*/
+    margin: 0 auto;
+}
+
+
+/* 유튜버 소개 */
+#div1{
+    grid-column: 1/2;
+    grid-row: 1/2;
+
+    height: 290px;
+
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 1fr 2fr;
+    text-align: left;
+}
+
+#div1-1{
+    /* 사진 div */
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
+
+#div1-2{
+    /* 채널명 div */
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding-top: 10px;
+    color: rgb(179, 34, 18);;
+}
+
+#div1-3{
+    /* 채널 소개 리스트 */
+    grid-column: 2/3;
+    grid-row: 2/3;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+
+
+
+/* 채널 리뷰 요약 */
+#div2{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+/* 채널 영상 소개 */
+#div3{
+    grid-column: 1/3;
+    grid-row: 2/3;
+}
+
+/* 리뷰 쓰기 */
+#div4{
+    grid-column: 1/3;
+    grid-row: 3/4;
+}
+
+/* 다른 리뷰 보기 */
+#div5{
+    grid-column: 1/3;
+    grid-row: 4/5;
+}
+
+
+
+/* 유튜버 소개 : 내부 디자인 */
+#channel-image{
+    width: 250px;
+    height: 250px;
+}
+
+h1{ font-size: 40px; }
+
+
+
+
+/* 리뷰 쓰기 */
+
+/*별점*/
+.star_rating {font-size:0; letter-spacing:-4px;}
+.star_rating a {
+    font-size:22px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+.star_rating a:first-child {margin-left:0;}
+.star_rating a.on {color:#777;}
+
+/*리뷰*/
+
+textarea{ resize: none; }
+
+#review-title{
+    height: 30px;
+}
+
+#write-review{
+    margin: 30px;
+}
+
+.textarea_test {
+    resize:none;
+    line-height:20px;
+    width:100%;
+    overflow-y:hidden;
+    height:50px;
+}
