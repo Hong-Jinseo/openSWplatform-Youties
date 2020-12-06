@@ -18,8 +18,8 @@
     /*전체 텍스트 가운데 배치*/
     text-align: center;
     margin-top: 60px;
-    margin-left: 180px;
-    margin-right: 180px;
+    margin-left: 200px;
+    margin-right: 200px;
 
     /*삭제해야 함~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
     width:1100px;
@@ -86,25 +86,80 @@
 #div2{
     grid-column: 2/3;
     grid-row: 1/2;
+    height: 30px;
 }
 
 /* 채널 영상 소개 */
 #div3{
     grid-column: 1/3;
     grid-row: 2/3;
+    height: 20px;
 }
+
+
+
 
 /* 리뷰 쓰기 */
 #div4{
     grid-column: 1/3;
     grid-row: 3/4;
+    background-color: rgb(255, 255, 255);
 }
+
+#div4-grid{
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 70px 90px 300px;
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+#div4-1{
+    /*타이틀*/
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+
+#div4-2{
+    /*별점*/
+    background-color: rgb(224,224,224);
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+#div4-3{
+    /*태그*/
+    background-color: rgb(224,224,224);
+    grid-column: 2/4;
+    grid-row: 2/3;
+}
+
+#div4-4{
+    /*리뷰*/
+    background-color: rgb(224,224,224);
+    grid-column: 1/3;
+    grid-row: 3/4;
+}
+
+#div4-5{
+    /*유해성*/
+    background-color: rgb(224,224,224);
+    grid-column: 3/4;
+    grid-row: 3/4;
+}
+
+
+
+
 
 /* 다른 리뷰 보기 */
 #div5{
     grid-column: 1/3;
     grid-row: 4/5;
 }
+
+
 
 
 
@@ -120,11 +175,16 @@ h1{ font-size: 40px; }
 
 
 /* 리뷰 쓰기 */
+.inner-div{
+    padding-top: 9px;
+    padding-left: 13px;
+}
 
 /*별점*/
 .star_rating {font-size:0; letter-spacing:-4px;}
 .star_rating a {
-    font-size:22px;
+    padding-left: 5px;
+    font-size:35px;
     letter-spacing:0;
     display:inline-block;
     margin-left:5px;
@@ -132,10 +192,24 @@ h1{ font-size: 40px; }
     text-decoration:none;
 }
 .star_rating a:first-child {margin-left:0;}
-.star_rating a.on {color:#777;}
+.star_rating a.on {color:#c0412b;}
+
+/*테그*/
+#tag-button{
+    margin-top: 8px;
+}
+
+.tag-btn{
+    color: black;
+    background-color: rgb(187, 186, 186);
+    border: none;
+
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
 /*리뷰*/
-
 textarea{ resize: none; }
 
 #review-title{
@@ -143,13 +217,47 @@ textarea{ resize: none; }
 }
 
 #write-review{
-    margin: 30px;
+    padding: 10px;
+    width: 634px;
 }
 
-.textarea_test {
-    resize:none;
-    line-height:20px;
-    width:100%;
-    overflow-y:hidden;
-    height:50px;
+#write-review textarea{
+    font-size: 15px;
+    padding-top: 12px;
+    padding-left: 12px;
+}
+
+#submit_review_btn{
+    width: 100%;
+    height: 40px;
+    margin-top: 7px;
+
+    color: white;
+    background-color: #c0412b;
+    border: none;
+    font-size: larger;
+}
+
+
+/*유해성*/
+#div4-title{
+    padding: 10px;
+    font-size: larger;
+}
+
+#harmful-checkbox-all{
+    padding-left: 15px;
+    padding-right: 25px;
+    font-size: larger;
+    
+}
+
+.harmful-checkbox{
+    margin-bottom: 10px;
+}
+
+.harmful-checkbox input{
+    float: right;
+    zoom: 1.5
+    
 }
