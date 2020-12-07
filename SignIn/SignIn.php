@@ -28,13 +28,13 @@
 
 		<header id="main_header_logo">
 			<a href="main.html">
-				<img src = "logo2_removebg.jpg" width="150">
+				<img src = "image/logo2_removebg.jpg" width="150">
 			</a>
 		</header>
 	
 		<div class="app">
 			<figure>
-				<img src="투명.png"  alt="YOUTIES Sign in" height="100dp"/><br>
+				<img src="image/투명.png"  alt="YOUTIES Sign in" height="100dp"/><br>
 			</figure>
 				
 			<!--grid 형식으로 배치하기 위해 div 이름 통일함-->
