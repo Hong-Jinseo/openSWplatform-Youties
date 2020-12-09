@@ -11,7 +11,7 @@ $dbName = 'youties';
 
 $conn = new mysqli($host, $user, $pw, $dbName);
            
-$date = date("Y/m/d h:i:s", time());
+$date = date("Y/m/d h:i:s", time());    //지금 '시간'이 좀 이상함
 
 if(!isset($_SESSION['my_email'])){
     echo "<script>alert(\"로그인 후 리뷰를 작성할 수 있습니다.\");</script>";

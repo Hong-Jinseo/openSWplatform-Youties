@@ -175,6 +175,7 @@
     background-color: rgb(224,224,224);
     grid-column: 1/3;
     grid-row: 3/4;
+    padding: 10px
 }
 
 #div4-5{
@@ -242,12 +243,8 @@ h2{ font-size: 25px; }
     padding-left: 13px;
 }
 
-.inner-div-allpadding{
-    padding-top: 9px;
-    padding-bottom: 9px;
-    padding-left: 13px;
-    padding-right: 13px;
-}
+
+
 
 /*별점*/
 .star_rating {font-size:0; letter-spacing:-4px;}
@@ -262,6 +259,13 @@ h2{ font-size: 25px; }
 }
 .star_rating a:first-child {margin-left:0;}
 .star_rating a.on {color:#c0412b;}
+
+.inner-div-allpadding{
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 13px;
+    padding-right: 13px;
+}
 
 
 /*태그*/
@@ -284,19 +288,30 @@ h2{ font-size: 25px; }
 /*리뷰*/
 textarea{ resize: none; }
 
-#review-title{
-    height: 30px;
+.inner-div-4{
+    padding: 10px
 }
 
 #write-review{
     padding: 10px;
-    width: 634px;
+    width: 1fr;
+    border: 2px solid rgb(179, 34, 18); 
 }
 
 #write-review textarea{
     font-size: 15px;
+
     padding-top: 12px;
     padding-left: 12px;
+
+    margin-right: 10px;
+
+    width: 97%;
+    border: 2px solid rgb(179, 34, 18); 
+}
+
+#review-title{
+    height: 30px;
 }
 
 #submit_review_btn{
