@@ -12,6 +12,8 @@
 		<div id = "wrapper">
 			<header id = "main_header">
 
+
+				<!--로그아웃 기능-->
 				<?php
 				session_start(); // 세션
                 $connect = mysqli_connect('localhost', 'root', 'jinseo00', 'youties') or die ("connect fail");
@@ -28,14 +30,11 @@
 					<a class = "top_menu" href = "SignOut.php" target = "_top">SIGN OUT</a> 
 				<?php
 				}
-					
-
 				?>
-
-
 				
 			</header>
 		</div>
+		
 		<form class = 'search'>
 			<div id = "main_logo">
 				<img src = "../logo2.png" border = "0">

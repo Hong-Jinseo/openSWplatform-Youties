@@ -88,7 +88,7 @@
 			
 				<!--리뷰 쓰기-->
 				<div id="div4" class="div-background div-background-full">
-					<form action="" method="POST">
+					<form action="save_review.php" method="POST">
 
 						<div id="div4-grid">
 							<div id="div4-1" class="inner-div">
@@ -98,7 +98,7 @@
 							<div id="div4-2" class="inner-div">
 								<b>YOUR RATING</b>
 								<p class="star_rating">
-									<a href="#" class="on">★</a>
+									<a href="#">★</a>
 									<a href="#" class="on">★</a>
 									<a href="#" class="on">★</a>
 									<a href="#">★</a>
@@ -108,21 +108,23 @@
 
 							<div id="div4-3" class="inner-div">
 								<b>TAG</b>
-
 								<div id="tag-button">
 									<button type="button" id="tag1" class="tag-btn" onclick="colorChange(1)">재미있는</button>
 									<button type="button" id="tag2" class="tag-btn" onclick="colorChange(2)">유익한</button>
 									<button type="button" id="tag3" class="tag-btn" onclick="colorChange(3)">힐링되는</button>
 									<button type="button" id="tag4" class="tag-btn" onclick="colorChange(4)">스토리텔링</button>
+									
+									<textarea name="channel" rows="1" placeholder="channel"></textarea>
+									<textarea name="rating" rows="1" placeholder="rating"></textarea>
 								</div>
 							</div>
 
 							<div id="div4-4" class="inner-div">
 								<b>YOUR REVIEW</b>
 								<div id="write-review">
-									<textarea id="review-title" rows="1" cols="75" placeholder="Write a headline for your review here"></textarea><br>
-									<textarea id="review-content" rows="7" cols="75" class="textarea_test" placeholder="Write your review here"></textarea> <!--onkeyup="this.style.height='26p'; this.style.height = this.scrollHeight+'px'"></textarea-->
-									<button type="submit" id="submit_review_btn">Submit</button>
+									<textarea id="review-title" name="title" rows="1" cols="75" placeholder="Write a headline for your review here"></textarea><br>
+									<textarea id="review-content" rows="7" name="content" cols="75" class="textarea_test" placeholder="Write your review here"></textarea> <!--onkeyup="this.style.height='26p'; this.style.height = this.scrollHeight+'px'"></textarea-->
+									<input type="submit" id="submit_review_btn" value="Submit"></button>
 								</div>
 							</div>
 
