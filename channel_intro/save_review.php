@@ -27,22 +27,31 @@ if( !isset($_POST['title']) || !isset($_POST['content']) ||  !isset($_POST['rati
 //table reviews에 접속
 $sql = "
     INSERT INTO reviews
-        (email, channel, date, title, content, rating)
+        (email, channel, date, title, content, rating, sexual, violent, crude, horror, imitative)
     VALUES (
         '{$_SESSION['my_email']}',
         '{$_POST['channel']}',
         '{$date}',
         '{$_POST['title']}',
         '{$_POST['content']}',
-        '{$_POST['rating']}'
+        '{$_POST['rating']}',
+
+        '{$_POST['sexual']}',
+        '{$_POST['violent']}',
+        '{$_POST['crude']}',
+        '{$_POST['horror']}',
+        '{$_POST['imitative']}'
     )
 ";
+
+
 
 $result = mysqli_query($conn, $sql);
 if($result === false){
     echo '저장하는 과정에서 문제가 생겼습니다.';
     echo mysqli_error($conn);
 } else {
+    echo "<script>alert(\"리뷰가 등록되었습니다.\");</script>";
     echo "<script>location.href='channel_intro.html';</script>";
 }
 

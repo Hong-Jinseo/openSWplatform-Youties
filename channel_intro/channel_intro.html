@@ -38,6 +38,12 @@
 				label_hidden.value = num;
 			}
 			
+			//체크박스
+			function chk_checkbox(num){
+				var box = document.getElementById("chk_box"+num);
+				if(box.checked) {box.value= 1}
+				else {box.value = 0}
+			}
 
 
 			
@@ -168,27 +174,27 @@
 								<div id="harmful-checkbox-all">
 									<div class="harmful-checkbox">
 										sexual
-										<input type="checkbox" name="harmful" value="sexual">
+										<input type="checkbox" id="chk_box1" name="sexual" value=0 onclick="chk_checkbox(1)">
 									</div>
 
 									<div class="harmful-checkbox">
 										violent
-										<input type="checkbox" name="harmful" value="violent">
+										<input type="checkbox" id="chk_box2" name="violent" value=0 onclick="chk_checkbox(2)">
 									</div>
 
 									<div class="harmful-checkbox">
 										crude
-										<input type="checkbox" name="harmful" value="crude">
+										<input type="checkbox" id="chk_box3" name="crude" value=0 onclick="chk_checkbox(3)">
 									</div>
 
 									<div class="harmful-checkbox">
 										horror
-										<input type="checkbox" name="harmful" value="horror">
+										<input type="checkbox" id="chk_box4" name="horror" value=0 onclick="chk_checkbox(4)">
 									</div>
 
 									<div class="harmful-checkbox">
 										encourage imitative actions
-										<input type="checkbox" name="harmful" value="imitative">
+										<input type="checkbox" id="chk_box5" name="imitative" value=0 onclick="chk_checkbox(5)">
 									</div>
 								</div>
 							</div>

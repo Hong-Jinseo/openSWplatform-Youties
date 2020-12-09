@@ -295,7 +295,6 @@ textarea{ resize: none; }
 #write-review{
     padding: 10px;
     width: 1fr;
-    border: 2px solid rgb(179, 34, 18); 
 }
 
 #write-review textarea{
@@ -307,7 +306,6 @@ textarea{ resize: none; }
     margin-right: 10px;
 
     width: 97%;
-    border: 2px solid rgb(179, 34, 18); 
 }
 
 #review-title{
