@@ -44,10 +44,23 @@ $sql = "
     )
 ";
 
+//table tags에 저장
+$sql_tag = "
+    INSERT INTO tags
+        (tag1, tag2, tag3, tag4)
+    VALUES (
+        '{$_POST['tag_hidden1']}',
+        '{$_POST['tag_hidden2']}',
+        '{$_POST['tag_hidden3']}',
+        '{$_POST['tag_hidden4']}'
+    )
+";
+
 
 
 $result = mysqli_query($conn, $sql);
-if($result === false){
+$result_tag = mysqli_query($conn, $sql_tag);
+if($result === false || $result_tag === false){
     echo '저장하는 과정에서 문제가 생겼습니다.';
     echo mysqli_error($conn);
 } else {

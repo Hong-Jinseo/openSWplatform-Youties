@@ -19,7 +19,7 @@
 				var fontColor = ["#000000", "#ffffff"];
 				var bodyTag = document.getElementById("tag"+num);
 
-				if(bodyTag.style.backgroundColor === "#c0412b"){
+				if(bodyTag.style.backgroundColor == "#c0412b"){
 					bodyTag.style.backgroundColor = bgColor[0];
 					bodyTag.style.color = fontColor[0];
 				}
@@ -30,6 +30,14 @@
 				
 			}
 
+			//태그 클릭했는지 확인
+			function chk_tag(num){
+				var tag = document.getElementById("tag_hidden"+num);
+				if(tag.value == 0) {tag.value = 1;}
+				else {tag.value = 0;}
+			}
+
+			//별점 숫자
 			function change_num(num){
 				var label = document.getElementById("rating_num");
 				var label_hidden = document.getElementById("rating_num_hidden");
@@ -45,6 +53,8 @@
 				else {box.value = 0}
 			}
 
+			
+
 
 			
 			//제이쿼리 호출 메소드
@@ -54,6 +64,11 @@
 					$(this).parent().children("a").removeClass("on");
 					$(this).addClass("on").prevAll("a").addClass("on");
 					return false;
+				});
+
+				$("tag-button button").click(function(){
+					if($(this).value==0){$(this).value(1)}
+					else{$(this).value(0)}
 				});
 
 				/* TAG 색 바꾸기
@@ -148,10 +163,14 @@
 							<div id="div4-3" class="inner-div">
 								<b>TAG</b>
 								<div id="tag-button">
-									<button type="button" id="tag1" class="tag-btn" onclick="colorChange(1)">재미있는</button>
-									<button type="button" id="tag2" class="tag-btn" onclick="colorChange(2)">유익한</button>
-									<button type="button" id="tag3" class="tag-btn" onclick="colorChange(3)">힐링되는</button>
-									<button type="button" id="tag4" class="tag-btn" onclick="colorChange(4)">스토리텔링</button>
+									<button type="button" id="tag1" name="tag1" class="tag-btn" onclick="colorChange(1); chk_tag(1)">재미있는</button>
+									<input type="hidden" id="tag_hidden1" name="tag_hidden1" value=0>
+									<button type="button" id="tag2" name="tag2" class="tag-btn" onclick="colorChange(2); chk_tag(2)" value=0>유익한</button>
+									<input type="hidden" id="tag_hidden2" name="tag_hidden2" value=0>
+									<button type="button" id="tag3" name="tag3" class="tag-btn" onclick="colorChange(3); chk_tag(3)" value=0>힐링되는</button>
+									<input type="hidden" id="tag_hidden3" name="tag_hidden3" value=0>
+									<button type="button" id="tag4" name="tag4" class="tag-btn" onclick="colorChange(4); chk_tag(4)" value=0>스토리텔링</button>
+									<input type="hidden" id="tag_hidden4" name="tag_hidden4" value=0>
 									
 									<textarea name="channel" rows="1" placeholder="channel"></textarea>
 								</div>
