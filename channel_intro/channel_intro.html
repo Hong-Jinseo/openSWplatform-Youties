@@ -6,21 +6,20 @@
 		<link rel="stylesheet" href="channel_intro_style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<script src="jquery-3.5.1.min.js">
-			
-		</script>
+		<script src="jquery-3.5.1.min.js"></script>
 
 		<script type = "text/javascript">
 			function goMainPage() { 
 				location.href="main.html";
 			}
 
+			
 			function colorChange(num) {
 				var bgColor = ["#bbbaba", "#c0412b"];
 				var fontColor = ["#000000", "#ffffff"];
 				var bodyTag = document.getElementById("tag"+num);
 
-				if(bodyTag.style.backgroundColor === "#c0412b"){
+				if(bodyTag.style.backgroundColor == "#c0412b"){
 					bodyTag.style.backgroundColor = bgColor[0];
 					bodyTag.style.color = fontColor[0];
 				}
@@ -31,17 +30,61 @@
 				
 			}
 
-			/*
+			//태그 클릭했는지 확인
+			function chk_tag(num){
+				var tag = document.getElementById("tag_hidden"+num);
+				if(tag.value == 0) {tag.value = 1;}
+				else {tag.value = 0;}
+			}
+
+			//별점 숫자
+			function change_num(num){
+				var label = document.getElementById("rating_num");
+				var label_hidden = document.getElementById("rating_num_hidden");
+				
+				label.innerText = (num+"/5");
+				label_hidden.value = num;
+			}
+			
+			//체크박스
+			function chk_checkbox(num){
+				var box = document.getElementById("chk_box"+num);
+				if(box.checked) {box.value= 1}
+				else {box.value = 0}
+			}
+
+			
+
+
+			
 			//제이쿼리 호출 메소드
-			$( document ).ready(function() {
+			$(document).ready(function() {
 				//별점 메소드
-				$( ".star_rating a" ).click(function() {
+				$(".star_rating a").click(function() {
 					$(this).parent().children("a").removeClass("on");
 					$(this).addClass("on").prevAll("a").addClass("on");
 					return false;
 				});
-			}
-			*/
+
+				$("tag-button button").click(function(){
+					if($(this).value==0){$(this).value(1)}
+					else{$(this).value(0)}
+				});
+
+				/* TAG 색 바꾸기
+				$(".tag-btn").click(function(){
+					if(tag-btn.css("color") != "rgb(255, 255, 255)"){
+						tag-btn.css("color", "rgb(255, 255, 255)");
+						tag-btn.css("background-color", "rgb(192, 65, 43)");
+					}
+					else{
+						tag-btn.css("color", "rgb(0, 0, 0)");
+						tag-btn.css("background-color", "rgb(187, 186, 186)");
+					}
+				});
+				*/
+			});			
+			
 		</script>
 
 
@@ -95,36 +138,50 @@
 								<h2>Review this channel</h2>
 							</div>
 
-							<div id="div4-2" class="inner-div">
-								<b>YOUR RATING</b>
-								<p class="star_rating">
-									<a href="#">★</a>
-									<a href="#" class="on">★</a>
-									<a href="#" class="on">★</a>
-									<a href="#">★</a>
-									<a href="#">★</a>
-								</p>
+							<div id="div4-2" class="inner-div-allpadding">
+								<div id="div4-2-1">
+									<b>YOUR RATING</b>
+								</div>
+								
+								<div id="div4-2-2">
+									<p class="star_rating">
+										<a href="#" onclick="change_num(1)">★</a>
+										<a href="#" onclick="change_num(2)">★</a>
+										<a href="#" onclick="change_num(3)">★</a>
+										<a href="#" onclick="change_num(4)">★</a>
+										<a href="#" onclick="change_num(5)">★</a>
+									</p>
+								</div>
+
+								<div id="div4-2-3">
+									<label id="rating_num">0/5</label>
+									<input type="hidden" id="rating_num_hidden" name="rating" value="">
+								</div>
+								
 							</div>
 
 							<div id="div4-3" class="inner-div">
 								<b>TAG</b>
 								<div id="tag-button">
-									<button type="button" id="tag1" class="tag-btn" onclick="colorChange(1)">재미있는</button>
-									<button type="button" id="tag2" class="tag-btn" onclick="colorChange(2)">유익한</button>
-									<button type="button" id="tag3" class="tag-btn" onclick="colorChange(3)">힐링되는</button>
-									<button type="button" id="tag4" class="tag-btn" onclick="colorChange(4)">스토리텔링</button>
+									<button type="button" id="tag1" name="tag1" class="tag-btn" onclick="colorChange(1); chk_tag(1)">재미있는</button>
+									<input type="hidden" id="tag_hidden1" name="tag_hidden1" value=0>
+									<button type="button" id="tag2" name="tag2" class="tag-btn" onclick="colorChange(2); chk_tag(2)" value=0>유익한</button>
+									<input type="hidden" id="tag_hidden2" name="tag_hidden2" value=0>
+									<button type="button" id="tag3" name="tag3" class="tag-btn" onclick="colorChange(3); chk_tag(3)" value=0>힐링되는</button>
+									<input type="hidden" id="tag_hidden3" name="tag_hidden3" value=0>
+									<button type="button" id="tag4" name="tag4" class="tag-btn" onclick="colorChange(4); chk_tag(4)" value=0>스토리텔링</button>
+									<input type="hidden" id="tag_hidden4" name="tag_hidden4" value=0>
 									
 									<textarea name="channel" rows="1" placeholder="channel"></textarea>
-									<textarea name="rating" rows="1" placeholder="rating"></textarea>
 								</div>
 							</div>
 
-							<div id="div4-4" class="inner-div">
-								<b>YOUR REVIEW</b>
+							<div id="div4-4" class="inner-div-4">
+								<b id="your_review">YOUR REVIEW</b>
 								<div id="write-review">
-									<textarea id="review-title" name="title" rows="1" cols="75" placeholder="Write a headline for your review here"></textarea><br>
-									<textarea id="review-content" rows="7" name="content" cols="75" class="textarea_test" placeholder="Write your review here"></textarea> <!--onkeyup="this.style.height='26p'; this.style.height = this.scrollHeight+'px'"></textarea-->
-									<input type="submit" id="submit_review_btn" value="Submit"></button>
+									<textarea id="review-title" name="title" rows="1" placeholder="Write a headline for your review here"></textarea><br>
+									<textarea id="review-content" name="content" rows="7" class="textarea_test" placeholder="Write your review here"></textarea> <!--onkeyup="this.style.height='26p'; this.style.height = this.scrollHeight+'px'"></textarea-->
+									<input type="submit" id="submit_review_btn" value="Submit" style="width:100%"></button>
 								</div>
 							</div>
 
@@ -136,27 +193,27 @@
 								<div id="harmful-checkbox-all">
 									<div class="harmful-checkbox">
 										sexual
-										<input type="checkbox" name="harmful" value="sexual">
+										<input type="checkbox" id="chk_box1" name="sexual" value=0 onclick="chk_checkbox(1)">
 									</div>
 
 									<div class="harmful-checkbox">
 										violent
-										<input type="checkbox" name="harmful" value="violent">
+										<input type="checkbox" id="chk_box2" name="violent" value=0 onclick="chk_checkbox(2)">
 									</div>
 
 									<div class="harmful-checkbox">
 										crude
-										<input type="checkbox" name="harmful" value="crude">
+										<input type="checkbox" id="chk_box3" name="crude" value=0 onclick="chk_checkbox(3)">
 									</div>
 
 									<div class="harmful-checkbox">
 										horror
-										<input type="checkbox" name="harmful" value="horror">
+										<input type="checkbox" id="chk_box4" name="horror" value=0 onclick="chk_checkbox(4)">
 									</div>
 
 									<div class="harmful-checkbox">
 										encourage imitative actions
-										<input type="checkbox" name="harmful" value="imitative">
+										<input type="checkbox" id="chk_box5" name="imitative" value=0 onclick="chk_checkbox(5)">
 									</div>
 								</div>
 							</div>
