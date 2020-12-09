@@ -126,7 +126,42 @@
     background-color: rgb(224,224,224);
     grid-column: 1/2;
     grid-row: 2/3;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 3fr;
+    row-gap: 0px;
+    column-gap: 0px;
+
+    vertical-align: middle;
 }
+
+#div4-2-1{
+    grid-column: 1/7;
+    grid-row: 1/2;
+    /*border: 2px solid rgb(179, 34, 18);*/
+}
+
+#div4-2-2{
+    grid-column: 1/6;
+    grid-row: 2/3;
+
+    /*border: 2px solid rgb(179, 34, 18);*/
+}
+
+#div4-2-3{
+    grid-column: 6/7;
+    grid-row: 2/3;
+    
+    float: left;
+    text-align: center;
+    padding-top: 17px;
+
+    /*border: 2px solid rgb(179, 34, 18);*/
+}
+
+
+
 
 #div4-3{
     /*태그*/
@@ -207,6 +242,13 @@ h2{ font-size: 25px; }
     padding-left: 13px;
 }
 
+.inner-div-allpadding{
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
 /*별점*/
 .star_rating {font-size:0; letter-spacing:-4px;}
 .star_rating a {
@@ -221,7 +263,8 @@ h2{ font-size: 25px; }
 .star_rating a:first-child {margin-left:0;}
 .star_rating a.on {color:#c0412b;}
 
-/*테그*/
+
+/*태그*/
 #tag-button{
     margin-top: 8px;
 }
@@ -235,6 +278,8 @@ h2{ font-size: 25px; }
     padding-left: 10px;
     padding-right: 10px;
 }
+
+
 
 /*리뷰*/
 textarea{ resize: none; }
