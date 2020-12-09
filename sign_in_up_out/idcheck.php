@@ -61,7 +61,8 @@ $cnt = mysqli_num_rows($rst);     //DB에서 rst에 해당하는 내용의 개�
             <?php echo $email?> : 사용 가능한 이메일입니다.<br><br>
 
             <div>
-                <input type=button id="idcheck_btn" value="사용하기" onClick="useID('<?php=$userid?>');">
+                <script>var final_email = "<?php echo $email;?>"; </script>
+                <input type=button id="idcheck_btn" value="사용하기" onClick="useID(final_email);">
                 <input type=button id="idcheck_btn" value="닫기" onClick="window.close();">
             </div>
 

@@ -95,10 +95,6 @@
 
 				</div>
 			</section>
-
-			<footer class="youtiesFooter">
-				team 4 : Youties
-			</footer>
         </form>
 	</body>
 </html>
