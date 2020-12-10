@@ -4,7 +4,7 @@
   <meta charset = "utf-8">
   <meta name = "description" content = "search result page">
   <title>$input</title> <!--사용자가 입력한 검색어를 타이틀로-->
-
+  <link rel = "stylesheet" href = "search.css">
   <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
       <a class = "top_menu" href = "main.html" target = "_top">SIGN IN</a> <!--signin페이지로 연결-->
     </header>
   </div>
-  <form class = 'search'>
+  <form class = 'search', action = "search.php", method = "post">
     <div id = "container">
       <div id = "logo_img">
         <a href = "main.html" target = "_top">
@@ -23,7 +23,7 @@
       </div>
       <div id = "main_search">
         <input onkeyup = "filter()" type = "text" class = "search_word" name = "keyword" autocomplete = "off" placeholder = "Type Channel Name">
-        <button onclick = "search_youtube()" type = "button" class = "search_btn" name = "click_btn" value = "">
+        <button type = "button" class = "search_btn" name = "click_btn" value = "">
           <i class = "fas fa-search"></i>
         </button>
       </div>
@@ -49,7 +49,47 @@
   $result = mysqli_query($conn, $query);
  ?>
 
-
+  <div id = "table_style">
+    <table class = "search_result_table">
+      <thead>
+        <tr>
+          <th>Catergory</th>
+          <th>Channel Name</th>
+          <th>Info</th>
+          <th>Rating / Reveiws</th>
+        </tr>
+      </thead>
+      <tbody>
+    
+  <?php 
+    if (mysqli_num_rows($result) > 0) {
+      while($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . $row["category"]. "</td><td>" . $row["name"]. "</td><td>";
+        echo "<p>";
+        echo "<img src='img_views.png'/>". " ". $row["views"]."</p>";
+        echo "<p>";
+        echo "<img src='img_subs.png'/>"." ". $row["subscribers"]."</p>";
+        echo "<p>";
+        echo "<img src='img_videos.png'/>"." ". $row["videos"]."</p></td>";
+        echo "<td><p>";
+        echo "<img src='img_rating.png'/>". " "."</p></td>";
+        echo "<td><p>";
+        echo "<img src='img_reviews.png'/>". " "."</p></td>";
+        echo "</tr>";
+      }
+    } else { 
+      echo "</tbody>";
+      echo "</table>";
+      echo "</div>"; 
+      
+      echo "<p>"."<img src='img_warning.png'/>"."</p>";
+      echo "<p>"."No results found"."</p>";
+    }
+  ?>
+      </tbody>
+    </table>
+  </div> 
 
   <script type="text/javascript" src="keyword_search.js"></script>
 

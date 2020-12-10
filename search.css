@@ -51,6 +51,28 @@ button.search_btn{
   color: #c7c4c3;
 }
 
+
+.no_results {
+  margin-top: 120px;
+
+}
+
+.img_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+}
+
+.txt_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-family: system-ui, serif;
+  font-size: 2rem;
+}
+
 #table_style {
   overflow-x: auto;
 }
@@ -60,7 +82,15 @@ button.search_btn{
   
 }
 
-th, td {
+th {
+  padding: 10px;
+  border-bottom: 1px solid #dadada;
+  font-size: 20px;
+  
+}
+
+td {
+  text-align: center;
   padding: 10px;
   border-bottom: 1px solid #dadada;
 }
