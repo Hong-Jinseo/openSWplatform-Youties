@@ -4,7 +4,7 @@
   <meta charset = "utf-8">
   <meta name = "description" content = "search result page">
   <title>$input</title> <!--사용자가 입력한 검색어를 타이틀로-->
-  <link rel = "stylesheet" href = "search_result.css">
+
   <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
@@ -49,67 +49,6 @@
   $result = mysqli_query($conn, $query);
  ?>
 
- <table class = "search_result_table">
-   <thead>
-     <th>Catergory</th>
-     <th>Channel Name</th>
-     <th>Info</th>
-     <th>Rating / Reveiws</th>
-   </thead>
-</table>
-
-<?php
-
-  /*
-  echo "<table>";
-  echo "<thead>";
-    echo "<th>"."Category"."</th>";
-    echo "<th>"."Channel Name"."</th>";
-    echo "<th>"."Info"."</th>";
-    echo "<th>"."Rating / Reviews"."</th>";
-  echo "</thead>";
-
-  echo "<tbody>";
-   */
-
-  if (mysqli_num_rows($result) > 0) {
-    while($row = mysqli_fetch_assoc($result)) {
-      echo "<tr>";
-      echo "<td>" . $row["id"]. "</td><td>" . $row["category"]. "</td><td>" . $row["name"]. "</td><td>" . $row["views"]. "</td><td>" . $row["subscribers"]. "</td><td>" . $row["videos"]."</td>";
-      echo "</tr>";
-    }
- }else{
-   echo "No search result.";
- }
-
- /*
- echo "</tbody></table>";
-  */
-  
- ?>
-
-  <table id = "search_result_table">
-    <colgroup>
-      <!--카테고리명-->
-      <col width = "10%">
-      <!--채널이미지-->
-      <col width = "10%">
-      <!--채널명-->
-      <col width = "10%">
-      <!--채널소개-->
-      <col width = "30%">
-      <!--채널리뷰-->
-      <col width = "30%">
-    </colgroup>
-
-
-    <tbody>
-      <tr class = "tb_content">
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
   <script type="text/javascript" src="keyword_search.js"></script>
