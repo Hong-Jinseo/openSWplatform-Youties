@@ -1,0 +1,66 @@
+#main_header {
+  background: #c0412b;
+  padding: 35px;
+}
+
+.top_menu {
+  text-align: right;
+  padding: 0px 5px 20px 10px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  float: right;
+}
+
+#container {
+  display: inline-block;
+  margin: 30px auto;
+}
+
+#logo_img {
+  float: left;
+  margin-left: 30px;
+  margin-right: 20px;
+}
+
+#main_search{
+  float: left;
+  height: 40px;
+  width: 550px;
+  border: 1px solid #c7c4c3;
+  background: #ffffff;
+}
+input.search_word{
+  font-size: 15px;
+  width: 480px;
+  padding: 10px;
+  border: 0px;
+  outline: none;
+  float: right;
+}
+button.search_btn{
+  font-size: 1.125rem;
+  width: 50px;
+  height: 100%;
+  border: 0px;
+  outline: none;
+  float: left;
+}
+
+.fas{
+  color: #c7c4c3;
+}
+
+#table_style {
+  overflow-x: auto;
+}
+
+.search_result_table {
+  width: 100%;
+  
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #dadada;
+}
