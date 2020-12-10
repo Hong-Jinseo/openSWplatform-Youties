@@ -4,7 +4,7 @@
   <meta charset = "utf-8">
   <meta name = "description" content = "search result page">
   <title>$input</title> <!--사용자가 입력한 검색어를 타이틀로-->
-  <link rel = "stylesheet" href = "search.css">
+
   <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
@@ -49,39 +49,7 @@
   $result = mysqli_query($conn, $query);
  ?>
 
-  <div id = "table_style">
-    <table class = "search_result_table">
-      <thead class = "th">
-        <tr>
-          <th>Catergory</th>
-          <th>Channel Name</th>
-          <th>Info</th>
-          <th>Rating / Reveiws</th>
-        </tr>
-      </thead>
-      <tbody>
-    
 
-  <?php
-    
-    if (mysqli_num_rows($result) > 0) {
-      while($row = mysqli_fetch_assoc($result)) {
-        echo "<tr>";
-        echo "<td>" . $row["category"]. "</td><td>" . $row["name"]. "</td><td>";
-        echo "<p>";
-        echo "<img src='img_views.png'/>". " ". $row["views"]."</p>";
-        echo "<p>";
-        echo "<img src='img_subs.png'/>"." ". $row["subscribers"]."</p>";
-        echo "<p>";
-        echo "<img src='img_videos.png'/>"." ". $row["videos"]."</p></td></tr>";
-      }
-    } else {
-      echo "No search result.";
-    }
-  ?>
-      </tbody>
-    </table>
-  </div> 
 
   <script type="text/javascript" src="keyword_search.js"></script>
 

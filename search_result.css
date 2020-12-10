@@ -1,0 +1,91 @@
+#main_header {
+  background: #c0412b;
+  padding: 35px;
+}
+
+.top_menu {
+  text-align: right;
+  padding: 0px 5px 20px 10px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  float: right;
+}
+
+#container {
+  display: inline-block;
+  margin: 30px auto;
+}
+
+#logo_img {
+  float: left;
+  margin-left: 30px;
+  margin-right: 20px;
+}
+
+#main_search{
+  float: left;
+  height: 40px;
+  width: 550px;
+  border: 1px solid #c7c4c3;
+  background: #ffffff;
+}
+input.search_word{
+  font-size: 15px;
+  width: 480px;
+  padding: 10px;
+  border: 0px;
+  outline: none;
+  float: right;
+}
+button.search_btn{
+  font-size: 1.125rem;
+  width: 50px;
+  height: 100%;
+  border: 0px;
+  outline: none;
+  float: left;
+}
+
+.fas{
+  color: #c7c4c3;
+}
+
+.word_box {
+  padding: 1%;
+}
+
+.item {
+  margin: 3% 0px;
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  font-size: 15px;
+}
+
+#search_result_table{
+  margin: 40px 0px 0px 60px;
+}
+
+.no_results {
+  margin-top: 120px;
+
+}
+
+.img_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+}
+
+.txt_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-family: system-ui, serif;
+  font-size: 2rem;
+}
