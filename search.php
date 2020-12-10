@@ -29,11 +29,12 @@
       </div>
     </div>
   </form>
-<?php
+ 
+  <?php
   //mysql 접속 계정 정보 설정
   $mysql_host = '127.0.0.1';
   $mysql_user = 'root';
-  $mysql_password = 'madsulie06';
+  $mysql_password = '';
   $mysql_db = 'youtube_info';
   //connetc 설정(host,user,password)
   $conn = mysqli_connect($mysql_host,$mysql_user,$mysql_password,$mysql_db)or die("fail");
@@ -44,14 +45,22 @@
 
   $input = $_POST['keyword'];
   $query = "SELECT * FROM channels WHERE name LIKE '%$input%'";
-  $tag_query1 = "SELECT * FROM channel_tags WHERE tag1 LIKE '%$input%'";
-  $tag_query2 = "SELECT * FROM channel_tags WHERE tag2 LIKE '%$input%'";
   //쿼리보내고 결과를 변수에 저장
   $result = mysqli_query($conn, $query);
-  $tag_result1 = mysqli_query($conn, $tag_query1);
-  $tag_result2 = mysqli_query($conn, $tag_query2);
-  //echo "MySQL에서 가져온 데이터는 아래와 같습니다.<br/>";
-  //echo "<style>td { border:1px solid #ccc; padding:5px; }</style>";
+ ?>
+
+ <table class = "search_result_table">
+   <thead>
+     <th>Catergory</th>
+     <th>Channel Name</th>
+     <th>Info</th>
+     <th>Rating / Reveiws</th>
+   </thead>
+</table>
+
+<?php
+
+  /*
   echo "<table>";
   echo "<thead>";
     echo "<th>"."Category"."</th>";
@@ -61,30 +70,22 @@
   echo "</thead>";
 
   echo "<tbody>";
+   */
+
   if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
       echo "<tr>";
       echo "<td>" . $row["id"]. "</td><td>" . $row["category"]. "</td><td>" . $row["name"]. "</td><td>" . $row["views"]. "</td><td>" . $row["subscribers"]. "</td><td>" . $row["videos"]."</td>";
       echo "</tr>";
     }
-
- } else if (mysqli_num_rows($tag_result1) > 0) {
-   while($row = mysqli_fetch_assoc($tag_result1)) {
-     echo "<tr>";
-     echo "<td>" . $row["id"]. "</td><td>" . $row["tag1"]."</td>";
-     echo "</tr>";
-   }
- } else if (mysqli_num_rows($tag_result2) > 0) {
-   while($row = mysqli_fetch_assoc($tag_result2)) {
-     echo "<tr>";
-     echo "<td>" . $row["id"]. "</td><td>" . $row["tag2"]."</td>";
-     echo "</tr>";
-   }
- } else {
+ }else{
    echo "No search result.";
  }
 
+ /*
  echo "</tbody></table>";
+  */
+  
  ?>
 
   <table id = "search_result_table">
