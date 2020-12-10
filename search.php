@@ -44,6 +44,7 @@
   echo "의 검색결과";
 
   $input = $_POST['keyword'];
+  
   $query = "SELECT * FROM channels WHERE name LIKE '%$input%'";
   $query2 = "SELECT * FROM reviews WHERE channel LIKE '%$input%'";
 
@@ -56,8 +57,8 @@
     <table class = "search_result_table">
       <thead>
         <tr>
-          <th>Image</th>
           <th>Category</th>
+          <th>Image</th>
           <th>Channel Name</th>
           <th>Info</th>
           <th>Rating / Reveiws</th>
@@ -66,12 +67,15 @@
       <tbody>
     
   <?php 
+
     if (mysqli_num_rows($result) > 0) { 
       while($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
         
         echo "<td>" . $row["category"]. "</td>";
-        echo "<td>"."<img src ='img_Emily_mit_Ypsilon.png'/>"."</td>";
+        echo "<td>";
+        echo '<img src="data:image/jpeg;base64,'.base64_encode($row['image'] ).'"/>';
+        echo "</td>";
         echo "<td>" . $row["name"]. "</td><td>";
         echo "<p>";
         echo "<img src='img_views.png'/>". " ". $row["views"]."</p>";
