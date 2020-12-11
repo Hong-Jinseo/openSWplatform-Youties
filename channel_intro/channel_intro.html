@@ -17,8 +17,20 @@
 			function colorChange(num) {
 				var bgColor = ["#bbbaba", "#c0412b"];
 				var fontColor = ["#000000", "#ffffff"];
+				
 				var bodyTag = document.getElementById("tag"+num);
+				var tag = document.getElementById("tag_hidden"+num);
 
+				if(tag.value == 0) {
+					bodyTag.style.backgroundColor = bgColor[0];
+					bodyTag.style.color = fontColor[0];
+				}
+				else {
+					bodyTag.style.backgroundColor = bgColor[1];
+					bodyTag.style.color = fontColor[1];
+				}
+				
+				/*
 				if(bodyTag.style.backgroundColor == "#c0412b"){
 					bodyTag.style.backgroundColor = bgColor[0];
 					bodyTag.style.color = fontColor[0];
@@ -27,6 +39,7 @@
 					bodyTag.style.backgroundColor = bgColor[1];
 					bodyTag.style.color = fontColor[1];
 				}
+				*/
 				
 			}
 
