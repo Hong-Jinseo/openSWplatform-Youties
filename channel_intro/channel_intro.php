@@ -329,7 +329,7 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 						</div>
 
 						<div id="user-review">
-							<b><?php echo $rd_row[5];?></b> <?php echo $ra_row[6];?>
+							<b><?php echo $ra_row[5];?></b> <?php echo $ra_row[6];?>
 						</div>
 					</div>
 
@@ -369,7 +369,7 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 						</div>
 
 						<div id="user-review">
-							<b><?php echo $rd_row[5];?></b> <?php echo $ra_row[6];?>
+							<b><?php echo $ra_row[5];?></b> <?php echo $ra_row[6];?>
 						</div>
 					</div>
 				</div>
