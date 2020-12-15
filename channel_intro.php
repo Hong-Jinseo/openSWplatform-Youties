@@ -2,16 +2,17 @@
 
 
 session_start();
-//맞춰서 수정해야 되는 부분
+
 define("DB_SERVER", "localhost");
 define("DB_USER", "root");
-define("DB_PASSWORD", "");
-define("DB_DATABASE", "");
-$connect = mysqli_connect("localhost", "root", "", "");
+define("DB_PASSWORD", "111111");
+define("DB_DATABASE", "youties");
+$connect = mysqli_connect("localhost", "root", "111111", "youties");
 
 $get_you = $_GET["get_you"];
 
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -116,7 +117,7 @@ $get_you = $_GET["get_you"];
 		<div id="channel-intro">
 			<!--grid 배치-->
 			<div id="channel-intro-grid">
-        <?
+        <?php
         $sql = "select * from channels where id = '$get_you'";
         //db를 선택시 어떤 조건의 데이터를 불러올지
         $result = mysqli_query($connect, $sql);
@@ -125,40 +126,43 @@ $get_you = $_GET["get_you"];
         $ch = $row['id'];
         $movie= $row["movie"];
         ?>
+
+
+
 				<!--유튜버 소개-->
 				<div id="div1" class="div-background">
 					<div id="div1-1">
 						<figure>
-              <img style="width:285px" src="<?=$row['image']?>" alt="">
+              <img style="width:285px" src="<?php echo $row['image']?>" alt="">
 
 
 						</figure>
 					</div>
 
 					<div id="div1-2">
-            <h1><?=$row['title']?></h1>
+            <h1><?php echo $row['title']?></h1>
 					</div>
 
 					<div id="div1-3">
-            <b><?=$row['category']?></b><br>
-            <?=$row['subscribers']?> subscribers<br>
-            <?=$row['videos']?> videos<br>
+            <b><?php echo $row['category']?></b><br>
+            <?php echo $row['subscribers']?> subscribers<br>
+            <?php echo $row['videos']?> videos<br>
 					</div>
 				</div>
 
 				<!--채널 리뷰 요약-->
 				<div id="div2" class="div-background">
-					채널 리뷰 요약
-          <?
-          $sql2 = "select avg(rating) from reviews where parent = '$ch'";
+					summary
+          <?php
+          $sql2 = "select avg(rating) from reviews where parent = '$ch'";  //avg(rating)
           $result2 = mysqli_query($connect, $sql2);
-           $row2 = mysqli_fetch_array($result2);
-          echo  $row2["rating"];
+          $row2 = mysqli_fetch_array($result2);
+          //echo  $row2["rating"];
 
           $sql = "select * from reviews where parent = '$ch'";
-           //db를 선택할건데 어떤 조건의 데이터를 불러올 거야?
+           //db를 선택할건데 어떤 조건의 데이터를 불러올지
            $result = mysqli_query($connect, $sql);
-           //그 결과값을 담았다
+           //그 결과값을 담음
             $num_rows = mysqli_num_rows($result);
           if($num_rows > 0){
 
@@ -186,25 +190,25 @@ $get_you = $_GET["get_you"];
           }
           ?>
 
+					<div id="div4-2-2">
+					<p class="star_2">
 
-            <div id="div4-2-2">
-            <p class="star_2">
-            <? for($i=0;$i< $kk;$i++){ ?>
-              <a href="javascript://" class="on">★</a>
-            <?}?>
-              <? for($i=0;$i<5-$kk;$i++){ ?>
-              <a href="javascript://">★</a>
-            <?}?>
+						<?php for($i=0;$i< $kk;$i++){ ?>
+							<a href="javascript://" class="on">★</a>
+						<?php }?>
+							<?php for($i=0;$i<5-$kk;$i++){ ?>
+							<a href="javascript://">★</a>
+						<?php }?>
 
 
             </p>
           </div>
           <div style="margin-top:15px;">
-            <p>sexual(<?=$kk1?>)</p>
-            <p>violent(<?=$kk2?></p>
-            <p>crude(<?=$kk3?>)</p>
-            <p><p>horror(<?=$kk4?>)</p>
-            <p>encourage imitative actions (<?=$kk5?>)</p>
+            <p>sexual : (<?php echo $kk1?>)</p>
+            <p>violent : (<?php echo $kk2?>)</p>
+            <p>crude : (<?php echo $kk3?>)</p>
+            <p><p>horror : (<?php echo $kk4?>)</p>
+            <p>encourage imitative actions : (<?php echo $kk5?>)</p>
           </div>
 				</div>
 
@@ -212,7 +216,7 @@ $get_you = $_GET["get_you"];
 
 				<!--리뷰 쓰기-->
 				<div id="div4" class="div-background div-background-full">
-          <iframe width="1194" height="672" src="<?=$movie?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="1194" height="672" src="<?php echo $movie?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					<form action="save_review.php" method="POST">
 
 						<div id="div4-grid">
