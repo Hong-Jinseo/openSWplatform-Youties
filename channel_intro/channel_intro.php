@@ -304,49 +304,72 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 									}
 								</script>
 							</label>
-							<label id="user-info-date"><?php echo $rd_row[4];?></label>
+							<label id="user-info-date"><?php echo $rd_row[13];?></label>
 							<label id="user-info-num">Youties #<?php echo $rd_row[0];?></label>
 						</div>
 
 						<div id="user-review">
-							
 							<b><?php echo $rd_row[5];?></b> <?php echo $rd_row[6];?>
 						</div>
 					</div>
 
 					<div id="div5-review2" class="inner-div inner5">
+						<?php $ra_row = mysqli_fetch_row($result_review_acs); ?>
+						
 						<div id="user-info">
-							<label id="user-info-star">★</label>
-							<label id="user-info-date">2020. 12. 16</label>
-							<label id="user-info-num">Youties #26</label>
+							<label id="user-info-star">
+								<script>
+									for (i=0; i< <?php echo $ra_row[7];?>; i++){
+										document.write("★ ");
+									}
+								</script>
+							</label>
+							<label id="user-info-date"><?php echo $ra_row[13];?></label>
+							<label id="user-info-num">Youties #<?php echo $ra_row[0];?></label>
 						</div>
 
 						<div id="user-review">
-							리뷰 내용<br>리뷰 내용<br>리뷰 내용<br>
+							<b><?php echo $rd_row[5];?></b> <?php echo $ra_row[6];?>
 						</div>
 					</div>
 
 					<div id="div5-review3" class="inner-div inner5">
+						<?php $rd_row = mysqli_fetch_row($result_review_decs); ?>
+
 						<div id="user-info">
-							<label id="user-info-star">★ ★ ★ ★</label>
-							<label id="user-info-date">2020. 12. 16</label>
-							<label id="user-info-num">Youties #26</label>
+							<label id="user-info-star">
+								<script>
+									for (i=0; i< <?php echo $rd_row[7];?>; i++){
+										document.write("★ ");
+									}
+								</script>
+							</label>
+							<label id="user-info-date"><?php echo $rd_row[13];?></label>
+							<label id="user-info-num">Youties #<?php echo $rd_row[0];?></label>
 						</div>
 
 						<div id="user-review">
-							리뷰 내용<br>리뷰 내용<br>리뷰 내용<br>
+							<b><?php echo $rd_row[5];?></b> <?php echo $rd_row[6];?>
 						</div>
 					</div>
 
 					<div id="div5-review4" class="inner-div inner5">
+						<?php $ra_row = mysqli_fetch_row($result_review_acs); ?>
+						
 						<div id="user-info">
-							<label id="user-info-star">★</label>
-							<label id="user-info-date">2020. 12. 16</label>
-							<label id="user-info-num">Youties #26</label>
+							<label id="user-info-star">
+								<script>
+									for (i=0; i< <?php echo $ra_row[7];?>; i++){
+										document.write("★ ");
+									}
+								</script>
+							</label>
+							<label id="user-info-date"><?php echo $ra_row[13];?></label>
+							<label id="user-info-num">Youties #<?php echo $ra_row[0];?></label>
 						</div>
 
 						<div id="user-review">
-							리뷰 내용<br>리뷰 내용<br>리뷰 내용<br>
+							<b><?php echo $rd_row[5];?></b> <?php echo $ra_row[6];?>
 						</div>
 					</div>
 				</div>

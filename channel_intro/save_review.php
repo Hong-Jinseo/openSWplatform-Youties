@@ -12,7 +12,8 @@ $dbName = 'youties';
 $conn = new mysqli($host, $user, $pw, $dbName);
            
 date_default_timezone_set('Asia/Seoul');
-$date = date("Y.m.d h:i");
+$date = date("Y.m.d h:i:s");
+$date2 = date("Y.m.d");
 
 if(!isset($_SESSION['my_email'])){
     echo "<script>alert(\"로그인 후 리뷰를 작성할 수 있습니다.\");</script>";
@@ -26,7 +27,7 @@ if($_POST['rating']==0){
     //table reviews에 접속
     $sql = "
     INSERT INTO reviews
-        (email, channel, date, title, content, rating, sexual, violent, crude, horror, imitative)
+        (email, channel, date, title, content, rating, sexual, violent, crude, horror, imitative, date2)
     VALUES (
         '{$_SESSION['my_email']}',
         '{$_POST['channel']}',
@@ -39,7 +40,8 @@ if($_POST['rating']==0){
         '{$_POST['violent']}',
         '{$_POST['crude']}',
         '{$_POST['horror']}',
-        '{$_POST['imitative']}'
+        '{$_POST['imitative']}',
+        '{$date2}'
     )
     ";
 
