@@ -140,7 +140,7 @@ $get_you = $_GET["get_you"];
 					</div>
 
 					<div id="div1-2">
-            <h1><?php echo $row['title']?></h1>
+            <h1><?php echo $row['name']?></h1>
 					</div>
 
 					<div id="div1-3">
