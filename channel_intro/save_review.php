@@ -19,13 +19,12 @@ if(!isset($_SESSION['my_email'])){
     echo "<script>location.href='channel_intro.html';</script>";
 }
 
-if( !isset($_POST['title']) || !isset($_POST['content']) ||  !isset($_POST['rating']) ){
-    echo "<script>alert(\"리뷰 제목, 내용, 별점을 모두 입력해 주십시오.\");</script>";
+if($_POST['rating']==0){
+    echo "<script>alert(\"별점을 등록해 주십시오.\");</script>";
     echo "<script>history.back();</script>";
-}
-
-//table reviews에 접속
-$sql = "
+}else{
+    //table reviews에 접속
+    $sql = "
     INSERT INTO reviews
         (email, channel, date, title, content, rating, sexual, violent, crude, horror, imitative)
     VALUES (
@@ -42,10 +41,10 @@ $sql = "
         '{$_POST['horror']}',
         '{$_POST['imitative']}'
     )
-";
+    ";
 
-//table tags에 저장
-$sql_tag = "
+    //table tags에 저장
+    $sql_tag = "
     INSERT INTO tags
         (tag1, tag2, tag3, tag4)
     VALUES (
@@ -54,18 +53,19 @@ $sql_tag = "
         '{$_POST['tag_hidden3']}',
         '{$_POST['tag_hidden4']}'
     )
-";
+    ";
 
 
 
-$result = mysqli_query($conn, $sql);
-$result_tag = mysqli_query($conn, $sql_tag);
-if($result === false || $result_tag === false){
+    $result = mysqli_query($conn, $sql);
+    $result_tag = mysqli_query($conn, $sql_tag);
+    if($result === false || $result_tag === false){
     echo '저장하는 과정에서 문제가 생겼습니다.';
     echo mysqli_error($conn);
-} else {
+    } else {
     echo "<script>alert(\"리뷰가 등록되었습니다.\");</script>";
     echo "<script>location.href='channel_intro.html';</script>";
+    }
 }
 
 ?>
