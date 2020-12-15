@@ -10,9 +10,31 @@
 
 /*상단바*/
 #main_header_logo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
     background: #c0412b;
     padding-top: 3px;
 }
+
+#header-login{
+    grid-column: 2/3;
+
+    float: right;
+    text-align: right;
+    margin-right: 30px;
+}
+
+.top_menu {
+    margin-top: 13px;
+    margin-left: 40px;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+  
+
+
 
 #channel-intro{
     /*전체 텍스트 가운데 배치*/
@@ -352,16 +374,16 @@ textarea{ resize: none; }
 
 
 /* 리뷰 보기 */
-.inner5{
-    background-color: rgb(224,224,224)
-}
-
 .subtitle{
     font-size: 20px;
 }
 
 #user-info{
     margin-bottom: 15px;
+}
+
+.inner5{
+    background-color: rgb(224,224,224);
 }
 
 #user-info-star{
@@ -372,6 +394,17 @@ textarea{ resize: none; }
 
 #user-info-num{
     font-size: 20px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 6px;
+}
+
+#user-info-date{
+    font-size: 14px;
+    color: #4d4d4d;
+    float: right;
+    margin-right: 20px;
+    margin-top: 12px;
 }
 
 #gotoReview{
