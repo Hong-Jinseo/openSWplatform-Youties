@@ -7,13 +7,23 @@ $dbName = 'youties';
 
 $conn = new mysqli($host, $user, $pw, $dbName) or die("Failed");
 
+$get_you = $_GET["get_you"];
+//$channel_name = 'haha ha';
+
+$result_channel = mysqli_query($conn, "SELECT * FROM channels WHERE id=$get_you") or die(mysqli_error($conn));
+$ch_row = mysqli_fetch_row($result_channel);
+$channel_name = $ch_row[2];
+
 
 //채널명 직접 입력하면 안됨
-$channel_name = "haha ha";
 
-$result_review_acs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' ORDER BY rating ASC") or die(mysqli_error($conn));
-$result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' ORDER BY rating DESC") or die(mysqli_error($conn));
-$get_you = $_GET["get_you"];
+$result_review_acs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='$channel_name' ORDER BY rating ASC") or die(mysqli_error($conn));
+$result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='$channel_name' ORDER BY rating DESC") or die(mysqli_error($conn));
+
+
+
+
+
 ?>
 
 
@@ -221,6 +231,9 @@ $get_you = $_GET["get_you"];
 				<div id="div4" class="div-background div-background-full">
 					<form action="save_review.php" method="POST">
 
+						<input type="hidden" name="parent-db" value="<?php echo $get_you?>">
+						<input type="hidden" name="channel-db" value="<?php echo $channel_name?>">
+
 						<div id="div4-grid">
 							<div id="div4-1" class="inner-div">
 								<h2>Review this channel</h2>
@@ -259,8 +272,16 @@ $get_you = $_GET["get_you"];
 									<input type="hidden" id="tag_hidden3" name="tag_hidden3" value=0>
 									<button type="button" id="tag4" name="tag4" class="tag-btn" onclick="colorChange(4); chk_tag(4)" value=0>스토리텔링</button>
 									<input type="hidden" id="tag_hidden4" name="tag_hidden4" value=0>
-									
-									<textarea name="channel" rows="1" placeholder="channel"></textarea>
+									<button type="button" id="tag5" name="tag5" class="tag-btn" onclick="colorChange(5); chk_tag(5)" value=0>몰입되는</button>
+									<input type="hidden" id="tag_hidden5" name="tag_hidden5" value=0>
+									<button type="button" id="tag6" name="tag6" class="tag-btn" onclick="colorChange(6); chk_tag(6)" value=0>감동적인</button>
+									<input type="hidden" id="tag_hidden6" name="tag_hidden6" value=0>
+									<button type="button" id="tag7" name="tag7" class="tag-btn" onclick="colorChange(7); chk_tag(7)" value=0>짧은 길이의</button>
+									<input type="hidden" id="tag_hidden7" name="tag_hidden7" value=0>
+									<button type="button" id="tag8" name="tag8" class="tag-btn" onclick="colorChange(8); chk_tag(8)" value=0>킬링타임</button>
+									<input type="hidden" id="tag_hidden8" name="tag_hidden8" value=0>
+									<button type="button" id="tag9" name="tag9" class="tag-btn" onclick="colorChange(9); chk_tag(9)" value=0>슬픈</button>
+									<input type="hidden" id="tag_hidden9" name="tag_hidden9" value=0>
 								</div>
 							</div>
 

@@ -27,10 +27,11 @@ if($_POST['rating']==0){
     //table reviews에 접속
     $sql = "
     INSERT INTO reviews
-        (email, channel, date, title, content, rating, sexual, violent, crude, horror, imitative, date2)
+        (parent, email, channel, date, title, content, rating, sexual, violent, crude, horror, imitative, date2)
     VALUES (
+        '{$_POST['parent-db']}',
         '{$_SESSION['my_email']}',
-        '{$_POST['channel']}',
+        '{$_POST['channel-db']}',
         '{$date}',
         '{$_POST['title']}',
         '{$_POST['content']}',
@@ -48,12 +49,17 @@ if($_POST['rating']==0){
     //table tags에 저장
     $sql_tag = "
     INSERT INTO tags
-        (tag1, tag2, tag3, tag4)
+        (tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8, tag9)
     VALUES (
         '{$_POST['tag_hidden1']}',
         '{$_POST['tag_hidden2']}',
         '{$_POST['tag_hidden3']}',
-        '{$_POST['tag_hidden4']}'
+        '{$_POST['tag_hidden4']}',
+        '{$_POST['tag_hidden5']}',
+        '{$_POST['tag_hidden6']}',
+        '{$_POST['tag_hidden7']}',
+        '{$_POST['tag_hidden8']}',
+        '{$_POST['tag_hidden9']}'
     )
     ";
 
@@ -65,8 +71,9 @@ if($_POST['rating']==0){
     echo '저장하는 과정에서 문제가 생겼습니다.';
     echo mysqli_error($conn);
     } else {
-    echo "<script>alert(\"리뷰가 등록되었습니다.\");</script>";
-    echo "<script>location.href='channel_intro.html';</script>";
+    echo "<script>alert(\"리뷰가 등록되었습니다.\");</script>"; ?>
+    <script>var final_parent = "<?php echo $_POST['parent-db'] ?>"; </script>
+    <?php echo "<script>location.href='channel_intro.php?get_you='+final_parent</script>";
     }
 }
 
