@@ -1,0 +1,317 @@
+@charset "utf-8";
+/*윗배너*/
+.container{
+    padding: 0px 0px 50px 0px;
+}
+/*로고부분*
+.header-inner{
+    padding: 15px 15px 5px 15px;
+    background-color:rgb(193,57,43);
+    height: 45px;
+} 
+.user-info{
+    text-align: right;
+}
+*/
+
+
+
+/*상단바*/
+#main_header_logo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    background: #c0412b;
+    padding-top: 3px;
+}
+
+#header-login{
+    grid-column: 2/3;
+
+    float: right;
+    text-align: right;
+    margin-right: 30px;
+}
+
+.top_menu {
+    margin-top: 13px;
+    margin-left: 40px;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+
+
+/*컨텐츠 틀*/
+.main-container{
+    padding: 5px 30px 5px 30px;
+    background:#ffffff;
+    border-left: 60px solid #FFFFFF;
+    border-right: 60px solid #FFFFFF;
+    height: 250px;
+    float: center;
+}
+
+
+
+/*정렬*/
+/*
+.box-radio-input input[type="radio"]{
+    display:none;
+}
+  
+.box-radio-input input[type="radio"] + span{
+    display:inline-block;
+    background:none;
+    border:1px solid #dfdfdf;  
+    padding:0px 10px;
+    text-align:center;
+    height:35px;
+    line-height:33px;
+    font-weight:500;
+    cursor:pointer;
+}
+  
+.box-radio-input input[type="radio"]:checked + span{
+    border:1px solid #c0412b;
+    background:#c0412b;
+    color:#fff;
+}
+*/
+
+.box-radio-input input[type="radio"]{
+    display: none;
+    margin: 10px;
+}
+
+.box-radio-input input[type="radio"]+label{
+    display:inline-block;
+    margin: -2px;
+    padding:10px;
+    background-color:#ffffff;
+    color: #000000;
+    border:1px solid #dfdfdf;  
+    text-align:center;
+    width: min-content;
+
+    /*line-height:33px;
+    font-weight:500;
+    cursor:pointer;*/
+}
+
+.box-radio-input input[type="radio"]:checked+label{
+    background-color: #c0412b;
+    color:#ffffff;
+}
+
+
+
+
+/*태그*/
+#tag-button{
+    margin-top: 8px;
+}
+
+.opt-btn{
+    color: black;
+    background-color: rgb(187, 186, 186);
+    border: none;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 8%;
+    margin: 2px;
+}
+
+.tag-btn{
+    color: black;
+    background-color: rgb(187, 186, 186);
+    border: none;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 8%;
+    margin: 2px;
+}
+
+
+
+
+/*리뷰 전체 틀*/
+#main{
+    text-align: center;
+    margin-top: 60px;
+    margin-left: 200px;
+    margin-right: 200px;
+
+    /*삭제해야 함~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    /*width:1100px;*/
+}
+
+#option{
+    text-align: left;
+}
+
+#review-content{
+    /*텍스트 내용 왼쪽 정렬*/
+    text-align: left;  
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    /* grid 내 row 간격 */
+    row-gap: 30px;
+
+    /* grid 내 column 간격 */
+    column-gap: 30px;
+    
+    /*border: 2px solid rgb(179, 34, 18);     /*투명으로 바꾸기*/
+    margin: 0 auto;
+}
+
+#channel_info{
+    grid-column: 2/3;
+    grid-row: 1/2;
+
+    background-color: rgb(224,224,224);
+    /* 채널명 div */
+    height: auto;
+    width: 15%; 
+    padding: 10px;
+    text-align: center;
+    text-size-adjust: 15px;
+    font-size: 25px;
+    right: 100px;
+    bottom: 150px;
+}
+
+#write_review{
+    grid-column: 2/3;
+    grid-row: 2/3;
+
+    background-color: rgb(224,224,224);
+    height: 50px;
+    width: auto;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    left: 120px;
+    bottom: 100px;
+}
+
+#div1{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin-top: 20px;
+
+    background-color: rgb(255, 255, 255);
+    /*border: 2px solid rgb(179, 34, 18);     /*투명으로 바꾸기*/
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 70px 30px 140px 140px;
+    row-gap: 10px;
+    column-gap: 40px;
+}
+
+#div2{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+#div3{
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+#div4{
+    grid-column: 1/2;
+    grid-row: 4/5;
+}
+
+#div5{
+    grid-column: 1/2;
+    grid-row: 5/6;
+}
+
+
+
+
+
+/* 리뷰 보기 */
+.inner-div{
+    padding-top: 9px;
+    padding-left: 13px;
+}
+
+.inner1{
+    background-color: rgb(224,224,224);
+/*    height: auto; 
+    width: 60%;
+    padding: 10px;
+    margin: 40px 40px 0px 0px;
+    float: left;
+*/
+}
+
+.subtitle{
+    font-size: 20px;
+}
+
+#user-info{
+    margin-bottom: 15px;
+}
+
+#user-info-star{
+    font-size: 28px;
+    color: #c0412b;
+    margin-right: 10px;
+}
+
+#user-info-num{
+    font-size: 20px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 6px;
+}
+
+#user-info-date{
+    font-size: 14px;
+    color: #4d4d4d;
+    float: right;
+    margin-right: 20px;
+    margin-top: 12px;
+}
+
+#user-review{
+    width: 95%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+}
+
+
+
+
+
+/*채널소개*/
+
+
+
+#image{
+    border-radius: 100%;
+}
+
+/*댓글의 좋아요 버튼*/
+#ctn{
+    float: right;
+    text-align: right;
+    height: 130px;
+}
