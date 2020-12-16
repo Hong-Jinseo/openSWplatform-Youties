@@ -74,23 +74,26 @@ button.search_btn{
 }
 
 #table_style {
-  overflow-x: auto;
+  /*background-color:rgb(224, 224, 224);*/
+  padding: 20px;
+  border: 0px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .search_result_table {
-  width: 100%;
-  
+  overflow-x: auto;
 }
 
 th {
   padding: 10px;
   border-bottom: 1px solid #dadada;
   font-size: 20px;
-  
 }
 
 td {
   text-align: center;
   padding: 10px;
+  font-size: 10px;
   border-bottom: 1px solid #dadada;
 }

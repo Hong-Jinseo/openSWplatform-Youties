@@ -3,7 +3,7 @@
 <head>
   <meta charset = "utf-8">
   <meta name = "description" content = "search result page">
-  <title>$input</title> <!--사용자가 입력한 검색어를 타이틀로-->
+  <title></title> <!--사용자가 입력한 검색어를 타이틀로-->
   <link rel = "stylesheet" href = "search.css">
   <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
@@ -53,15 +53,16 @@
   $result2 = mysqli_query($conn2, $query2);
  ?>
 
+
   <div id = "table_style">
     <table class = "search_result_table">
       <thead>
         <tr>
-          <th>Category</th>
-          <th>Image</th>
-          <th>Channel Name</th>
-          <th>Info</th>
-          <th>Rating / Reveiws</th>
+          <th width = "60">Category</th>
+          <th width = "200">Image</th>
+          <th width = "80">Channel Name</th>
+          <th width = "80">Info</th>
+          <th width = "80">Rating / Reveiws</th>
         </tr>
       </thead>
       <tbody>
@@ -121,13 +122,13 @@
   </div> 
 
   <div id = "table_style">
-    <table class = "search_result_table">
+    <table width = "500" class = "search_result_table">
       <thead>
         <tr>
-          <th>Channel Name</th> 
-          <th>Reviews</th>
-          <th>Rating</th>
-          <th>Date</th>
+          <th width = "80">Channel Name</th> 
+          <th width = "340">Reviews</th>
+          <th width = "40">Rating</th>
+          <th width = "40">Date</th>
         </tr>
       </thead>
       <tbody>
@@ -137,8 +138,13 @@
       while($row = mysqli_fetch_assoc($result2)) {
         echo "<tr>";
         echo "<td>" . $row["channel"]. "</td>";
-        echo "<td><p>" . $row["title"]. "</p>";
-        echo "<p>". $row["content"]."</p></td>";
+        echo "<td><p><b>" . $row["title"]. "</b></p>";
+
+        if (strlen($row["content"])>30) { //글자수 30 넘으면 ...
+          $content = str_replace($row["content"], mb_substr($row["content"], 0, 30, "utf-8")."...",$row["content"]);
+        }
+        echo "<p>". $content."</p></td>";
+        //echo "<p>". $row["content"]."</p></td>";
         echo "<td>" . $row["rating"]. "</td>";
         echo "<td>" . $row["date"]. "</td>";
         echo "</tr>";
