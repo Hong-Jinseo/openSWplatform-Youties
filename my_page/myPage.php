@@ -1,0 +1,63 @@
+<?php
+
+session_start();
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youties: Youtube Channel Review Site</title>
+    <link rel="stylesheet" href="myPage_style.css"/>
+
+    <script type = "text/javascript">
+        function openSetting(){
+            url="setting.php";
+            window.open(url, "Setting", "width=400, height=330, menubar=no, toolbar=no");
+        }
+    </script>
+</head>
+
+<body>
+<header>
+    <div class="container">
+        <div class="header-inner">
+        <div class="logo"><a href="main.html"><img src = "logo2_removebg.jpg" border = "0" width="150"></a></div>
+       <!--  <p style="text-align:right">Kim Ewha</p> -->
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="main-container">
+        <article class="pic"><img src = "profile.jpg" border = "0" width = "100%" height= "200px"></article>
+
+        <article class="info">
+            <button type="button" id="setting" onClick="openSetting();">
+                <img src="setting.jpg" id="setting-img">
+            </button>
+
+            <h3>KIM EWHA</h3><br><b>관심있는 컨텐츠:</b><br>
+            <div class="tag"><font color="white">고양이</font></div>
+            <div class="tag"><font color="white">이화여대</font></div>
+            <div class="tag"><font color="white">A+</font></div>
+            <div class="tag"><font color="white">부대찌개</font></div>
+        </article>
+        <article class="diagram"><img src="diagram.jpg" width ="100%" height ="100%"></article>
+    </div>
+</main>
+
+<section>
+    <div class="section-container">
+        <article class="reviews"><a href="youties_reviews_김지현_201201_08시30분.html"><img src= "more.jpg" style="float: right; width=30; height=30;"></a><h1>작성한 리뷰</h1><p style="color:rgb(153, 44, 44)"><b>haha ha</b></p>사람이 많이 나오지 않고 고양이 위주의 영상이 올라와서 좋아요.</article>
+        <article class="comments"><a href="youties_comments_김지현_201201_08시30분.html"><img src= "more.jpg" style="float: right; width=30; height=30;"></a><h1>작성한 댓글</h1><p style="color:rgb(153, 44, 44)"><b>ewhauniv - community</b></p>맞아요 오늘 올라온 영상 하늘이 진짜 예쁘더라구요!!</article>
+        <article class="likes"><a href="youties_likes_김지현_201201_08시30분.html"><img src= "more.jpg" style="float: right; width=30; height=30;"></a><h1>좋아요 누른 리뷰</h1><p style="color:rgb(153, 44, 44)"><b>haha ha  ewhauniv  lovecat</b></p></article>
+        <article class="communities"><a href="youties_communities_김지현_201201_08시30분.html"><img src= "more.jpg" style="float: right; width=30; height=30;"></a><h1>가입한 커뮤니티</h1><p style="color:rgb(153, 44, 44)"><b>ewhauniv  hello_world  starrrr</b></p></article>
+    </div>
+</section>
+<!-- <footer id="footer"> Copyright ⓒ 2020 Youties </footer> -->
+</body>
+</html>

@@ -25,8 +25,11 @@ if(mysqli_num_rows($result)==1) {
             //로그인 한 아이디 저장
             $my_name = $row["name"];
             $my_email = $row["email"];
+            $my_pw = $row["pw"];
+
             $_SESSION['my_email'] = $my_email;
             $_SESSION['my_name'] = $my_name;
+            $_SESSION['my_pw'] = $my_pw;
 
             ?>
             <script>
