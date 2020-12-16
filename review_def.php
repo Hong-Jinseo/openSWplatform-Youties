@@ -5,10 +5,11 @@ $pw = '';
 $dbName = 'youties';
 
 $conn = new mysqli($host, $user, $pw, $dbName) or die("Failed");
-
+$conn2 = new mysqli($host, $user, $pw, 'youtube_info') or die("Failed");
 //리뷰 최신순
 $result_2 = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' ORDER BY id DESC") or die(mysqli_error($conn));
-
+$cnt = 0;
+$total = mysqli_num_rows($result_2);
 ?>
 
 
@@ -118,8 +119,10 @@ $result_2 = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' O
 
                         <div id="div1" class="inner-div inner1">
                             <?php
-                                $row = mysqli_fetch_row($result_2); 
-                            ?>
+                                $row = mysqli_fetch_row($result_2);
+                                $cnt = $cnt + 1;
+                                if ($cnt <= $total){?>
+                            
                         
                             <div id="user-info">
                                 <label id="user-info-star">
@@ -143,28 +146,236 @@ $result_2 = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' O
                                     
                                 </script>
 
-                                <label id="tag1"><?php echo $row[4];?></label>
+                                
                             </div>
 
                             <div id="user-review">
-                                <b><?php echo $row[5];?></b> <?php echo $row[6];?>
+                                <b><?php echo $row[5];?></b> 
+                                <p><?php 
+                                    if (strlen($row[6])>30) { //글자수 30 넘으면 ...
+                                        $row[6] = str_replace($row[6], mb_substr($row[6], 0, 30, "utf-8")."...",$row[6]);
+                                    } echo $row[6];?></p>
                             </div>
+                            <?php
+                                }
+                                else{?>
+                            <script> document.getElementById(review-div).style.backgroundColor = null; </script>
+                        <?php
+                        }
+                        ?>
                         </div>
 
+                        <div id="div1" class="inner-div inner1">
+                            <?php
+                                $row = mysqli_fetch_row($result_2);
+                                $cnt = $cnt + 1;
+                                if ($cnt <= $total){?>
+                            
+                        
+                            <div id="user-info">
+                                <label id="user-info-star">
+                                    <script>
+                                        for (i=0; i< <?php echo $row[7];?>; i++){
+                                            document.write("★ ");
+                                        }
+                                    </script>
+                                </label>
+                                <label id="user-info-date"><?php echo $row[4];?></label>
+                                <label id="user-info-num">Youties #<?php echo $row[0];?></label>
+                            </div>
 
+                            <div id="tags">
+                                <script>
+                                    for(var k=1; k<5; k++){
+                                        if (document.getElementById(i) == 1){
+                                            <?php echo $row[4];?>
+                                        }
+                                    }
+                                    
+                                </script>
+
+                    
+                            </div>
+
+                            <div id="user-review">
+                                <b><?php echo $row[5];?></b> 
+                                <p><?php 
+                                    if (strlen($row[6])>30) { //글자수 30 넘으면 ...
+                                        $row[6] = str_replace($row[6], mb_substr($row[6], 0, 30, "utf-8")."...",$row[6]);
+                                    } echo $row[6];?></p>
+                            </div>
+                            <?php
+                                }
+                                else{?>
+                            <script> document.getElementById(review-div).style.backgroundColor = null; </script>
+                        <?php
+                        }
+                        ?>
+                        </div>
+
+                        <div id="div1" class="inner-div inner1">
+                            <?php
+                                $row = mysqli_fetch_row($result_2);
+                                $cnt = $cnt + 1;
+                                if ($cnt <= $total){?>
+                            
+                        
+                            <div id="user-info">
+                                <label id="user-info-star">
+                                    <script>
+                                        for (i=0; i< <?php echo $row[7];?>; i++){
+                                            document.write("★ ");
+                                        }
+                                    </script>
+                                </label>
+                                <label id="user-info-date"><?php echo $row[4];?></label>
+                                <label id="user-info-num">Youties #<?php echo $row[0];?></label>
+                            </div>
+
+                            <div id="tags">
+                                <script>
+                                    for(var k=1; k<5; k++){
+                                        if (document.getElementById(i) == 1){
+                                            <?php echo $row[4];?>
+                                        }
+                                    }
+                                    
+                                </script>
+
+                                
+                            </div>
+
+                            <div id="user-review">
+                                <b><?php echo $row[5];?></b> 
+                                <p><?php 
+                                    if (strlen($row[6])>30) { //글자수 30 넘으면 ...
+                                        $row[6] = str_replace($row[6], mb_substr($row[6], 0, 30, "utf-8")."...",$row[6]);
+                                    } echo $row[6];?></p>
+                            </div>
+                            <?php
+                                }
+                                else{?>
+                            <script> document.getElementById(review-div).style.backgroundColor = null; </script>
+                        <?php
+                        }
+                        ?>
+                        </div>
+
+                        <div id="div1" class="inner-div inner1">
+                            <?php
+                                $row = mysqli_fetch_row($result_2);
+                                $cnt = $cnt + 1;
+                                if ($cnt <= $total){?>
+                            
+                        
+                            <div id="user-info">
+                                <label id="user-info-star">
+                                    <script>
+                                        for (i=0; i< <?php echo $row[7];?>; i++){
+                                            document.write("★ ");
+                                        }
+                                    </script>
+                                </label>
+                                <label id="user-info-date"><?php echo $row[4];?></label>
+                                <label id="user-info-num">Youties #<?php echo $row[0];?></label>
+                            </div>
+
+                            <div id="tags">
+                                <script>
+                                    for(var k=1; k<5; k++){
+                                        if (document.getElementById(i) == 1){
+                                            <?php echo $row[4];?>
+                                        }
+                                    }
+                                    
+                                </script>
+
+                                
+                            </div>
+
+                            <div id="user-review">
+                                <b><?php echo $row[5];?></b> 
+                                <p><?php 
+                                    if (strlen($row[6])>30) { //글자수 30 넘으면 ...
+                                        $row[6] = str_replace($row[6], mb_substr($row[6], 0, 30, "utf-8")."...",$row[6]);
+                                    } echo $row[6];?></p>
+                            </div>
+                            <?php
+                                }
+                                else{?>
+                            <script> document.getElementById(review-div).style.backgroundColor = null; </script>
+                        <?php
+                        }
+                        ?>
+                        </div>
+
+                        <div id="div1" class="inner-div inner1">
+                            <?php
+                                $row = mysqli_fetch_row($result_2);
+                                $cnt = $cnt + 1;
+                                if ($cnt <= $total){?>
+                            
+                        
+                            <div id="user-info">
+                                <label id="user-info-star">
+                                    <script>
+                                        for (i=0; i< <?php echo $row[7];?>; i++){
+                                            document.write("★ ");
+                                        }
+                                    </script>
+                                </label>
+                                <label id="user-info-date"><?php echo $row[4];?></label>
+                                <label id="user-info-num">Youties #<?php echo $row[0];?></label>
+                            </div>
+
+                            <div id="tags">
+                                <script>
+                                    for(var k=1; k<5; k++){
+                                        if (document.getElementById(i) == 1){
+                                            <?php echo $row[4];?>
+                                        }
+                                    }
+                                    
+                                </script>
+
+                                
+                            </div>
+
+                            <div id="user-review">
+                                <b><?php echo $row[5];?></b> 
+                                <p><?php 
+                                    if (strlen($row[6])>30) { //글자수 30 넘으면 ...
+                                        $row[6] = str_replace($row[6], mb_substr($row[6], 0, 30, "utf-8")."...",$row[6]);
+                                    } echo $row[6];?></p>
+                            </div>
+                            <?php
+                                }
+                                else{?>
+                            <script> document.getElementById(review-div).style.backgroundColor = null; </script>
+                        <?php
+                        }
+                        ?>
+                        </div>
 
         
                     </div>
 
-        
-
-
-
+                    <?php 
+                    $result_ch = mysqli_query($conn2, "SELECT * FROM channels WHERE name='haha ha'") or die(mysqli_error($conn));
+                    $row = mysqli_fetch_row($result_ch);
+                    ?>
 
                     <!--채널 소개 그림-->
                     <div id="channel_info">
-                    <img src="https://yt3.ggpht.com/ytc/AAUvwng-4r6Mq9XzKbP2ytrO6HgugZ7OOqhh5--Onsk8oA=s176-c-k-c0x00ffffff-no-rj" id="image" width="150" height="150">
-                    <br>haha ha
+                        <div>
+                            <img src="https://yt3.ggpht.com/ytc/AAUvwng-4r6Mq9XzKbP2ytrO6HgugZ7OOqhh5--Onsk8oA=s176-c-k-c0x00ffffff-no-rj" id="image" width="150" height="150">
+                            <br>haha ha
+                        </div>
+                        <div id="info_text">
+                            <p> <?php echo $row[4]?></p>
+                            <p> <?php echo $row[5]?></p>
+                            <p> <?php echo $row[6]?></p>
+                        </div>
                     </div>
                     
                     <div id="write_review">

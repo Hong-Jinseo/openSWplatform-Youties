@@ -180,8 +180,9 @@
 
     background-color: rgb(224,224,224);
     /* 채널명 div */
-    height: auto;
-    width: 15%; 
+    
+    height: 75%;
+    width: 100%; 
     padding: 10px;
     text-align: center;
     text-size-adjust: 15px;
@@ -193,7 +194,7 @@
 #write_review{
     grid-column: 2/3;
     grid-row: 2/3;
-
+    
     background-color: rgb(224,224,224);
     height: 50px;
     width: auto;
@@ -205,18 +206,10 @@
 }
 
 #div1{
+    margin-top: 20px;
+    padding-bottom: 10px;
     grid-column: 1/2;
     grid-row: 1/2;
-    margin-top: 20px;
-
-    background-color: rgb(255, 255, 255);
-    /*border: 2px solid rgb(179, 34, 18);     /*투명으로 바꾸기*/
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 70px 30px 140px 140px;
-    row-gap: 10px;
-    column-gap: 40px;
 }
 
 #div2{
@@ -288,13 +281,9 @@
     margin-top: 12px;
 }
 
-#user-review{
-    width: 95%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; 
-    -webkit-box-orient: vertical;
+#info_text{
+    margin-top: 15px;
+    font-size: 18px;
 }
 
 
