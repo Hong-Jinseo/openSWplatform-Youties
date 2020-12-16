@@ -19,11 +19,6 @@ $channel_name = $ch_row[2];
 
 $result_review_acs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='$channel_name' ORDER BY rating ASC") or die(mysqli_error($conn));
 $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='$channel_name' ORDER BY rating DESC") or die(mysqli_error($conn));
-
-
-
-
-
 ?>
 
 
