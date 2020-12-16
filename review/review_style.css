@@ -3,16 +3,49 @@
 .container{
     padding: 0px 0px 50px 0px;
 }
-/*로고부분*/
+/*로고부분*
 .header-inner{
     padding: 15px 15px 5px 15px;
     background-color:rgb(193,57,43);
     height: 45px;
 } 
-
 .user-info{
     text-align: right;
 }
+*/
+
+
+
+/*상단바*/
+#main_header_logo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    background: #c0412b;
+    padding-top: 3px;
+}
+
+#header-login{
+    grid-column: 2/3;
+
+    float: right;
+    text-align: right;
+    margin-right: 30px;
+}
+
+.top_menu {
+    margin-top: 13px;
+    margin-left: 40px;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+
+
 /*컨텐츠 틀*/
 .main-container{
     padding: 5px 30px 5px 30px;
@@ -22,6 +55,61 @@
     height: 250px;
     float: center;
 }
+
+
+
+/*정렬*/
+/*
+.box-radio-input input[type="radio"]{
+    display:none;
+}
+  
+.box-radio-input input[type="radio"] + span{
+    display:inline-block;
+    background:none;
+    border:1px solid #dfdfdf;  
+    padding:0px 10px;
+    text-align:center;
+    height:35px;
+    line-height:33px;
+    font-weight:500;
+    cursor:pointer;
+}
+  
+.box-radio-input input[type="radio"]:checked + span{
+    border:1px solid #c0412b;
+    background:#c0412b;
+    color:#fff;
+}
+*/
+
+.box-radio-input input[type="radio"]{
+    display: none;
+    margin: 10px;
+}
+
+.box-radio-input input[type="radio"]+label{
+    display:inline-block;
+    margin: -2px;
+    padding:10px;
+    background-color:#ffffff;
+    color: #000000;
+    border:1px solid #dfdfdf;  
+    text-align:center;
+    width: min-content;
+
+    /*line-height:33px;
+    font-weight:500;
+    cursor:pointer;*/
+}
+
+.box-radio-input input[type="radio"]:checked+label{
+    background-color: #c0412b;
+    color:#ffffff;
+}
+
+
+
 
 /*태그*/
 #tag-button{

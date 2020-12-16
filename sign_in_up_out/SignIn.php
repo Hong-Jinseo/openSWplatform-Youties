@@ -1,5 +1,5 @@
 <?
- include"session.php";   //session.php파일을 포함
+ include "session.php";   //session.php파일을 포함
 ?>
 
 <!DOCTYPE html>
