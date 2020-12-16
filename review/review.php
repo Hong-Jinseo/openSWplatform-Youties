@@ -97,7 +97,7 @@ $result_4 = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' O
     <body>
         <header id="main_header_logo">
 
-            <a href="main.html">
+            <a href="../main.php">
                 <img src="image/logo2_removebg.jpg" id="logo_header" alt="YOUTIES" width="150"/><br>
             </a>
 
@@ -115,7 +115,7 @@ $result_4 = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' O
                     <a class = "top_menu" href = "../sign_in_up_out/SignIn.php" target = "_top" color="white">SIGN IN</a> 
                 <?php
                 }else { ?>              
-                    <a class = "top_menu" href = "../my_page/myPage.html" target = "_top"><?php echo $_SESSION['my_name'];?></a> 
+                    <a class = "top_menu" href = "../my_page/myPage.php" target = "_top"><?php echo $_SESSION['my_name'];?></a> 
                     <a class = "top_menu" href = "../sign_in_up_out/SignOut.php" target = "_top">SIGN OUT</a> 
                 <?php
                 }
@@ -219,7 +219,7 @@ $result_4 = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' O
                     <div id="write_review">
                         <b>Review this Channel</b>
                     <!-- 리뷰작성.html로 넘기기 -->
-                        <a href="reviewwrite.html"><img src= "more.jpg" style="width=30; height=30;"></a>
+                        <a href=""><img src= "more.jpg" style="width=30; height=30;"></a>
                     </div>
 
 

@@ -33,7 +33,7 @@ if(mysqli_num_rows($result)==1) {
 
             ?>
             <script>
-                location.replace("main.php");
+                location.replace("../main.php");
             </script>
             <?php
         }else{

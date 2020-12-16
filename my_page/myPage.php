@@ -25,7 +25,7 @@ session_start();
 <header>
     <div class="container">
         <div class="header-inner">
-        <div class="logo"><a href="main.html"><img src = "logo2_removebg.jpg" border = "0" width="150"></a></div>
+        <div class="logo"><a href="../main.php"><img src = "logo2_removebg.jpg" border = "0" width="150"></a></div>
        <!--  <p style="text-align:right">Kim Ewha</p> -->
         </div>
     </div>

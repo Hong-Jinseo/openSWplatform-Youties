@@ -42,7 +42,7 @@
 			<section class="app2">
 
 				<figure>
-					<a href="main.php">
+					<a href="../main.php">
 						<img src="image/youties_logo.png" id="logo_small" alt="YOUTIES" height="70dp"/><br>
 					</a>
 				</figure>

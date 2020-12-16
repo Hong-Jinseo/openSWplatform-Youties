@@ -39,7 +39,7 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 
 		<script type = "text/javascript">
 			function goMainPage() { 
-				location.href="main.html";
+				location.href="../main.php";
 			}
 
 			
@@ -111,7 +111,7 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 		
 		<header id="main_header_logo">
 
-			<a href="main.html">
+			<a href="../main.php">
 				<img src="image/logo2_removebg.jpg" id="logo_header" alt="YOUTIES" width="150"/><br>
 			</a>
 
@@ -125,11 +125,11 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 		
 
 				if(!isset($_SESSION['my_name'])){ ?>   
-					<a class = "top_menu" href = "SignUp.php" target = "_top" color="white">SIGN UP</a> 
-					<a class = "top_menu" href = "SignIn.php" target = "_top" color="white">SIGN IN</a> 
+					<a class = "top_menu" href = "../sign_in_up_out/SignUp.php" target = "_top" color="white">SIGN UP</a> 
+					<a class = "top_menu" href = "../sign_in_up_out/SignIn.php" target = "_top" color="white">SIGN IN</a> 
 				<?php
 				}else { ?>              
-					<a class = "top_menu" href = "myPage_temp.html" target = "_top"><?php echo $_SESSION['my_name'];?></a> 
+					<a class = "top_menu" href = "../my_page/myPage.php" target = "_top"><?php echo $_SESSION['my_name'];?></a> 
 					<a class = "top_menu" href = "../sign_in_up_out/SignOut.php" target = "_top">SIGN OUT</a> 
 				<?php
 				}
@@ -334,7 +334,7 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 				<!--다른 리뷰 보기-->
 				<div id="div5" class="div-background div-background-full">					
 					<div id="div5-title" class="inner-div">
-						<h2>User reviews <button type="button" id="gotoReview" onClick="location.href='review.html'">>></button> </h2>
+						<h2>User reviews <button type="button" id="gotoReview" onClick="location.href='../review/review.php'">>></button> </h2>
 					</div>
 
 					<div id="div5-subtitle" class="inner-div subtitle">

@@ -16,7 +16,7 @@
 			}
 
 			function goMainPage() { 
-				location.href="main.php";
+				location.href="../main.php";
 			}
 		</script>
 
@@ -27,7 +27,7 @@
     <form name="join" method="post" action="checkSignIn.php">
 
 		<header id="main_header_logo">
-			<a href="main.php">
+			<a href="../main.php">
 				<img src = "image/logo2_removebg.jpg" width="150">
 			</a>
 		</header>
