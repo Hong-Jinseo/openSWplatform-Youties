@@ -19,9 +19,10 @@ $result_3 = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' O
 //리뷰 부정. 뒤에 ,like DESC 붙여야 함
 $result_4 = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' ORDER BY rating ASC") or die(mysqli_error($conn));
 
-
-
-
+$tag1 = $_GET['tag1'];
+$tag2 = $_GET['tag2'];
+$tag3 = $_GET['tag3'];
+$tag4 = $_GET['tag4'];
 
 
 
@@ -129,7 +130,7 @@ $result_4 = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' O
             <div class="main-container">
 
                 <div id="option" class="inner-div">
-                    <form action="review_opt.php" method="POST">
+                    <form action="show_option.php" method="POST">
 
                         <div id="sort-button">
                             <button type="button" id="opt1" name="opt1" class="opt-btn" onclick="colorChange_opt(1); chk_opt(1)" value=0>Most recommended</button>
@@ -153,10 +154,6 @@ $result_4 = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' O
                             <button type="button" id="tag4" name="tag4" class="tag-btn" onclick="colorChange(4); chk_tag(4)" value=0>스토리텔링</button>
                             <input type="hidden" id="tag_hidden4" name="tag_hidden4" value=0>
                         </div>
-
-                        <div id="tag-button">
-                            <input type="submit" id="option-data">
-                        </div>
                     </form>
                 </div>
 
@@ -164,10 +161,41 @@ $result_4 = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' O
                 <div id="review-content">
 
                     <div id="review-detail">
+                        <?php
+
+                        $number = 0;
+
+                        echo 
+                            '<script>
+                            for(var i=1; i<5; i++){
+                                if( document.getElementById("opt_hidden"+num).value == i ){
+                                    <?php echo $number?> = i;
+                                }
+                            }
+                            </script>'
+                        ;
+
+
+                        //if( $number == 1) $row = mysqli_fetch_row($result_1);
+                        if ($number == 2) $row = mysqli_fetch_row($result_2);
+                        elseif ($number == 3) $row = mysqli_fetch_row($result_3);
+                        elseif ($number == 4) $row = mysqli_fetch_row($result_4);
+
+                        /*
+                        for(i=1; i<5; i++){
+                            if(echo '<script>document.getElementById("opt_hidden"+num).value</script>' == i){
+                                $number = i;
+                            }
+                        }
+                        */
+
+                        ?>
+
+
 
                         <div id="div1" class="inner-div inner1">
                             <?php
-                                $row = mysqli_fetch_row($result_2); 
+                                //$row = mysqli_fetch_row($result_ + $number); 
                             ?>
                         
                             <div id="user-info">
@@ -180,19 +208,6 @@ $result_4 = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' O
                                 </label>
                                 <label id="user-info-date"><?php echo $row[4];?></label>
                                 <label id="user-info-num">Youties #<?php echo $row[0];?></label>
-                            </div>
-
-                            <div id="tags">
-                                <script>
-                                    for(var k=1; k<5; k++){
-                                        if (document.getElementById(i) == 1){
-                                            <?php echo $row[4];?>
-                                        }
-                                    }
-                                    
-                                </script>
-
-                                <label id="tag1"><?php echo $row[4];?></label>
                             </div>
 
                             <div id="user-review">
