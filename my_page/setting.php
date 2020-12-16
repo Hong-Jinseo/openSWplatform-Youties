@@ -20,7 +20,7 @@ $pw = $_SESSION['my_pw'];
     </head>
 
     <body>
-        <header id="main_header_logo">
+        <header id="main_header_logo_s">
 			<img src = "logo2_removebg.jpg" width="150">
         </header>
 

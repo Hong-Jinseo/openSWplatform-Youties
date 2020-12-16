@@ -7,57 +7,80 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youties: Youtube Channel Review Site</title>
-    <link rel="stylesheet" href="myPage_style.css"/>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Youties: Youtube Channel Review Site</title>
+        <link rel="stylesheet" href="myPage_style.css"/>
 
-    <script type = "text/javascript">
-        function openSetting(){
-            url="setting.php";
-            window.open(url, "Setting", "width=400, height=330, menubar=no, toolbar=no");
-        }
-    </script>
-</head>
+        <script type = "text/javascript">
+            function openSetting(){
+                url="setting.php";
+                window.open(url, "Setting", "width=400, height=330, menubar=no, toolbar=no");
+            }
+        </script>
+    </head>
 
-<body>
-<header>
-    <div class="container">
-        <div class="header-inner">
-        <div class="logo"><a href="../main.php"><img src = "logo2_removebg.jpg" border = "0" width="150"></a></div>
-       <!--  <p style="text-align:right">Kim Ewha</p> -->
-        </div>
-    </div>
-</header>
+    <body>
+        <header id="main_header_logo">
 
-<main>
-    <div class="main-container">
-        <article class="pic"><img src = "profile.jpg" border = "0" width = "100%" height= "200px"></article>
+            <a href="../main.php">
+                <img src="logo2_removebg.jpg" id="logo_header" alt="YOUTIES" width="150"/><br>
+            </a>
 
-        <article class="info">
-            <button type="button" id="setting" onClick="openSetting();">
-                <img src="setting.jpg" id="setting-img">
-            </button>
+            <!--로그아웃 기능-->
+            <div id="header-login">
+                <?php
+                $connect = mysqli_connect('localhost', 'root', 'jinseo00', 'youties') or die ("connect fail");
+                $query ="SELECT * FROM member ORDER BY id DESC";
+                $result = $connect->query($query);
 
-            <h3>KIM EWHA</h3><br><b>관심있는 컨텐츠:</b><br>
-            <div class="tag"><font color="white">고양이</font></div>
-            <div class="tag"><font color="white">이화여대</font></div>
-            <div class="tag"><font color="white">A+</font></div>
-            <div class="tag"><font color="white">부대찌개</font></div>
-        </article>
-        <article class="diagram"><img src="diagram.jpg" width ="100%" height ="100%"></article>
-    </div>
-</main>
+                if(!isset($_SESSION['my_name'])){ ?>   
+                    <a class = "top_menu" href = "../sign_in_up_out/SignUp.php" target = "_top" color="white">SIGN UP</a> 
+                    <a class = "top_menu" href = "../sign_in_up_out/SignIn.php" target = "_top" color="white">SIGN IN</a> 
+                <?php
+                }else { ?>              
+                    <a class = "top_menu" href = "../my_page/myPage.php" target = "_top"><?php echo $_SESSION['my_name'];?></a> 
+                    <a class = "top_menu" href = "../sign_in_up_out/SignOut.php" target = "_top">SIGN OUT</a> 
+                <?php
+                }
+                ?>
+            </div>
+        </header>
 
-<section>
-    <div class="section-container">
-        <article class="reviews"><a href="youties_reviews_김지현_201201_08시30분.html"><img src= "more.jpg" style="float: right; width=30; height=30;"></a><h1>작성한 리뷰</h1><p style="color:rgb(153, 44, 44)"><b>haha ha</b></p>사람이 많이 나오지 않고 고양이 위주의 영상이 올라와서 좋아요.</article>
-        <article class="comments"><a href="youties_comments_김지현_201201_08시30분.html"><img src= "more.jpg" style="float: right; width=30; height=30;"></a><h1>작성한 댓글</h1><p style="color:rgb(153, 44, 44)"><b>ewhauniv - community</b></p>맞아요 오늘 올라온 영상 하늘이 진짜 예쁘더라구요!!</article>
-        <article class="likes"><a href="youties_likes_김지현_201201_08시30분.html"><img src= "more.jpg" style="float: right; width=30; height=30;"></a><h1>좋아요 누른 리뷰</h1><p style="color:rgb(153, 44, 44)"><b>haha ha  ewhauniv  lovecat</b></p></article>
-        <article class="communities"><a href="youties_communities_김지현_201201_08시30분.html"><img src= "more.jpg" style="float: right; width=30; height=30;"></a><h1>가입한 커뮤니티</h1><p style="color:rgb(153, 44, 44)"><b>ewhauniv  hello_world  starrrr</b></p></article>
-    </div>
-</section>
-<!-- <footer id="footer"> Copyright ⓒ 2020 Youties </footer> -->
-</body>
+        <main id="main">
+            <div id="grid-main">
+                <div class="main-container" id="div1">
+                   
+                        
+                    <button type="button" id="setting" onClick="openSetting();">
+                        <img src="setting.jpg" id="setting-img">
+                    </button>
+
+                </div>
+
+                <div id="div2">
+                    시각화
+                </div>
+
+
+                <div id="div3">
+                    리뷰
+                </div>
+
+                <div id="div4">
+                    좋아요
+                </div>
+
+            </div>
+        </main>
+
+
+
+
+        <section>
+            <div class="section-container">
+            </div>
+        </section>
+    </body>
 </html>
