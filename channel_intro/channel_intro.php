@@ -1,4 +1,18 @@
+<?php
+//리뷰 DB에 저장된 정보 가져오기
+$host = 'localhost';
+$user = 'root';
+$pw = 'jinseo00';
+$dbName = 'youties';
 
+$conn = new mysqli($host, $user, $pw, $dbName) or die("Failed");
+
+//채널명 직접 입력하면 안됨
+$channel_name = "haha ha";
+
+$result_review_acs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' ORDER BY rating ASC") or die(mysqli_error($conn));
+$result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' ORDER BY rating DESC") or die(mysqli_error($conn));
+?>
 
 
 <!DOCTYPE html>
@@ -264,6 +278,7 @@
 				</div>
 
 				<!--다른 리뷰 보기-->
+
 				<div id="div5" class="div-background div-background-full">					
 					<div id="div5-title" class="inner-div">
 						<h2>User reviews <button type="button" id="gotoReview" onClick="location.href='review.html'">>></button> </h2>
@@ -279,50 +294,82 @@
 
 					
 					<div id="div5-review1" class="inner-div inner5">
+						<?php $rd_row = mysqli_fetch_row($result_review_decs); ?>
+					
 						<div id="user-info">
-							<label id="user-info-star">★ ★ ★ ★</label>
-							<label id="user-info-date">2020. 12. 16</label>
-							<label id="user-info-num">Youties #26</label>
+							<label id="user-info-star">
+								<script>
+									for (i=0; i< <?php echo $rd_row[7];?>; i++){
+										document.write("★ ");
+									}
+								</script>
+							</label>
+							<label id="user-info-date"><?php echo $rd_row[13];?></label>
+							<label id="user-info-num">Youties #<?php echo $rd_row[0];?></label>
 						</div>
 
 						<div id="user-review">
-							리뷰 내용<br>리뷰 내용<br>리뷰 내용<br>
+							<b><?php echo $rd_row[5];?></b> <?php echo $rd_row[6];?>
 						</div>
 					</div>
 
 					<div id="div5-review2" class="inner-div inner5">
+						<?php $ra_row = mysqli_fetch_row($result_review_acs); ?>
+						
 						<div id="user-info">
-							<label id="user-info-star">★</label>
-							<label id="user-info-date">2020. 12. 16</label>
-							<label id="user-info-num">Youties #26</label>
+							<label id="user-info-star">
+								<script>
+									for (i=0; i< <?php echo $ra_row[7];?>; i++){
+										document.write("★ ");
+									}
+								</script>
+							</label>
+							<label id="user-info-date"><?php echo $ra_row[13];?></label>
+							<label id="user-info-num">Youties #<?php echo $ra_row[0];?></label>
 						</div>
 
 						<div id="user-review">
-							리뷰 내용<br>리뷰 내용<br>리뷰 내용<br>
+							<b><?php echo $ra_row[5];?></b> <?php echo $ra_row[6];?>
 						</div>
 					</div>
 
 					<div id="div5-review3" class="inner-div inner5">
+						<?php $rd_row = mysqli_fetch_row($result_review_decs); ?>
+
 						<div id="user-info">
-							<label id="user-info-star">★ ★ ★ ★</label>
-							<label id="user-info-date">2020. 12. 16</label>
-							<label id="user-info-num">Youties #26</label>
+							<label id="user-info-star">
+								<script>
+									for (i=0; i< <?php echo $rd_row[7];?>; i++){
+										document.write("★ ");
+									}
+								</script>
+							</label>
+							<label id="user-info-date"><?php echo $rd_row[13];?></label>
+							<label id="user-info-num">Youties #<?php echo $rd_row[0];?></label>
 						</div>
 
 						<div id="user-review">
-							리뷰 내용<br>리뷰 내용<br>리뷰 내용<br>
+							<b><?php echo $rd_row[5];?></b> <?php echo $rd_row[6];?>
 						</div>
 					</div>
 
 					<div id="div5-review4" class="inner-div inner5">
+						<?php $ra_row = mysqli_fetch_row($result_review_acs); ?>
+						
 						<div id="user-info">
-							<label id="user-info-star">★</label>
-							<label id="user-info-date">2020. 12. 16</label>
-							<label id="user-info-num">Youties #26</label>
+							<label id="user-info-star">
+								<script>
+									for (i=0; i< <?php echo $ra_row[7];?>; i++){
+										document.write("★ ");
+									}
+								</script>
+							</label>
+							<label id="user-info-date"><?php echo $ra_row[13];?></label>
+							<label id="user-info-num">Youties #<?php echo $ra_row[0];?></label>
 						</div>
 
 						<div id="user-review">
-							리뷰 내용<br>리뷰 내용<br>리뷰 내용<br>
+							<b><?php echo $ra_row[5];?></b> <?php echo $ra_row[6];?>
 						</div>
 					</div>
 				</div>
