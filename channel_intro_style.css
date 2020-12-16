@@ -1,0 +1,401 @@
+*{margin:0;padding: 0;}
+/*공통*/
+.div-background{
+    background-color: rgb(224,224,224);
+}
+
+.div-background-full{
+    height: -webkit-min-content;
+    height: -moz-min-content;
+    height: min-content;
+}
+
+
+/*상단바*/
+#main_header_logo{
+    background: #c0412b;
+    padding-top: 3px;
+}
+
+#channel-intro{
+    /*전체 텍스트 가운데 배치*/
+    text-align: center;
+    margin-top: 60px;
+    margin-left: 200px;
+    margin-right: 200px;
+
+    /*삭제해야 함~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    /*width:1100px;*/
+}
+
+#channel-intro-grid{
+    /*텍스트 내용 왼쪽 정렬*/
+    text-align: left;  
+
+    display: grid;
+    grid-template-columns: 6fr 5fr;
+    grid-template-rows: 300px 1fr 1fr;
+
+    /* grid 내 row 간격 */
+    row-gap: 30px;
+
+    /* grid 내 column 간격 */
+    -webkit-column-gap: 30px;
+    column-gap: 30px;
+    
+    /*border: 2px solid rgb(179, 34, 18);     /*투명으로 바꾸기*/
+    margin: 0 auto;
+}
+
+
+/* 유튜버 소개 */
+#div1{
+    grid-column: 1/2;
+    grid-row: 1/2;
+
+    height: 290px;
+
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 1fr 2fr;
+    text-align: left;
+}
+
+#div1-1{
+    /* 사진 div */
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
+
+#div1-2{
+    /* 채널명 div */
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding-top: 10px;
+    color: rgb(179, 34, 18);;
+}
+
+#div1-3{
+    /* 채널 소개 리스트 */
+    grid-column: 2/3;
+    grid-row: 2/3;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+
+
+
+/* 채널 리뷰 요약 */
+#div2{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    height: 30px;
+}
+
+
+
+
+
+/* 리뷰 쓰기 */
+#div4{
+    grid-column: 1/3;
+    grid-row: 2/3;
+    background-color: rgb(255, 255, 255);
+}
+
+#div4-grid{
+
+    /*padding-left: 30px;
+    padding-right: 30px;*/
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 70px 90px 300px;
+    row-gap: 10px;
+    -webkit-column-gap: 10px;
+    column-gap: 10px;
+}
+
+#div4-1{
+    /*타이틀*/
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+
+#div4-2{
+    /*별점*/
+    background-color: rgb(224,224,224);
+    grid-column: 1/2;
+    grid-row: 2/3;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 3fr;
+    row-gap: 0px;
+    -webkit-column-gap: 0px;
+    column-gap: 0px;
+
+    vertical-align: middle;
+}
+
+#div4-2-1{
+    grid-column: 1/7;
+    grid-row: 1/2;
+    /*border: 2px solid rgb(179, 34, 18);*/
+}
+
+#div4-2-2{
+    grid-column: 1/6;
+    grid-row: 2/3;
+
+    /*border: 2px solid rgb(179, 34, 18);*/
+}
+
+#div4-2-3{
+    grid-column: 6/7;
+    grid-row: 2/3;
+    
+    float: left;
+    text-align: center;
+    padding-top: 17px;
+
+    /*border: 2px solid rgb(179, 34, 18);*/
+}
+
+
+
+
+#div4-3{
+    /*태그*/
+    background-color: rgb(224,224,224);
+    grid-column: 2/4;
+    grid-row: 2/3;
+}
+
+#div4-4{
+    /*리뷰*/
+    background-color: rgb(224,224,224);
+    grid-column: 1/3;
+    grid-row: 3/4;
+    padding: 10px
+}
+
+#div4-5{
+    /*유해성*/
+    background-color: rgb(224,224,224);
+    grid-column: 3/4;
+    grid-row: 3/4;
+}
+
+
+
+
+
+/* 다른 리뷰 보기 */
+#div5{
+    grid-column: 1/3;
+    grid-row: 3/4;
+
+    
+    margin-top: 20px;
+    /*
+    margin-left: 30px;
+    margin-right: 30px;
+    */
+
+    background-color: rgb(255, 255, 255);
+    /*border: 2px solid rgb(179, 34, 18);     /*투명으로 바꾸기*/
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 70px 30px 140px 140px;
+    row-gap: 10px;
+    -webkit-column-gap: 40px;
+    column-gap: 40px;
+}
+
+#div5-title{
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+
+
+
+
+
+
+/* 유튜버 소개 : 내부 디자인 */
+#channel-image{
+    width: 250px;
+    height: 250px;
+
+}
+
+h1{ font-size: 40px; }
+
+h2{ font-size: 25px; }
+
+
+
+
+
+
+/* 리뷰 쓰기 */
+.inner-div{
+    padding-top: 9px;
+    padding-left: 13px;
+}
+
+
+
+
+/*별점*/
+.star_rating {font-size:0; letter-spacing:-4px;}
+.star_rating a {
+    padding-left: 5px;
+    font-size:35px;
+    letter-spacing:0;
+    display:inline-block;
+    margin-left:5px;
+    color:#ccc;
+    text-decoration:none;
+}
+.star_rating a:first-child {margin-left:0;}
+.star_rating a.on {color:#c0412b;}
+
+.star_2 {font-size:0; letter-spacing:-4px;}
+.star_2 a {
+  padding-left: 5px;
+  font-size:35px;
+  letter-spacing:0;
+  display:inline-block;
+  margin-left:5px;
+  color:#ccc;
+  text-decoration:none;
+}
+.star_2 a:first-child {margin-left:0;}
+.star_2 a.on {color:#c0412b;}
+
+.inner-div-allpadding{
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+
+/*태그*/
+#tag-button{
+    margin-top: 8px;
+}
+
+.tag-btn{
+    color: black;
+    background-color: rgb(187, 186, 186);
+    border: none;
+
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
+/*리뷰*/
+textarea{ resize: none; }
+
+.inner-div-4{
+    padding: 10px
+}
+
+#write-review{
+    padding: 10px;
+    width: 1fr;
+}
+
+#write-review textarea{
+    font-size: 15px;
+
+    padding-top: 12px;
+    padding-left: 12px;
+
+    margin-right: 10px;
+
+    width: 97%;
+}
+
+#review-title{
+    height: 30px;
+}
+
+#submit_review_btn{
+    width: 100%;
+    height: 40px;
+    margin-top: 7px;
+
+    color: white;
+    background-color: #c0412b;
+    border: none;
+    font-size: larger;
+}
+
+
+/*유해성*/
+#div4-title{
+    padding: 10px;
+    font-size: larger;
+}
+
+#harmful-checkbox-all{
+    padding-left: 15px;
+    padding-right: 25px;
+    font-size: larger;
+    
+}
+
+.harmful-checkbox{
+    margin-bottom: 10px;
+}
+
+.harmful-checkbox input{
+    float: right;
+    zoom: 1.5
+    
+}
+
+
+
+
+
+/* 리뷰 보기 */
+.inner5{
+    background-color: rgb(224,224,224)
+}
+
+.subtitle{
+    font-size: 20px;
+}
+
+#user-info{
+    margin-bottom: 15px;
+}
+
+#user-info-star{
+    font-size: 28px;
+    color: #c0412b;
+    margin-right: 10px;
+}
+
+#user-info-num{
+    font-size: 20px;
+}
+
+#gotoReview{
+    font-size: 25px;
+    border: none;
+    background-color: white;
+}
