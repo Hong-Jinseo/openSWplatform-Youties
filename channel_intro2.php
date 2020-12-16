@@ -12,7 +12,7 @@ $channel_name = "haha ha";
 
 $result_review_acs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' ORDER BY rating ASC") or die(mysqli_error($conn));
 $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' ORDER BY rating DESC") or die(mysqli_error($conn));
-$get_you = $_GET["get_you"];
+$get_you = $_GET["channel_key"];
 ?>
 
 
@@ -221,19 +221,15 @@ $get_you = $_GET["get_you"];
           }else{
             echo " 데이터가 없습니다";
           }
-          ?>
-
+					?>
 					<div id="div4-2-2">
-					<p class="star_2">
-
-						<?php for($i=0;$i< $kk;$i++){ ?>
-							<a href="javascript://" class="on">★</a>
-						<?php }?>
+						<p class="star_2">
+							<?php for($i=0;$i< $kk;$i++){ ?>
+								<a href="javascript://" class="on">★</a>
+							<?php }?>
 							<?php for($i=0;$i<5-$kk;$i++){ ?>
-							<a href="javascript://">★</a>
-						<?php }?>
-
-
+								<a href="javascript://">★</a>
+							<?php }?>
             </p>
           </div>
           <div style="margin-top:15px;">

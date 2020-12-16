@@ -31,22 +31,22 @@
       </div>
     </div>
   </form>
- 
-  <?php 
+
+  <?php
   //mysql 접속 계정 정보 설정
   $mysql_host = '127.0.0.1';
   $mysql_user = 'root';
-  $mysql_password = '';
-  $mysql_db = 'youtube_info';
-  
-  
+  $mysql_password = '111111';
+  $mysql_db = 'youties';
+
+
   //connetc 설정(host,user,password)
   $conn = mysqli_connect($mysql_host,$mysql_user,$mysql_password,$mysql_db)or die("fail");
   $conn2 = mysqli_connect($mysql_host,$mysql_user,$mysql_password,'youties')or die("fail");
   //쿼리문 작성
   //echo "<tr><th>".$_GET["keyword"];
-  $input = $_GET['keyword'];
-  
+  //$input = $_GET['keyword'];
+
   $query = "SELECT * FROM channels WHERE name LIKE '%$input%'";
   $query2 = "SELECT * FROM reviews WHERE channel LIKE '%$input%'";
 
@@ -57,7 +57,7 @@
 
 
   <div id = "table_style">
-  
+
     <table class = "search_result_table">
       <thead>
         <tr>
@@ -69,11 +69,11 @@
         </tr>
       </thead>
       <tbody>
-    
-  <?php 
+
+  <?php
     echo $input." channel 검색 결과";
 
-    if (mysqli_num_rows($result) > 0) { 
+    if (mysqli_num_rows($result) > 0) {
       while($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
         echo "<td>" . $row["category"]. "</td>";
@@ -82,7 +82,11 @@
         //echo '<img src="https://yt3.ggpht.com/ytc/AAUvwng-4r6Mq9XzKbP2ytrO6HgugZ7OOqhh5--Onsk8oA=s176-c-k-c0x00ffffff-no-rj"/>';
         //echo '<img src="data:image/jpeg;base64,'.base64_encode($row['image'] ).'"/>';
         echo "</td>";
-        echo "<td>" . $row["name"]. "</td><td>"; //채널명에 채널 소개 링크
+?>
+
+         <td> <a href="channel_intro2.php?channel_key=<?=$row["id"]?>"> <?php echo $row["name"]?> </a> </td><td> <?php //채널명에 채널 소개 링크
+
+
 
         //Info tab
         echo "<div id = info_tab>";
@@ -102,44 +106,44 @@
         echo "<img src='img_rating.png'/>". " ".$row["videos"]."</p>";
         echo "<p>";
         echo "<img src='img_reviews.png'/>". " ".$row["videos"]."</p></td>";
-        
+
         echo "</tr>";
       }
     } else { //if there's no results found
       echo "</tbody>";
       echo "</table>";
-      echo "</div>"; 
+      echo "</div>";
       //warning image style
       echo "<p>"."<img src='img_warning.png'/>"."</p>";
-      
+
       //warning text style
       echo "<p>"."No results found from channel name"."</p>";
     }
-   
+
   ?>
       </tbody>
     </table>
-  </div> 
+  </div>
 
   <div id = "table_style">
-   
+
     <table class = "search_result_table">
       <thead>
         <tr>
-          <th width = "150">Channel Name</th> 
+          <th width = "150">Channel Name</th>
           <th width = "450">Reviews</th>
           <th width = "200">Rating</th>
           <th width = "200">Date</th>
         </tr>
       </thead>
       <tbody>
-    
-  <?php 
+
+  <?php
   echo $input." channel reviews 검색 결과";
-    if (mysqli_num_rows($result2) > 0) { 
+    if (mysqli_num_rows($result2) > 0) {
       while($row = mysqli_fetch_assoc($result2)) {
         echo "<tr>";
-        echo "<td>" . $row["channel"]. "</td>"; //채널명에 채널 소개 링크
+        echo "<td>" .$row["channel"]. "</td>"; //채널명에 채널 소개 링크
         echo "<td><p><b>" . $row["title"]. "</b></p>"; //글 제목에 리뷰 링크
 
         if (strlen($row["content"])>30) { //글자수 30 넘으면 ...
