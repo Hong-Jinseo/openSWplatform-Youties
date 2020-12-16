@@ -13,6 +13,7 @@ $channel_name = "haha ha";
 
 $result_review_acs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' ORDER BY rating ASC") or die(mysqli_error($conn));
 $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' ORDER BY rating DESC") or die(mysqli_error($conn));
+$get_you = $_GET["get_you"];
 ?>
 
 
@@ -89,19 +90,6 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 					if($(this).value==0){$(this).value(1)}
 					else{$(this).value(0)}
 				});
-
-				/* TAG 색 바꾸기
-				$(".tag-btn").click(function(){
-					if(tag-btn.css("color") != "rgb(255, 255, 255)"){
-						tag-btn.css("color", "rgb(255, 255, 255)");
-						tag-btn.css("background-color", "rgb(192, 65, 43)");
-					}
-					else{
-						tag-btn.css("color", "rgb(0, 0, 0)");
-						tag-btn.css("background-color", "rgb(187, 186, 186)");
-					}
-				});
-				*/
 			});			
 			
 		</script>
@@ -145,29 +133,87 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 			<!--grid 배치-->
 			<div id="channel-intro-grid">
 
+				<?php
+				$sql = "select * from channels where id = '$get_you'";
+				//db를 선택시 어떤 조건의 데이터를 불러올지
+				$result = mysqli_query($connect, $sql);
+				//그 결과값을 담음
+				$row = mysqli_fetch_array($result);
+				$ch = $row['id'];
+				$movie= $row["movie"];
+				?>
+
 				<!--유튜버 소개-->
 				<div id="div1" class="div-background">
 					<div id="div1-1">
 						<figure>
-							<img src="https://yt3.ggpht.com/ytc/AAUvwng-4r6Mq9XzKbP2ytrO6HgugZ7OOqhh5--Onsk8oA=s176-c-k-c0x00ffffff-no-rj" id="channel-image" alt="">
+              				<img style="width:285px" src="<?php echo $row['image']?>" alt="">
 						</figure>
 					</div>
 
 					<div id="div1-2">
-						<h1>haha ha</h1>
+						<h1><?php echo $row['name']?></h1>
 					</div>
 
 					<div id="div1-3">
-						<b>pets & animals</b><br>
-						1,000,000 subscribers<br>
-						1,000 reviews<br>
-						10,000 likes
+						<b><?php echo $row['category']?></b><br>
+						<?php echo $row['subscribers']?> subscribers<br>
+						<?php echo $row['videos']?> videos<br>
 					</div>
 				</div>
 
 				<!--채널 리뷰 요약-->
 				<div id="div2" class="div-background">
-					채널 리뷰 요약
+					<b>SUMMARY</b>
+
+					<?php
+					$sql = "select * from reviews where parent = '$ch'";
+					$result = mysqli_query($connect, $sql);
+					$num_rows = mysqli_num_rows($result);
+					if($num_rows > 0){
+
+					$row = mysqli_fetch_array($result);
+
+					for($i2=0;$i2<$num_rows;$i2++){
+						mysqli_data_seek($result, $i2);
+						$row = mysqli_fetch_array($result);
+						$kk[] = $row["rating"];
+
+						$kk1[] = $row["sexual"];
+						$kk2[] = $row["violent"];
+						$kk3[] = $row["crude"];
+						$kk4[] = $row["horror"];
+						$kk5[] = $row["imitative"];
+					}
+					$kk = round(array_sum($kk)/$num_rows);
+					$kk1 = round(array_sum($kk1));
+					$kk2 = round(array_sum($kk2));
+					$kk3 = round(array_sum($kk3));
+					$kk4 = round(array_sum($kk4));
+					$kk5 = round(array_sum($kk5));
+					}else{
+					echo " 데이터가 없습니다";
+					}
+					?>
+
+					<div id="div4-2-2">
+						<p class="star_2">
+							<?php for($i=0;$i<5;$i++){ ?>
+								<a href="javascript://" class="on">★</a>
+							<?php }?>
+								<?php for($i=0;$i<5-$kk;$i++){ ?>
+								<a href="javascript://">★</a>
+							<?php }?>
+						</p>
+					</div>
+					  
+					<div style="margin-top:15px;">
+						<p>sexual : (<?php echo $kk1?>)</p>
+						<p>violent : (<?php echo $kk2?>)</p>
+						<p>crude : (<?php echo $kk3?>)</p>
+						<p><p>horror : (<?php echo $kk4?>)</p>
+						<p>encourage imitative actions : (<?php echo $kk5?>)</p>
+					</div>
 				</div>
 
 			
@@ -260,14 +306,11 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 								</div>
 							</div>
 						</div>
-
-						
 					</form>
-					
 				</div>
 
-				<!--다른 리뷰 보기-->
 
+				<!--다른 리뷰 보기-->
 				<div id="div5" class="div-background div-background-full">					
 					<div id="div5-title" class="inner-div">
 						<h2>User reviews <button type="button" id="gotoReview" onClick="location.href='review.html'">>></button> </h2>
@@ -361,6 +404,11 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 							<b><?php echo $ra_row[5];?></b> <?php echo $ra_row[6];?>
 						</div>
 					</div>
+				</div>
+
+				<!--대표 동영상-->
+				<div id="div6" class="div-background div-background-full">
+					<iframe width="100%" height="666px" src="<?php echo $movie?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
 			</div>
 		</div>
