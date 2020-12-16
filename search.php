@@ -96,7 +96,7 @@ $dbName = 'youties';
         echo "</td>";
 ?>
 
-         <td> <a href="channel_intro2.php?channel_key=<?=$row["id"]?>"> <?php echo $row["name"]?> </a> </td><td> <?php //채널명에 채널 소개 링크
+         <td> <a href="./channel_intro/channel_intro.php?channel_key=<?=$row["id"]?>"> <?php echo $row["name"]?> </a> </td><td> <?php //채널명에 채널 소개 링크
 
 
 

@@ -7,7 +7,7 @@ $dbName = 'youties';
 
 $conn = new mysqli($host, $user, $pw, $dbName) or die("Failed");
 
-$get_you = $_GET["get_you"];
+$get_you = $_GET["channel_key"];
 //$channel_name = 'haha ha';
 
 $result_channel = mysqli_query($conn, "SELECT * FROM channels WHERE id=$get_you") or die(mysqli_error($conn));
@@ -27,7 +27,7 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 	<head>
 		<meta charset="utf-8">
 		<title>Youties</title>
-		<link rel="stylesheet" href="channel_intro_style.css">
+		<link rel="stylesheet" href="channel_intro_style2.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<script src="jquery-3.5.1.min.js"></script>
@@ -203,7 +203,7 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 
 					<div id="div4-2-2">
 						<p class="star_2">
-							<?php for($i=0;$i<5;$i++){ ?>
+							<?php for($i=0;$i<$kk;$i++){ ?>
 								<a href="javascript://" class="on">★</a>
 							<?php }?>
 								<?php for($i=0;$i<5-$kk;$i++){ ?>

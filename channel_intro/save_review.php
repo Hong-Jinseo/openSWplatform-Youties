@@ -74,7 +74,7 @@ if($_POST['rating']==0){
     } else {
     echo "<script>alert(\"리뷰가 등록되었습니다.\");</script>"; ?>
     <script>var final_parent = "<?php echo $_POST['parent-db'] ?>"; </script>
-    <?php echo "<script>location.href='channel_intro.php?get_you='+final_parent</script>";
+    <?php echo "<script>location.href='channel_intro.php?channel_key='+final_parent</script>";
     }
 }
 
