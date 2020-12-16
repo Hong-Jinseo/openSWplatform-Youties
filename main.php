@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta charset = "utf-8">
-  <meta name = "description" content = "main page">
+  <meta name = "descriyouties_infoption" content = "main page">
   <title>Youties</title>
   <link rel = "stylesheet" href = "main.css?after">
   <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -15,17 +15,17 @@
       <!--로그아웃 기능-->
 				<?php
 				
-        $connect = mysqli_connect('127.0.0.1', 'root', '', 'youties') or die ("connect fail");
+        $connect = mysqli_connect('localhost', 'root', 'jinseo00', 'youties') or die ("connect fail");
         $query ="SELECT * FROM member ORDER BY id DESC";
 				$result = $connect->query($query);
 		
 				if(!isset($_SESSION['my_name'])){ ?>   
-					<a class = "top_menu" href = "SignUp.php" target = "_top">SIGN UP</a> 
-					<a class = "top_menu" href = "SignIn.php" target = "_top">SIGN IN</a> 
+					<a class = "top_menu" href = "./sign_in_up_out/SignUp.php" target = "_top">SIGN UP</a> 
+					<a class = "top_menu" href = "./sign_in_up_out/SignIn.php" target = "_top">SIGN IN</a> 
 				<?php
 				}else { ?>              
-					<a class = "top_menu" href = "myPage_temp.html" target = "_top"><?php echo $_SESSION['my_name'];?></a> 
-					<a class = "top_menu" href = "SignOut.php" target = "_top">SIGN OUT</a> 
+					<a class = "top_menu" href = "./my_page/myPage.html" target = "_top"><?php echo $_SESSION['my_name'];?></a> 
+					<a class = "top_menu" href = "./sign_in_up_out/SignOut.php" target = "_top">SIGN OUT</a> 
 				<?php
 				}
 				?>
