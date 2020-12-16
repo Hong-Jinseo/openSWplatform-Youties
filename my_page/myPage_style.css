@@ -175,6 +175,7 @@
 
 #review-div{
     background-color: rgb(224,224,224);
+    margin-bottom: 20px;
 }
 
 #div4{
@@ -230,4 +231,20 @@
     width: 95%;
     height: max-content;
     font-size: 18px;
+}
+
+#delete-btn-form{
+    text-align: right;
+}
+
+#del{
+    color:#ffffff;
+    background-color: #c0412b;
+    border: none;
+
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    float: right;
 }
