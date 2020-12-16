@@ -226,7 +226,7 @@ $get_you = $_GET["get_you"];
 					<div id="div4-2-2">
 					<p class="star_2">
 
-						<?php for($i=0;$i< $kk;$i++){ ?>
+						<?php for($i=0;$i<5;$i++){ ?>
 							<a href="javascript://" class="on">★</a>
 						<?php }?>
 							<?php for($i=0;$i<5-$kk;$i++){ ?>
