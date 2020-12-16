@@ -74,15 +74,24 @@ button.search_btn{
 }
 
 #table_style {
-  /*background-color:rgb(224, 224, 224);*/
+  background-color:white;
   padding: 20px;
   border: 0px;
-  width: 100%;
   margin-bottom: 20px;
 }
 
 .search_result_table {
   overflow-x: auto;
+}
+
+#info_tab {
+  text-align: left;
+  font-size: 15px;
+}
+
+#rating_tab {
+  text-align: left;
+  font-size: 15px;
 }
 
 th {
@@ -93,7 +102,7 @@ th {
 
 td {
   text-align: center;
-  padding: 10px;
-  font-size: 10px;
+  padding: 5px;
+  font-size: 15px;
   border-bottom: 1px solid #dadada;
 }
