@@ -1,4 +1,10 @@
-<?php include("header.php"); ?>
+<?php
+//리뷰 DB에 저장된 정보 가져오기
+$host = 'localhost';
+$user = 'root';
+$pw = 'jinseo00';
+$dbName = 'youties';
+?>
 
 <!DOCTYPE html>
 <html>
@@ -36,16 +42,16 @@
   //mysql 접속 계정 정보 설정
   $mysql_host = '127.0.0.1';
   $mysql_user = 'root';
-  $mysql_password = '111111';
+  $mysql_password = 'jinseo00';
   $mysql_db = 'youties';
 
 
   //connetc 설정(host,user,password)
-  $conn = mysqli_connect($mysql_host,$mysql_user,$mysql_password,$mysql_db)or die("fail");
+  $conn = mysqli_connect($mysql_host, $mysql_user, $mysql_password, $mysql_db)or die("fail");
   $conn2 = mysqli_connect($mysql_host,$mysql_user,$mysql_password,'youties')or die("fail");
   //쿼리문 작성
   //echo "<tr><th>".$_GET["keyword"];
-  //$input = $_GET['keyword'];
+  $input = $_GET['keyword'];
 
   $query = "SELECT * FROM channels WHERE name LIKE '%$input%'";
   $query2 = "SELECT * FROM reviews WHERE channel LIKE '%$input%'";
@@ -78,7 +84,13 @@
         echo "<tr>";
         echo "<td>" . $row["category"]. "</td>";
         echo "<td>";
-        echo $row["image"]. "</td>";
+        ?>                                           
+        <figure>
+          <img src="<?php echo $row["image"];?>">
+        </figure>
+        <?php
+        "</td>";
+        
         //echo '<img src="https://yt3.ggpht.com/ytc/AAUvwng-4r6Mq9XzKbP2ytrO6HgugZ7OOqhh5--Onsk8oA=s176-c-k-c0x00ffffff-no-rj"/>';
         //echo '<img src="data:image/jpeg;base64,'.base64_encode($row['image'] ).'"/>';
         echo "</td>";
