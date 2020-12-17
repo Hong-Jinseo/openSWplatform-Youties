@@ -90,9 +90,6 @@ $dbName = 'youties';
         </figure>
         <?php
         "</td>";
-        
-        //echo '<img src="https://yt3.ggpht.com/ytc/AAUvwng-4r6Mq9XzKbP2ytrO6HgugZ7OOqhh5--Onsk8oA=s176-c-k-c0x00ffffff-no-rj"/>';
-        //echo '<img src="data:image/jpeg;base64,'.base64_encode($row['image'] ).'"/>';
         echo "</td>";
 ?>
 
@@ -112,7 +109,6 @@ $dbName = 'youties';
         echo "<div id = info_tab>";
 
         //rating tab
-        //echo "<style> p {text-align: left;} </style>";
         echo "<div id = rating_tab>";
         echo "<p>";
         echo "<img src='img_rating.png'/>". " ".$row["videos"]."</p>";
@@ -154,9 +150,18 @@ $dbName = 'youties';
   echo $input." channel reviews 검색 결과";
     if (mysqli_num_rows($result2) > 0) {
       while($row = mysqli_fetch_assoc($result2)) {
-        echo "<tr>";
-        echo "<td>" .$row["channel"]. "</td>"; //채널명에 채널 소개 링크
-        echo "<td><p><b>" . $row["title"]. "</b></p>"; //글 제목에 리뷰 링크
+
+
+        
+        echo "<tr>";?>
+        
+        <td> <a href="./channel_intro/channel_intro.php?channel_key=<?=$row["id"]?>"> <?php echo $row["channel"]?> </a> </td><td> <?php //채널명에 채널 소개 링크
+       
+        echo "<p><b>";?>
+        <style>
+          a {text-decoration: none;}
+        </style>        
+        <a href="./review/review_def.php?channel_key=<?=$row["id"]?>"> <?php echo $row["title"]?> </a> </b></p> <?php //글 제목에 리뷰 링크
 
         if (strlen($row["content"])>30) { //글자수 30 넘으면 ...
           $content = str_replace($row["content"], mb_substr($row["content"], 0, 30, "utf-8")."...",$row["content"]);
