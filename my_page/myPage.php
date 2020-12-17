@@ -13,6 +13,7 @@ $result_channel = mysqli_query($conn, "SELECT * FROM reviews WHERE email='{$_SES
 $result_tag = mysqli_query($conn, "SELECT * FROM tags WHERE email='{$_SESSION['my_email']}' ORDER BY id DESC") or die(mysqli_error($conn));
 $total = mysqli_num_rows($result_channel);
 $cnt = 0;
+$cnt2 = 1;
 ?>
 
 
@@ -61,41 +62,41 @@ $cnt = 0;
 
         <main id="main">
             <div id="grid-main">
-                <div class="main-container" id="div1">                        
+                <div class="main-container" id="div1">          
+
                     <button type="button" id="setting" onClick="openSetting();">
                         <img src="setting.jpg" id="setting-img">
                     </button>
 
                     <div id="div1-1">
-                        <div id="div1-1-1">
-                            <figure>
-                                <img style="width:285px" src="<?php echo $row['image']?>" alt="">
-                            </figure>
-                        </div>
-
+                        <div></div>
                         <div id="div1-1-2">
                             <h1><?php echo $_SESSION['my_name']?></h1>
                         </div>
 
                         <div id="div1-1-3">
-                            <b><?php echo $_SESSION['my_email']?></b><br>
-                            내가 쓴 리뷰 수 : <?php echo $total?><br>
+                            <b><?php echo $_SESSION['my_email']?></b><br><br>
+                            <b>내가 쓴 리뷰 수 : <?php echo $total?></b><br>
                         </div>
                     </div>
+
+                    <figure>
+                        <img style="width:80px" src="user.png" alt="" >
+                    </figure>
 
 
 
                 </div>
 
                 <div id="div2">
-                    시각화
+                    <div id="div2-inner">
+                    </div>
                 </div>
 
 
-                <div id="div3">
+                <h2 id="div3">My reviews</h2>
 
-                    <h2>  My reviews</h2>
-
+                <div id="div4" class="inner-div">
                     <div id="review-div">
                         <?php 
                         $row_review = mysqli_fetch_row($result_channel);
@@ -153,7 +154,9 @@ $cnt = 0;
                         }
                         ?>
                     </div>
+                </div>
 
+                <div id="div5" class="inner-div">
                     <div id="review-div">
                         <?php 
                         $row_review = mysqli_fetch_row($result_channel);
@@ -211,7 +214,9 @@ $cnt = 0;
                         }
                         ?>
                     </div>
+                </div>
 
+                <div id="div6" class="inner-div">
                     <div id="review-div">
                         <?php 
                         $row_review = mysqli_fetch_row($result_channel);
@@ -269,7 +274,9 @@ $cnt = 0;
                         }
                         ?>
                     </div>
+                </div>
 
+                <div id="div7" class="inner-div">
                     <div id="review-div">
                         <?php 
                         $row_review = mysqli_fetch_row($result_channel);
@@ -327,7 +334,9 @@ $cnt = 0;
                         }
                         ?>
                     </div>
+                </div>
 
+                <div id="div8" class="inner-div">
                     <div id="review-div">
                         <?php 
                         $row_review = mysqli_fetch_row($result_channel);
@@ -385,15 +394,83 @@ $cnt = 0;
                         }
                         ?>
                     </div>
+                </div>
+
+                <div id="div9" class="inner-div">
+                    <div id="review-div">
+                        <?php 
+                        $row_review = mysqli_fetch_row($result_channel);
+                        $row_tag = mysqli_fetch_row($result_tag);
+
+                        $cnt = $cnt + 1;
+                        
+                        if ($cnt <= $total){?>
+                            <div id="user-info">
+                                <label id="user-info-star">
+                                    <script>
+                                        for (i=0; i< <?php echo $row_review[7];?>; i++){
+                                            document.write("★ ");
+                                        }
+                                    </script>
+                                </label>
+                                <label id="user-info-date"> <?php echo $row_review[4];?></label>
+                            </div><br>
+
+                            <div id="user-channel">
+                                <label id="user-info-channel"><b>CHANNEL</b> : <?php echo $row_review[3];?></label>
+                            </div><br>
+
+                            <div id="user-tag">
+                                <label id="user-info-tag">
+                                    <b>TAGS</b> : 
+                                    <?php
+                                        if ($row_tag[1] == 1){echo "재미있는  ";}
+                                        if ($row_tag[2] == 2){echo "유익한  ";}
+                                        if ($row_tag[3] == 3){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 4){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 5){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 6){echo "감동적인  ";}
+                                        if ($row_tag[7] == 7){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 8){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 9){echo "슬픈  ";}
+                                    ?>
+                                </label>
+                            </div><br>
+
+                            <div id="user-review">
+                                <b><?php echo $row_review[5];?></b><br>
+                                <?php echo $row_review[6];?>
+                            </div>
+
+                            <form id="delete-btn-form" action="delete_review.php" method="POST">
+                                <input type="hidden" name="delete_data" value="<?php echo $row_review[0];?>">
+                                <input type="submit" id="del" value="DEL">
+                            </form>                          
+                        <?php
+                        }
+                        else{?>
+                            <script> document.getElementById(review-div).style.backgroundColor = null; </script>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <div id="di">
+                    <h2> </h2>
+
+                
 
                     
-
-
-                </div>
-
-
-                <div id="div4">
-                    좋아요!
                 </div>
 
             </div>

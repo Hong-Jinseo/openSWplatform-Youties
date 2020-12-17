@@ -28,7 +28,7 @@ $get_you = $_GET["channel_key"];
 
 		<script type = "text/javascript">
 			function goMainPage() {
-				location.href="main.html";
+				location.href="main.php";
 			}
 
 
@@ -125,7 +125,7 @@ $get_you = $_GET["channel_key"];
 
 		<header id="main_header_logo">
 
-			<a href="main.html">
+			<a href="main.php">
 				<img src="image/logo2_removebg.jpg" id="logo_header" alt="YOUTIES" width="150"/><br>
 			</a>
 

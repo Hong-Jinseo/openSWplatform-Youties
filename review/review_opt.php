@@ -98,7 +98,7 @@ $tag4 = $_GET['tag4'];
     <body>
         <header id="main_header_logo">
 
-            <a href="main.html">
+            <a href="main.php">
                 <img src="image/logo2_removebg.jpg" id="logo_header" alt="YOUTIES" width="150"/><br>
             </a>
 
