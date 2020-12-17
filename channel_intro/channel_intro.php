@@ -17,8 +17,8 @@ $channel_name = $ch_row[2];
 
 //채널명 직접 입력하면 안됨
 
-$result_review_acs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='$channel_name' ORDER BY rating ASC") or die(mysqli_error($conn));
-$result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='$channel_name' ORDER BY rating DESC") or die(mysqli_error($conn));
+$result_review_acs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='$channel_name' ORDER BY rating ASC, id DESC") or die(mysqli_error($conn));
+$result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='$channel_name' ORDER BY rating DESC, id DESC") or die(mysqli_error($conn));
 ?>
 
 
@@ -329,7 +329,7 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 				<!--다른 리뷰 보기-->
 				<div id="div5" class="div-background div-background-full">					
 					<div id="div5-title" class="inner-div">
-						<h2>User reviews <button type="button" id="gotoReview" onClick="location.href='../review/review.php'">>></button> </h2>
+						<h2>User reviews <button type="button" id="gotoReview" onClick="location.href='../review/review_def.php'">>></button> </h2>
 					</div>
 
 					<div id="div5-subtitle" class="inner-div subtitle">
