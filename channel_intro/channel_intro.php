@@ -259,23 +259,23 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 							<div id="div4-3" class="inner-div">
 								<b>TAG</b>
 								<div id="tag-button">
-									<button type="button" id="tag1" name="tag1" class="tag-btn" onclick="colorChange(1); chk_tag(1)">재미있는</button>
+									<button type="button" id="tag1" name="tag1" class="tag-btn" onclick="chk_tag(1); colorChange(1)">재미있는</button>
 									<input type="hidden" id="tag_hidden1" name="tag_hidden1" value=0>
-									<button type="button" id="tag2" name="tag2" class="tag-btn" onclick="colorChange(2); chk_tag(2)" value=0>유익한</button>
+									<button type="button" id="tag2" name="tag2" class="tag-btn" onclick="chk_tag(2); colorChange(2)" value=0>유익한</button>
 									<input type="hidden" id="tag_hidden2" name="tag_hidden2" value=0>
-									<button type="button" id="tag3" name="tag3" class="tag-btn" onclick="colorChange(3); chk_tag(3)" value=0>힐링되는</button>
+									<button type="button" id="tag3" name="tag3" class="tag-btn" onclick="chk_tag(3); colorChange(3)" value=0>힐링되는</button>
 									<input type="hidden" id="tag_hidden3" name="tag_hidden3" value=0>
-									<button type="button" id="tag4" name="tag4" class="tag-btn" onclick="colorChange(4); chk_tag(4)" value=0>스토리텔링</button>
+									<button type="button" id="tag4" name="tag4" class="tag-btn" onclick="chk_tag(4); colorChange(4)" value=0>스토리텔링</button>
 									<input type="hidden" id="tag_hidden4" name="tag_hidden4" value=0>
-									<button type="button" id="tag5" name="tag5" class="tag-btn" onclick="colorChange(5); chk_tag(5)" value=0>몰입되는</button>
+									<button type="button" id="tag5" name="tag5" class="tag-btn" onclick="chk_tag(5); colorChange(5)" value=0>몰입되는</button>
 									<input type="hidden" id="tag_hidden5" name="tag_hidden5" value=0>
-									<button type="button" id="tag6" name="tag6" class="tag-btn" onclick="colorChange(6); chk_tag(6)" value=0>감동적인</button>
+									<button type="button" id="tag6" name="tag6" class="tag-btn" onclick="chk_tag(6); colorChange(6)" value=0>감동적인</button>
 									<input type="hidden" id="tag_hidden6" name="tag_hidden6" value=0>
-									<button type="button" id="tag7" name="tag7" class="tag-btn" onclick="colorChange(7); chk_tag(7)" value=0>짧은 길이의</button>
+									<button type="button" id="tag7" name="tag7" class="tag-btn" onclick="chk_tag(7); colorChange(7)" value=0>짧은 길이의</button>
 									<input type="hidden" id="tag_hidden7" name="tag_hidden7" value=0>
-									<button type="button" id="tag8" name="tag8" class="tag-btn" onclick="colorChange(8); chk_tag(8)" value=0>킬링타임</button>
+									<button type="button" id="tag8" name="tag8" class="tag-btn" onclick="chk_tag(8); colorChange(8)" value=0>킬링타임</button>
 									<input type="hidden" id="tag_hidden8" name="tag_hidden8" value=0>
-									<button type="button" id="tag9" name="tag9" class="tag-btn" onclick="colorChange(9); chk_tag(9)" value=0>슬픈</button>
+									<button type="button" id="tag9" name="tag9" class="tag-btn" onclick="chk_tag(9); colorChange(9)" value=0>슬픈</button>
 									<input type="hidden" id="tag_hidden9" name="tag_hidden9" value=0>
 								</div>
 							</div>
