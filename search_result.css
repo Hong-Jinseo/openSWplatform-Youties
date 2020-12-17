@@ -67,25 +67,5 @@ button.search_btn{
 
 #search_result_table{
   margin: 40px 0px 0px 60px;
-}
 
-.no_results {
-  margin-top: 120px;
-
-}
-
-.img_content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 5rem;
-}
-
-.txt_content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  font-family: system-ui, serif;
-  font-size: 2rem;
 }
