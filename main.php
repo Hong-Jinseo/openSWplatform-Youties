@@ -24,7 +24,7 @@
 					<a class = "top_menu" href = "./sign_in_up_out/SignIn.php" target = "_top">SIGN IN</a> 
 				<?php
 				}else { ?>              
-					<a class = "top_menu" href = "./my_page/myPage.html" target = "_top"><?php echo $_SESSION['my_name'];?></a> 
+					<a class = "top_menu" href = "./my_page/myPage.php" target = "_top"><?php echo $_SESSION['my_name'];?></a> 
 					<a class = "top_menu" href = "./sign_in_up_out/SignOut.php" target = "_top">SIGN OUT</a> 
 				<?php
 				}

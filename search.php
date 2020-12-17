@@ -160,6 +160,8 @@ $dbName = 'youties';
 
         if (strlen($row["content"])>30) { //글자수 30 넘으면 ...
           $content = str_replace($row["content"], mb_substr($row["content"], 0, 30, "utf-8")."...",$row["content"]);
+        }else{
+          $content = $row["content"];
         }
         echo "<p>". $content."</p></td>";
         echo "<td>" . $row["rating"]. "</td>";
