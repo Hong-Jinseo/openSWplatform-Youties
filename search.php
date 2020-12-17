@@ -14,18 +14,26 @@ $dbName = 'youties';
   <title></title> <!--사용자가 입력한 검색어를 타이틀로-->
   <link rel = "stylesheet" href = "search.css?after">
   <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <script type = "text/javascript">
+            function openAddChannel(){
+                url="add_channel.php";
+                window.open(url, "Setting", "width=500, height=500, menubar=no, toolbar=no");
+            }
+        </script>
+
 </head>
 <body>
   <div id = "wrapper">
     <header id = "main_header">
-      <a class = "top_menu" href = "main.html" target = "_top">SIGN UP</a> <!--signup페이지로 연결-->
-      <a class = "top_menu" href = "main.html" target = "_top">SIGN IN</a> <!--signin페이지로 연결-->
+      <a class = "top_menu" href = "./sign_in_up_out/SignUp.php" target = "_top">SIGN UP</a> <!--signup페이지로 연결-->
+      <a class = "top_menu" href = "./sign_in_up_out/SignIn.php" target = "_top">SIGN IN</a> <!--signin페이지로 연결-->
     </header>
   </div>
   <form class = 'search', action = "search.php", method = "GET">
     <div id = "container">
       <div id = "logo_img">
-        <a href = "main.html" target = "_top">
+        <a href = "main.php" target = "_top">
           <img src = "logo2_removebg.png" border = "0">
         </a>
       </div>
@@ -179,9 +187,13 @@ $dbName = 'youties';
       echo "</div>";
       //warning image style
       echo "<p>";
-      echo "<p>"."<img src='img_warning.png'/>"."</p>";
+      echo "<p>"."<img src='img_warning.png'/>"."</p>";?>
+      <button type="button" id="setting" onClick="openAddChannel();">직접 저장하기</button>
+      <?php
       //warning text style
-      echo "<p>"."No results found from channel reviews"."</p>";
+      echo "<p>"."No results found from channel reviews"."</p>";?>
+      <button type="button" id="setting" onClick="openAddChannel();">직접 저장하기</button>
+      <?php
     }
   ?>
 
