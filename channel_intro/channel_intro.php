@@ -33,15 +33,15 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 		<script src="jquery-3.5.1.min.js"></script>
 
 		<script type = "text/javascript">
-			function goMainPage() { 
+			function goMainPage() {
 				location.href="../main.php";
 			}
 
-			
+
 			function colorChange(num) {
 				var bgColor = ["#bbbaba", "#c0412b"];
 				var fontColor = ["#000000", "#ffffff"];
-				
+
 				var bodyTag = document.getElementById("tag"+num);
 				var tag = document.getElementById("tag_hidden"+num);
 
@@ -66,11 +66,11 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 			function change_num(num){
 				var label = document.getElementById("rating_num");
 				var label_hidden = document.getElementById("rating_num_hidden");
-				
+
 				label.innerText = (num+"/5");
 				label_hidden.value = num;
 			}
-			
+
 			//체크박스
 			function chk_checkbox(num){
 				var box = document.getElementById("chk_box"+num);
@@ -78,10 +78,10 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 				else {box.value = 0}
 			}
 
-			
 
 
-			
+
+
 			//제이쿼리 호출 메소드
 			$(document).ready(function() {
 				//별점 메소드
@@ -95,15 +95,15 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 					if($(this).value==0){$(this).value(1)}
 					else{$(this).value(0)}
 				});
-			});			
-			
+			});
+
 		</script>
 
 
 	</head>
 
-	<body>	
-		
+	<body>
+
 		<header id="main_header_logo">
 
 			<a href="../main.php">
@@ -117,15 +117,15 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
                 $connect = mysqli_connect('localhost', 'root', 'jinseo00', 'youties') or die ("connect fail");
                 $query ="SELECT * FROM member ORDER BY id DESC";
 				$result = $connect->query($query);
-		
 
-				if(!isset($_SESSION['my_name'])){ ?>   
-					<a class = "top_menu" href = "../sign_in_up_out/SignUp.php" target = "_top" color="white">SIGN UP</a> 
-					<a class = "top_menu" href = "../sign_in_up_out/SignIn.php" target = "_top" color="white">SIGN IN</a> 
+
+				if(!isset($_SESSION['my_name'])){ ?>
+					<a class = "top_menu" href = "../sign_in_up_out/SignUp.php" target = "_top" color="white">SIGN UP</a>
+					<a class = "top_menu" href = "../sign_in_up_out/SignIn.php" target = "_top" color="white">SIGN IN</a>
 				<?php
-				}else { ?>              
-					<a class = "top_menu" href = "../my_page/myPage.php" target = "_top"><?php echo $_SESSION['my_name'];?></a> 
-					<a class = "top_menu" href = "../sign_in_up_out/SignOut.php" target = "_top">SIGN OUT</a> 
+				}else { ?>
+					<a class = "top_menu" href = "../my_page/myPage.php" target = "_top"><?php echo $_SESSION['my_name'];?></a>
+					<a class = "top_menu" href = "../sign_in_up_out/SignOut.php" target = "_top">SIGN OUT</a>
 				<?php
 				}
 				?>
@@ -169,59 +169,67 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 
 				<!--채널 리뷰 요약-->
 				<div id="div2" class="div-background">
-					<b>SUMMARY</b>
+					summary
+          <?php
 
-					<?php
-					$sql = "select * from reviews where parent = '$ch'";
-					$result = mysqli_query($connect, $sql);
-					$num_rows = mysqli_num_rows($result);
-					if($num_rows > 0){
 
-					$row = mysqli_fetch_array($result);
+          $sql = "select * from reviews where parent = '$ch'";
+          $result = mysqli_query($connect, $sql);
+          $num_rows = mysqli_num_rows($result);
+          if($num_rows > 0){
 
-					for($i2=0;$i2<$num_rows;$i2++){
-						mysqli_data_seek($result, $i2);
-						$row = mysqli_fetch_array($result);
-						$kk[] = $row["rating"];
+            $row = mysqli_fetch_array($result);
 
-						$kk1[] = $row["sexual"];
-						$kk2[] = $row["violent"];
-						$kk3[] = $row["crude"];
-						$kk4[] = $row["horror"];
-						$kk5[] = $row["imitative"];
-					}
-					$kk = round(array_sum($kk)/$num_rows);
-					$kk1 = round(array_sum($kk1));
-					$kk2 = round(array_sum($kk2));
-					$kk3 = round(array_sum($kk3));
-					$kk4 = round(array_sum($kk4));
-					$kk5 = round(array_sum($kk5));
-					}else{
-					echo " 데이터가 없습니다";
-					}
+            for($i2=0;$i2<$num_rows;$i2++){
+              mysqli_data_seek($result, $i2);
+              $row = mysqli_fetch_array($result);
+              $kk[] = $row["rating"];
+
+              $kk1[] = $row["sexual"];
+              $kk2[] = $row["violent"];
+              $kk3[] = $row["crude"];
+              $kk4[] = $row["horror"];
+              $kk5[] = $row["imitative"];
+            }
+           $kk = round(array_sum($kk)/$num_rows);
+           $kk1 = round(array_sum($kk1));
+           $kk2 = round(array_sum($kk2));
+           $kk3 = round(array_sum($kk3));
+           $kk4 = round(array_sum($kk4));
+           $kk5 = round(array_sum($kk5));
+          }else{
+            echo " 이 채널에 등록된 리뷰가 없습니다.";
+          }
 					?>
-
 					<div id="div4-2-2">
 						<p class="star_2">
-							<?php for($i=0;$i<$kk;$i++){ ?>
+						 <?php if($num_rows > 0){
+							 for($i=0;$i< $kk;$i++){ ?>
 								<a href="javascript://" class="on">★</a>
 							<?php }?>
-								<?php for($i=0;$i<5-$kk;$i++){ ?>
+							<?php for($i=0;$i<5-$kk;$i++){ ?>
 								<a href="javascript://">★</a>
-							<?php }?>
-						</p>
-					</div>
-					  
-					<div style="margin-top:15px;">
-						<p>sexual : (<?php echo $kk1?>)</p>
-						<p>violent : (<?php echo $kk2?>)</p>
-						<p>crude : (<?php echo $kk3?>)</p>
-						<p><p>horror : (<?php echo $kk4?>)</p>
-						<p>encourage imitative actions : (<?php echo $kk5?>)</p>
-					</div>
+							<?php }
+						}  else{
+							echo "이 채널에 등록된 리뷰가 없습니다.";
+
+						}
+						?>
+            </p>
+          </div>
+          <div style="margin-top:15px;">
+						 <?php if($num_rows > 0){     ?>
+            <p>sexual : (<?php echo $kk1?>)</p>
+            <p>violent : (<?php echo $kk2?>)</p>
+            <p>crude : (<?php echo $kk3?>)</p>
+            <p><p>horror : (<?php echo $kk4?>)</p>
+            <p>encourage imitative actions : (<?php echo $kk5?>)</p>
+          </div>
 				</div>
 
-			
+			<?php }	  ?>
+
+
 				<!--리뷰 쓰기-->
 				<div id="div4" class="div-background div-background-full">
 					<form action="save_review.php" method="POST">
@@ -238,7 +246,7 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 								<div id="div4-2-1">
 									<b>YOUR RATING</b>
 								</div>
-								
+
 								<div id="div4-2-2">
 									<p class="star_rating">
 										<a href="#" onclick="change_num(1)">★</a>
@@ -253,7 +261,7 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 									<label id="rating_num">0/5</label>
 									<input type="hidden" id="rating_num_hidden" name="rating" value="0">
 								</div>
-								
+
 							</div>
 
 							<div id="div4-3" class="inner-div">
@@ -327,7 +335,7 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 
 
 				<!--다른 리뷰 보기-->
-				<div id="div5" class="div-background div-background-full">					
+				<div id="div5" class="div-background div-background-full">
 					<div id="div5-title" class="inner-div">
 						<h2>User reviews <button type="button" id="gotoReview" onClick="location.href='../review/review_def.php'">>></button> </h2>
 					</div>
@@ -340,10 +348,10 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 						<label>Negative</label>
 					</div>
 
-					
+
 					<div id="div5-review1" class="inner-div inner5">
 						<?php $rd_row = mysqli_fetch_row($result_review_decs); ?>
-					
+
 						<div id="user-info">
 							<label id="user-info-star">
 								<script>
@@ -363,7 +371,7 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 
 					<div id="div5-review2" class="inner-div inner5">
 						<?php $ra_row = mysqli_fetch_row($result_review_acs); ?>
-						
+
 						<div id="user-info">
 							<label id="user-info-star">
 								<script>
@@ -403,7 +411,7 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 
 					<div id="div5-review4" class="inner-div inner5">
 						<?php $ra_row = mysqli_fetch_row($result_review_acs); ?>
-						
+
 						<div id="user-info">
 							<label id="user-info-star">
 								<script>
