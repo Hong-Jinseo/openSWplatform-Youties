@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+.container{
+    padding: 0px 0px 30px 0px;
+}
+
+.header-inner{
+    padding: 15px 15px 5px 15px;
+    background-color:rgb(193,57,43);}
+
+.main-container{
+    padding: 5px 30px 5px 30px;
+    background:#ffffff;
+    border-left: 60px solid #FFFFFF;
+    border-right: 60px solid #FFFFFF;
+    height: 250px;
+    float: center;
+}
+
+.pic{
+    border: 10px solid #FFFFFF;
+    background:#ffffff;
+    width: 20%;
+    float: left;
+    margin: 5px 5px 5px 5px;
+    }
+
+.info{
+    border: 10px solid #FFFFFF;
+    background-color:rgb(224,224,224);
+    width: 44%;
+    float: left;
+    height: 150px;
+    margin: 10px 10px 10px 10px;
+    padding: 20px;
+}
+
+.diagram{
+    border: 10px solid #FFFFFF;
+    background:#FFFFFF;
+    width: 17%;
+    float: left;
+    height: 190px;
+    margin: 10px 10px 10px 10px;
+}
+
+.section-container{
+    padding: 5px 30px 5px 30px;
+    background:#ffffff;
+    border-left: 60px solid #FFFFFF;
+    border-right: 60px solid #FFFFFF;
+    height: 250px;
+    float: center;
+}
+
+.reviews{
+    border: 10px solid #FFFFFF;
+    background-color:rgb(224,224,224);
+    width: 42%;
+    float: left;
+    height: 150px;
+    margin:10px 10px 10px 10px;
+    padding: 10px;    
+}
+
+.comments{
+    border: 10px solid #FFFFFF;
+    background-color:rgb(224,224,224);
+    width: 42%;
+    float: left;
+    height: 150px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px;        
+}
+.likes{
+    border: 10px solid #FFFFFF;
+    background-color:rgb(224,224,224);
+    width: 42%;
+    float: left;
+    height: 100px;
+    margin:10px 10px 10px 10px;
+    padding: 10px;        
+}
+
+.communities{
+    border: 10px solid #FFFFFF;
+    background-color:rgb(224,224,224);
+    width: 42%;
+    float: left;
+    height: 100px;
+    margin:10px 10px 10px 10px;
+    padding: 10px;        
+}
+
+.footer{
+    width: 940px; 
+    clear: both; 
+    text-align: center; 
+    padding: 20px; 
+    border-top: 2px solid #999999;
+}
+
+.tag{
+    padding: 8px;
+    text-align: center;
+    width: 80px;
+    height: 20px;
+    background-color:rgb(193,57,43);
+    float: left;
+    border-radius: 8%;
+    margin: 7px;
+}
