@@ -169,14 +169,14 @@ $cnt2 = 1;
                                     <b>TAGS</b> : 
                                     <?php
                                         if ($row_tag[1] == 1){echo "재미있는  ";}
-                                        if ($row_tag[2] == 2){echo "유익한  ";}
-                                        if ($row_tag[3] == 3){echo "힐링되는  ";}
-                                        if ($row_tag[4] == 4){echo "스토리텔링  ";}
-                                        if ($row_tag[5] == 5){echo "몰입되는  ";}
-                                        if ($row_tag[6] == 6){echo "감동적인  ";}
-                                        if ($row_tag[7] == 7){echo "짧은 길이의  ";}
-                                        if ($row_tag[8] == 8){echo "킬링타임  ";}
-                                        if ($row_tag[9] == 9){echo "슬픈  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
                                     ?>
                                 </label>
                             </div><br>
@@ -229,14 +229,14 @@ $cnt2 = 1;
                                     <b>TAGS</b> : 
                                     <?php
                                         if ($row_tag[1] == 1){echo "재미있는  ";}
-                                        if ($row_tag[2] == 2){echo "유익한  ";}
-                                        if ($row_tag[3] == 3){echo "힐링되는  ";}
-                                        if ($row_tag[4] == 4){echo "스토리텔링  ";}
-                                        if ($row_tag[5] == 5){echo "몰입되는  ";}
-                                        if ($row_tag[6] == 6){echo "감동적인  ";}
-                                        if ($row_tag[7] == 7){echo "짧은 길이의  ";}
-                                        if ($row_tag[8] == 8){echo "킬링타임  ";}
-                                        if ($row_tag[9] == 9){echo "슬픈  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
                                     ?>
                                 </label>
                             </div><br>
@@ -289,14 +289,14 @@ $cnt2 = 1;
                                     <b>TAGS</b> : 
                                     <?php
                                         if ($row_tag[1] == 1){echo "재미있는  ";}
-                                        if ($row_tag[2] == 2){echo "유익한  ";}
-                                        if ($row_tag[3] == 3){echo "힐링되는  ";}
-                                        if ($row_tag[4] == 4){echo "스토리텔링  ";}
-                                        if ($row_tag[5] == 5){echo "몰입되는  ";}
-                                        if ($row_tag[6] == 6){echo "감동적인  ";}
-                                        if ($row_tag[7] == 7){echo "짧은 길이의  ";}
-                                        if ($row_tag[8] == 8){echo "킬링타임  ";}
-                                        if ($row_tag[9] == 9){echo "슬픈  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
                                     ?>
                                 </label>
                             </div><br>
@@ -348,15 +348,15 @@ $cnt2 = 1;
                                 <label id="user-info-tag">
                                     <b>TAGS</b> : 
                                     <?php
-                                        if ($row_tag[1] == 1){echo "재미있는  ";}
-                                        if ($row_tag[2] == 2){echo "유익한  ";}
-                                        if ($row_tag[3] == 3){echo "힐링되는  ";}
-                                        if ($row_tag[4] == 4){echo "스토리텔링  ";}
-                                        if ($row_tag[5] == 5){echo "몰입되는  ";}
-                                        if ($row_tag[6] == 6){echo "감동적인  ";}
-                                        if ($row_tag[7] == 7){echo "짧은 길이의  ";}
-                                        if ($row_tag[8] == 8){echo "킬링타임  ";}
-                                        if ($row_tag[9] == 9){echo "슬픈  ";}
+                                       if ($row_tag[1] == 1){echo "재미있는  ";}
+                                       if ($row_tag[2] == 1){echo "유익한  ";}
+                                       if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                       if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                       if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                       if ($row_tag[6] == 1){echo "감동적인  ";}
+                                       if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                       if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                       if ($row_tag[9] == 1){echo "슬픈  ";}
                                     ?>
                                 </label>
                             </div><br>
@@ -409,14 +409,14 @@ $cnt2 = 1;
                                     <b>TAGS</b> : 
                                     <?php
                                         if ($row_tag[1] == 1){echo "재미있는  ";}
-                                        if ($row_tag[2] == 2){echo "유익한  ";}
-                                        if ($row_tag[3] == 3){echo "힐링되는  ";}
-                                        if ($row_tag[4] == 4){echo "스토리텔링  ";}
-                                        if ($row_tag[5] == 5){echo "몰입되는  ";}
-                                        if ($row_tag[6] == 6){echo "감동적인  ";}
-                                        if ($row_tag[7] == 7){echo "짧은 길이의  ";}
-                                        if ($row_tag[8] == 8){echo "킬링타임  ";}
-                                        if ($row_tag[9] == 9){echo "슬픈  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
                                     ?>
                                 </label>
                             </div><br>
@@ -469,14 +469,14 @@ $cnt2 = 1;
                                     <b>TAGS</b> : 
                                     <?php
                                         if ($row_tag[1] == 1){echo "재미있는  ";}
-                                        if ($row_tag[2] == 2){echo "유익한  ";}
-                                        if ($row_tag[3] == 3){echo "힐링되는  ";}
-                                        if ($row_tag[4] == 4){echo "스토리텔링  ";}
-                                        if ($row_tag[5] == 5){echo "몰입되는  ";}
-                                        if ($row_tag[6] == 6){echo "감동적인  ";}
-                                        if ($row_tag[7] == 7){echo "짧은 길이의  ";}
-                                        if ($row_tag[8] == 8){echo "킬링타임  ";}
-                                        if ($row_tag[9] == 9){echo "슬픈  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
                                     ?>
                                 </label>
                             </div><br>
