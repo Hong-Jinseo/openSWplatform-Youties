@@ -1,0 +1,58 @@
+//좋아요 버튼이 클릭되었을 때
+$(document).on('click','.like_button', function(){
+var content_id = $(this).data('content_id');
+$(this).attr('disabled','disabled');
+
+$.ajax({
+url:"like.php",
+method:"POST",
+data:{content_id:content_id},
+success:function(data){
+if(data == 'done')
+{
+load_stuff();
+}
+}
+
+});
+});
+
+
+
+<?php
+include('review.php'); //이 파일이 맞는지 확실치 않습니다!
+
+
+if(isset($_POST["content_id"]))
+{
+$query = "
+INSERT INTO user_content_like (content_id, user_id) VALUES(:content_id, :user_id)
+";
+
+$statement = $connect-> prepare($query);
+$statement -> execute(
+array(
+':content_id' => $_POST["content_id"],
+':user_id' => $_SESSION["user_id"]
+)
+);
+
+$result = $statement->fetchAll();
+if(isset($result))
+{
+echo 'done';
+}
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youties: Mypage - reviews</title>
+    <link rel="stylesheet" href="youties_reviews_김지현_201201_08시30분.css"/>
+</head>
+<body>
+</html>
