@@ -1,8 +1,8 @@
 <?php
-    $mysql_host = 'localhost';
+    $mysql_host = '127.0.0.1';
     $mysql_user = 'root';
     $mysql_password = 'jinseo00';
-    $mysql_db = 'youties';
+    $mysql_db = 'youties_info';
      
     $db = new mysqli($mysql_host,$mysql_user,$mysql_password,$mysql_db);
 
