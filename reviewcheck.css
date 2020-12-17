@@ -1,0 +1,114 @@
+@charset "utf-8";
+/*윗배너*/
+.container{
+    padding: 0px 0px 50px 0px;
+}
+/*로고부분*/
+.header-inner{
+    padding: 15px 15px 5px 15px;
+    background-color:rgb(193,57,43);
+    height: 45px;
+} 
+
+.user-info{
+    text-align: right;
+}
+/*컨텐츠 틀*/
+.main-container{
+    padding: 5px 30px 5px 30px;
+    background:#ffffff;
+    border-left: 60px solid #FFFFFF;
+    border-right: 60px solid #FFFFFF;
+    height: 250px;
+    float: center;
+}
+
+/*태그*/
+#tag-button{
+    margin-top: 8px;
+}
+
+.tag-btn{
+    color: black;
+    background-color: rgb(187, 186, 186);
+    border: none;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 8%;
+    margin: 2px;
+}
+
+/* 리뷰 보기 */
+.inner5{
+    background-color: rgb(224,224,224);
+    height: auto; 
+    width: 60%;
+    padding: 10px;
+    margin: 40px 40px 0px 0px;
+    float: left;
+}
+
+.subtitle{
+    font-size: 20px;
+}
+
+#user-info{
+    margin-bottom: 30px;
+}
+
+#user-info-star{
+    font-size: 28px;
+    color: #c0412b;
+    margin-right: 10px;
+}
+
+#user-info-num{
+    font-size: 20px;
+}
+
+.date { 
+    font: italic 14px verdana, sans-serif; text-align: right; 
+}
+
+/*채널소개*/
+
+#div1-2{
+    background-color: rgb(224,224,224);
+    /* 채널명 div */
+    height: auto;
+    width: 15%; 
+    padding: 10px;
+    text-align: center;
+    text-size-adjust: 15px;
+    font-size: 25px;
+    float: right;
+    position: relative;
+    right: 100px;
+    bottom: 150px;
+}
+
+#cat{
+    border-radius: 100%;
+}
+
+/*댓글의 좋아요 버튼*/
+#ctn{
+    float: right;
+    text-align: right;
+    height: 130px;
+}
+
+/*review this channel 버튼*/
+#more_review{
+    background-color: rgb(224,224,224);
+    height: 50px;
+    width: auto;
+    padding: 10px;
+    float: right;
+    text-align: center;
+    margin: 10px;
+    position: relative;
+    left: 120px;
+    bottom: 100px;
+}
