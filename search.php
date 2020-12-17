@@ -1,10 +1,4 @@
-<?php
-//리뷰 DB에 저장된 정보 가져오기
-$host = 'localhost';
-$user = 'root';
-$pw = 'jinseo00';
-$dbName = 'youties';
-?>
+<?php include("header.php"); ?>
 
 <!DOCTYPE html>
 <html>
@@ -14,26 +8,18 @@ $dbName = 'youties';
   <title></title> <!--사용자가 입력한 검색어를 타이틀로-->
   <link rel = "stylesheet" href = "search.css?after">
   <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
-  <script type = "text/javascript">
-            function openAddChannel(){
-                url="add_channel.php";
-                window.open(url, "Setting", "width=500, height=500, menubar=no, toolbar=no");
-            }
-        </script>
-
 </head>
 <body>
   <div id = "wrapper">
     <header id = "main_header">
-      <a class = "top_menu" href = "./sign_in_up_out/SignUp.php" target = "_top">SIGN UP</a> <!--signup페이지로 연결-->
-      <a class = "top_menu" href = "./sign_in_up_out/SignIn.php" target = "_top">SIGN IN</a> <!--signin페이지로 연결-->
+      <a class = "top_menu" href = "main.html" target = "_top">SIGN UP</a> <!--signup페이지로 연결-->
+      <a class = "top_menu" href = "main.html" target = "_top">SIGN IN</a> <!--signin페이지로 연결-->
     </header>
   </div>
   <form class = 'search', action = "search.php", method = "GET">
     <div id = "container">
       <div id = "logo_img">
-        <a href = "main.php" target = "_top">
+        <a href = "main.html" target = "_top">
           <img src = "logo2_removebg.png" border = "0">
         </a>
       </div>
@@ -45,22 +31,21 @@ $dbName = 'youties';
       </div>
     </div>
   </form>
-
-  <?php
+ 
+  <?php 
   //mysql 접속 계정 정보 설정
   $mysql_host = '127.0.0.1';
   $mysql_user = 'root';
-  $mysql_password = 'jinseo00';
-  $mysql_db = 'youties';
-
-
+  $mysql_password = '';
+  $mysql_db = 'youtube_info';
+  
+  
   //connetc 설정(host,user,password)
-  $conn = mysqli_connect($mysql_host, $mysql_user, $mysql_password, $mysql_db)or die("fail");
+  $conn = mysqli_connect($mysql_host,$mysql_user,$mysql_password,$mysql_db)or die("fail");
   $conn2 = mysqli_connect($mysql_host,$mysql_user,$mysql_password,'youties')or die("fail");
   //쿼리문 작성
-  //echo "<tr><th>".$_GET["keyword"];
   $input = $_GET['keyword'];
-
+  
   $query = "SELECT * FROM channels WHERE name LIKE '%$input%'";
   $query2 = "SELECT * FROM reviews WHERE channel LIKE '%$input%'";
 
@@ -71,7 +56,7 @@ $dbName = 'youties';
 
 
   <div id = "table_style">
-
+  
     <table class = "search_result_table">
       <thead>
         <tr>
@@ -83,27 +68,20 @@ $dbName = 'youties';
         </tr>
       </thead>
       <tbody>
-
-  <?php
+    
+  <?php 
     echo $input." channel 검색 결과";
 
-    if (mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) { 
       while($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
         echo "<td>" . $row["category"]. "</td>";
         echo "<td>";
-        ?>                                           
-        <figure>
-          <img src="<?php echo $row["image"];?>">
-        </figure>
-        <?php
-        "</td>";
+        echo $row["image"]. "</td>";
+        //echo '<img src="https://yt3.ggpht.com/ytc/AAUvwng-4r6Mq9XzKbP2ytrO6HgugZ7OOqhh5--Onsk8oA=s176-c-k-c0x00ffffff-no-rj"/>';
+        //echo '<img src="data:image/jpeg;base64,'.base64_encode($row['image'] ).'"/>';
         echo "</td>";
-?>
-
-         <td> <a href="./channel_intro/channel_intro.php?channel_key=<?=$row["id"]?>"> <?php echo $row["name"]?> </a> </td><td> <?php //채널명에 채널 소개 링크
-
-
+        echo "<td><b>" . $row["name"]. "</b></td><td>"; //채널명에 채널 소개 링크
 
         //Info tab
         echo "<div id = info_tab>";
@@ -117,64 +95,54 @@ $dbName = 'youties';
         echo "<div id = info_tab>";
 
         //rating tab
+        //echo "<style> p {text-align: left;} </style>";
         echo "<div id = rating_tab>";
         echo "<p>";
         echo "<img src='img_rating.png'/>". " ".$row["videos"]."</p>";
         echo "<p>";
         echo "<img src='img_reviews.png'/>". " ".$row["videos"]."</p></td>";
-
+        
         echo "</tr>";
       }
     } else { //if there's no results found
       echo "</tbody>";
       echo "</table>";
-      echo "</div>";
+      echo "</div>"; 
       //warning image style
       echo "<p>"."<img src='img_warning.png'/>"."</p>";
-
+      
       //warning text style
       echo "<p>"."No results found from channel name"."</p>";
     }
-
+   
   ?>
       </tbody>
     </table>
-  </div>
+  </div> 
 
   <div id = "table_style">
-
+   
     <table class = "search_result_table">
       <thead>
         <tr>
-          <th width = "150">Channel Name</th>
+          <th width = "150">Channel Name</th> 
           <th width = "450">Reviews</th>
           <th width = "200">Rating</th>
           <th width = "200">Date</th>
         </tr>
       </thead>
       <tbody>
-
-  <?php
+    
+  <?php 
   echo $input." channel reviews 검색 결과";
-    if (mysqli_num_rows($result2) > 0) {
+    if (mysqli_num_rows($result2) > 0) { 
       while($row = mysqli_fetch_assoc($result2)) {
-
-
-        
-        echo "<tr>";?>
-        
-        <td> <a href="./channel_intro/channel_intro.php?channel_key=<?=$row["id"]?>"> <?php echo $row["channel"]?> </a> </td><td> <?php //채널명에 채널 소개 링크
-       
-        echo "<p><b>";?>
-        <style>
-          a {text-decoration: none;}
-        </style>        
-        <a href="./review/review_def.php?channel_key=<?=$row["id"]?>"> <?php echo $row["title"]?> </a> </b></p> <?php //글 제목에 리뷰 링크
+        echo "<tr>";
+        echo "<td>" . $row["channel"]. "</td>"; //채널명에 채널 소개 링크
+        echo "<td><p><b>" . $row["title"]. "</b></p>"; //글 제목에 리뷰 링크
 
         if (strlen($row["content"])>30) { //글자수 30 넘으면 ...
           $content = str_replace($row["content"], mb_substr($row["content"], 0, 30, "utf-8")."...",$row["content"]);
-        }else{
-          $content = $row["content"];
         }
         echo "<p>". $content."</p></td>";
         echo "<td>" . $row["rating"]. "</td>";
@@ -189,9 +157,7 @@ $dbName = 'youties';
       echo "<p>";
       echo "<p>"."<img src='img_warning.png'/>"."</p>";
       //warning text style
-      echo "<p>"."No results found from channel reviews"."</p>";?>
-      <button type="button" id="setting" onClick="openAddChannel();">직접 저장하기</button>
-      <?php
+      echo "<p>"."No results found from channel reviews"."</p>";
     }
   ?>
 
