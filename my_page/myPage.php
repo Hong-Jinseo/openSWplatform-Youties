@@ -83,14 +83,58 @@ $cnt2 = 1;
                     <figure>
                         <img style="width:80px" src="user.png" alt="" >
                     </figure>
-
-
-
                 </div>
 
                 <div id="div2">
-                    <div id="div2-inner">
-                    </div>
+                    
+                <?php
+					$sql = "SELECT * from reviews where email = '{$_SESSION['my_email']}'";
+					$result = mysqli_query($connect, $sql);
+					$num_rows = mysqli_num_rows($result);
+					if($num_rows > 0){
+
+					$row = mysqli_fetch_array($result);
+
+					for($i2=0;$i2<$num_rows;$i2++){
+						mysqli_data_seek($result, $i2);
+						$row = mysqli_fetch_array($result);
+						$kk[] = $row["rating"];
+
+						$kk1[] = $row["sexual"];
+						$kk2[] = $row["violent"];
+						$kk3[] = $row["crude"];
+						$kk4[] = $row["horror"];
+						$kk5[] = $row["imitative"];
+					}
+					$kk = round(array_sum($kk)/$num_rows);
+					$kk1 = round(array_sum($kk1));
+					$kk2 = round(array_sum($kk2));
+					$kk3 = round(array_sum($kk3));
+					$kk4 = round(array_sum($kk4));
+					$kk5 = round(array_sum($kk5));
+					}else{
+					echo " 데이터가 없습니다";
+					}
+					?>
+
+					<div id="div4-2-2">
+						<p class="star_2">
+							<?php for($i=0;$i<$kk;$i++){ ?>
+								<a href="javascript://" class="on">★</a>
+							<?php }?>
+								<?php for($i=0;$i<5-$kk;$i++){ ?>
+								<a href="javascript://">★</a>
+							<?php }?>
+						</p>
+					</div>
+					  
+					<div style="margin-top:15px;">
+						<p>sexual : (<?php echo $kk1?>)</p>
+						<p>violent : (<?php echo $kk2?>)</p>
+						<p>crude : (<?php echo $kk3?>)</p>
+						<p><p>horror : (<?php echo $kk4?>)</p>
+						<p>encourage imitative actions : (<?php echo $kk5?>)</p>
+					</div>
                 </div>
 
 
