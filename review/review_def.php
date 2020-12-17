@@ -1,15 +1,19 @@
 <?php
-$host = '127.0.0.1';
+$host = 'localhost';
 $user = 'root';
 $pw = 'jinseo00';
 $dbName = 'youties';
 
 $conn = new mysqli($host, $user, $pw, $dbName) or die("Failed");
-$conn2 = new mysqli($host, $user, $pw, 'youties') or die("Failed");
+
 //리뷰 최신순
 session_start();
-$result_2 = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' ORDER BY id DESC") or die(mysqli_error($conn));
-$result_tag = mysqli_query($conn, "SELECT * FROM tags WHERE email='{$_SESSION['my_email']}' ORDER BY id DESC") or die(mysqli_error($conn));$cnt = 0;
+
+$get_you = $_POST["channel_key"];
+
+$result_2 = mysqli_query($conn, "SELECT * FROM reviews WHERE parent='$get_you' ORDER BY id DESC") or die(mysqli_error($conn));
+$result_tag = mysqli_query($conn, "SELECT * FROM tags WHERE parent='$get_you' ORDER BY id DESC") or die(mysqli_error($conn));
+$cnt = 0;
 $total = mysqli_num_rows($result_2);
 ?>
 
@@ -647,10 +651,7 @@ $total = mysqli_num_rows($result_2);
                                             <?php echo $row[4];?>
                                         }
                                     }
-                                    
                                 </script>
-
-                                
                             </div>
 
                             <div id="user-review">
@@ -749,31 +750,7 @@ $total = mysqli_num_rows($result_2);
                         </div>
 
         
-                    </div>
-
-                    <?php 
-                    $result_ch = mysqli_query($conn2, "SELECT * FROM channels WHERE name='haha ha'") or die(mysqli_error($conn));
-                    $row = mysqli_fetch_row($result_ch);
-                    ?>
-
-                    <!--채널 소개 그림-->
-                    <div id="channel_info">
-                        <div>
-                            <img src="https://yt3.ggpht.com/ytc/AAUvwng-4r6Mq9XzKbP2ytrO6HgugZ7OOqhh5--Onsk8oA=s176-c-k-c0x00ffffff-no-rj" id="image" width="150" height="150">
-                            <br>haha ha
-                        </div>
-                        <div id="info_text">
-                            <p> <?php echo $row[4]?></p>
-                            <p> <?php echo $row[5]?></p>
-                            <p> <?php echo $row[6]?></p>
-                        </div>
-                    </div>
-                    
-                    <div id="write_review">
-                        <b>Review this Channel</b>
-                    <!-- 리뷰작성.html로 넘기기 -->
-                        <a href=""><img src= "image/more.jpg" style="width=30; height=30;"></a>
-                    </div>
+                    </div>                  
 
 
                 </div>
