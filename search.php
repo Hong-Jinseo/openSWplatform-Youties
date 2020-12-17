@@ -187,9 +187,7 @@ $dbName = 'youties';
       echo "</div>";
       //warning image style
       echo "<p>";
-      echo "<p>"."<img src='img_warning.png'/>"."</p>";?>
-      <button type="button" id="setting" onClick="openAddChannel();">직접 저장하기</button>
-      <?php
+      echo "<p>"."<img src='img_warning.png'/>"."</p>";
       //warning text style
       echo "<p>"."No results found from channel reviews"."</p>";?>
       <button type="button" id="setting" onClick="openAddChannel();">직접 저장하기</button>
