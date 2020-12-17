@@ -7,8 +7,9 @@ $dbName = 'youties';
 $conn = new mysqli($host, $user, $pw, $dbName) or die("Failed");
 $conn2 = new mysqli($host, $user, $pw, 'youtube_info') or die("Failed");
 //리뷰 최신순
+session_start();
 $result_2 = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='haha ha' ORDER BY id DESC") or die(mysqli_error($conn));
-$cnt = 0;
+$result_tag = mysqli_query($conn, "SELECT * FROM tags WHERE email='{$_SESSION['my_email']}' ORDER BY id DESC") or die(mysqli_error($conn));$cnt = 0;
 $total = mysqli_num_rows($result_2);
 ?>
 
@@ -58,7 +59,7 @@ $total = mysqli_num_rows($result_2);
             <!--로그아웃 기능-->
             <div id="header-login">
                 <?php
-                session_start(); // 세션
+                
                 $connect = mysqli_connect('127.0.0.1', 'root', 'jinseo00', 'youties') or die ("connect fail");
                 $query ="SELECT * FROM member ORDER BY id DESC";
                 $result = $connect->query($query);
@@ -95,20 +96,9 @@ $total = mysqli_num_rows($result_2);
 
                         </div>
 
-                        <div id="tag-button">
-                            <button type="button" id="tag1" name="tag1" class="tag-btn" onclick="colorChange(1); chk_tag(1)" value=0>재미있는</button>
-                            <input type="hidden" id="tag_hidden1" name="tag_hidden1" value=0>
-                            <button type="button" id="tag2" name="tag2" class="tag-btn" onclick="colorChange(2); chk_tag(2)" value=0>유익한</button>
-                            <input type="hidden" id="tag_hidden2" name="tag_hidden2" value=0>
-                            <button type="button" id="tag3" name="tag3" class="tag-btn" onclick="colorChange(3); chk_tag(3)" value=0>힐링되는</button>
-                            <input type="hidden" id="tag_hidden3" name="tag_hidden3" value=0>
-                            <button type="button" id="tag4" name="tag4" class="tag-btn" onclick="colorChange(4); chk_tag(4)" value=0>스토리텔링</button>
-                            <input type="hidden" id="tag_hidden4" name="tag_hidden4" value=0>
-                        </div>
+                        
 
-                        <div id="tag-button">
-                            <input type="submit" id="option-data">
-                        </div>
+                        
                     </form>
                 </div>
 
@@ -120,6 +110,7 @@ $total = mysqli_num_rows($result_2);
                         <div id="div1" class="inner-div inner1">
                             <?php
                                 $row = mysqli_fetch_row($result_2);
+                                $row_tag = mysqli_fetch_row($result_tag);
                                 $cnt = $cnt + 1;
                                 if ($cnt <= $total){?>
                             
@@ -151,11 +142,26 @@ $total = mysqli_num_rows($result_2);
 
                             <div id="user-review">
                                 <b><?php echo $row[5];?></b> 
-                                <p><?php 
-                                    if (strlen($row[6])>30) { //글자수 30 넘으면 ...
-                                        $row[6] = str_replace($row[6], mb_substr($row[6], 0, 30, "utf-8")."...",$row[6]);
-                                    } echo $row[6];?></p>
+                                <p><?php echo $row[6];?></p>
                             </div>
+
+                            <div id="user-tag">
+                                <label id="user-info-tag">
+                                    <b>TAGS</b> : 
+                                    <?php
+                                        if ($row_tag[1] == 1){echo "재미있는  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
+                                    ?>
+                                </label>
+                            </div><br>
+
                             <?php
                                 }
                                 else{?>
@@ -168,6 +174,7 @@ $total = mysqli_num_rows($result_2);
                         <div id="div1" class="inner-div inner1">
                             <?php
                                 $row = mysqli_fetch_row($result_2);
+                                $row_tag = mysqli_fetch_row($result_tag);
                                 $cnt = $cnt + 1;
                                 if ($cnt <= $total){?>
                             
@@ -193,29 +200,366 @@ $total = mysqli_num_rows($result_2);
                                     }
                                     
                                 </script>
+
+                                
+                            </div>
+
+                            <div id="user-review">
+                                <b><?php echo $row[5];?></b> 
+                                <p><?php echo $row[6];?></p>
+                            </div>
+
+                            <div id="user-tag">
+                                <label id="user-info-tag">
+                                    <b>TAGS</b> : 
+                                    <?php
+                                        if ($row_tag[1] == 1){echo "재미있는  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
+                                    ?>
+                                </label>
+                            </div><br>
+
+                            <?php
+                                }
+                                else{?>
+                            <script> document.getElementById(review-div).style.backgroundColor = null; </script>
+                        <?php
+                        }
+                        ?>
+                        </div>
+
+                        <div id="div1" class="inner-div inner1">
+                            <?php
+                                $row = mysqli_fetch_row($result_2);
+                                $row_tag = mysqli_fetch_row($result_tag);
+                                $cnt = $cnt + 1;
+                                if ($cnt <= $total){?>
+                            
+                        
+                            <div id="user-info">
+                                <label id="user-info-star">
+                                    <script>
+                                        for (i=0; i< <?php echo $row[7];?>; i++){
+                                            document.write("★ ");
+                                        }
+                                    </script>
+                                </label>
+                                <label id="user-info-date"><?php echo $row[4];?></label>
+                                <label id="user-info-num">Youties #<?php echo $row[0];?></label>
+                            </div>
+
+                            <div id="tags">
+                                <script>
+                                    for(var k=1; k<5; k++){
+                                        if (document.getElementById(i) == 1){
+                                            <?php echo $row[4];?>
+                                        }
+                                    }
+                                    
+                                </script>
+
+                                
+                            </div>
+
+                            <div id="user-review">
+                                <b><?php echo $row[5];?></b> 
+                                <p><?php echo $row[6];?></p>
+                            </div>
+
+                            <div id="user-tag">
+                                <label id="user-info-tag">
+                                    <b>TAGS</b> : 
+                                    <?php
+                                        if ($row_tag[1] == 1){echo "재미있는  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
+                                    ?>
+                                </label>
+                            </div><br>
+
+                            <?php
+                                }
+                                else{?>
+                            <script> document.getElementById(review-div).style.backgroundColor = null; </script>
+                        <?php
+                        }
+                        ?>
+                        </div>
+
+                        <div id="div1" class="inner-div inner1">
+                            <?php
+                                $row = mysqli_fetch_row($result_2);
+                                $row_tag = mysqli_fetch_row($result_tag);
+                                $cnt = $cnt + 1;
+                                if ($cnt <= $total){?>
+                            
+                        
+                            <div id="user-info">
+                                <label id="user-info-star">
+                                    <script>
+                                        for (i=0; i< <?php echo $row[7];?>; i++){
+                                            document.write("★ ");
+                                        }
+                                    </script>
+                                </label>
+                                <label id="user-info-date"><?php echo $row[4];?></label>
+                                <label id="user-info-num">Youties #<?php echo $row[0];?></label>
+                            </div>
+
+                            <div id="tags">
+                                <script>
+                                    for(var k=1; k<5; k++){
+                                        if (document.getElementById(i) == 1){
+                                            <?php echo $row[4];?>
+                                        }
+                                    }
+                                    
+                                </script>
+
+                                
+                            </div>
+
+                            <div id="user-review">
+                                <b><?php echo $row[5];?></b> 
+                                <p><?php echo $row[6];?></p>
+                            </div>
+
+                            <div id="user-tag">
+                                <label id="user-info-tag">
+                                    <b>TAGS</b> : 
+                                    <?php
+                                        if ($row_tag[1] == 1){echo "재미있는  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
+                                    ?>
+                                </label>
+                            </div><br>
+
+                            <?php
+                                }
+                                else{?>
+                            <script> document.getElementById(review-div).style.backgroundColor = null; </script>
+                        <?php
+                        }
+                        ?>
+                        </div>
+
+                        <div id="div1" class="inner-div inner1">
+                            <?php
+                                $row = mysqli_fetch_row($result_2);
+                                $row_tag = mysqli_fetch_row($result_tag);
+                                $cnt = $cnt + 1;
+                                if ($cnt <= $total){?>
+                            
+                        
+                            <div id="user-info">
+                                <label id="user-info-star">
+                                    <script>
+                                        for (i=0; i< <?php echo $row[7];?>; i++){
+                                            document.write("★ ");
+                                        }
+                                    </script>
+                                </label>
+                                <label id="user-info-date"><?php echo $row[4];?></label>
+                                <label id="user-info-num">Youties #<?php echo $row[0];?></label>
+                            </div>
+
+                            <div id="tags">
+                                <script>
+                                    for(var k=1; k<5; k++){
+                                        if (document.getElementById(i) == 1){
+                                            <?php echo $row[4];?>
+                                        }
+                                    }
+                                    
+                                </script>
+
+                                
+                            </div>
+
+                            <div id="user-review">
+                                <b><?php echo $row[5];?></b> 
+                                <p><?php echo $row[6];?></p>
+                            </div>
+
+                            <div id="user-tag">
+                                <label id="user-info-tag">
+                                    <b>TAGS</b> : 
+                                    <?php
+                                        if ($row_tag[1] == 1){echo "재미있는  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
+                                    ?>
+                                </label>
+                            </div><br>
+
+                            <?php
+                                }
+                                else{?>
+                            <script> document.getElementById(review-div).style.backgroundColor = null; </script>
+                        <?php
+                        }
+                        ?>
+                        </div>
+
+                        <div id="div1" class="inner-div inner1">
+                            <?php
+                                $row = mysqli_fetch_row($result_2);
+                                $row_tag = mysqli_fetch_row($result_tag);
+                                $cnt = $cnt + 1;
+                                if ($cnt <= $total){?>
+                            
+                        
+                            <div id="user-info">
+                                <label id="user-info-star">
+                                    <script>
+                                        for (i=0; i< <?php echo $row[7];?>; i++){
+                                            document.write("★ ");
+                                        }
+                                    </script>
+                                </label>
+                                <label id="user-info-date"><?php echo $row[4];?></label>
+                                <label id="user-info-num">Youties #<?php echo $row[0];?></label>
+                            </div>
+
+                            <div id="tags">
+                                <script>
+                                    for(var k=1; k<5; k++){
+                                        if (document.getElementById(i) == 1){
+                                            <?php echo $row[4];?>
+                                        }
+                                    }
+                                    
+                                </script>
+
+                                
+                            </div>
+
+                            <div id="user-review">
+                                <b><?php echo $row[5];?></b> 
+                                <p><?php echo $row[6];?></p>
+                            </div>
+
+                            <div id="user-tag">
+                                <label id="user-info-tag">
+                                    <b>TAGS</b> : 
+                                    <?php
+                                        if ($row_tag[1] == 1){echo "재미있는  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
+                                    ?>
+                                </label>
+                            </div><br>
+
+                            <?php
+                                }
+                                else{?>
+                            <script> document.getElementById(review-div).style.backgroundColor = null; </script>
+                        <?php
+                        }
+                        ?>
+                        </div>
+
+                        <div id="div1" class="inner-div inner1">
+                            <?php
+                                $row = mysqli_fetch_row($result_2);
+                                $row_tag = mysqli_fetch_row($result_tag);
+                                $cnt = $cnt + 1;
+                                if ($cnt <= $total){?>
+                            
+                        
+                            <div id="user-info">
+                                <label id="user-info-star">
+                                    <script>
+                                        for (i=0; i< <?php echo $row[7];?>; i++){
+                                            document.write("★ ");
+                                        }
+                                    </script>
+                                </label>
+                                <label id="user-info-date"><?php echo $row[4];?></label>
+                                <label id="user-info-num">Youties #<?php echo $row[0];?></label>
+                            </div>
+
+                            <div id="tags">
+                                <script>
+                                    for(var k=1; k<5; k++){
+                                        if (document.getElementById(i) == 1){
+                                            <?php echo $row[4];?>
+                                        }
+                                    }
+                                    
+                                </script>
+
+                                
+                            </div>
+
+                            <div id="user-review">
+                                <b><?php echo $row[5];?></b> 
+                                <p><?php echo $row[6];?></p>
+                            </div>
+
+                            <div id="user-tag">
+                                <label id="user-info-tag">
+                                    <b>TAGS</b> : 
+                                    <?php
+                                        if ($row_tag[1] == 1){echo "재미있는  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
+                                    ?>
+                                </label>
+                            </div><br>
+
+                            <?php
+                                }
+                                else{?>
+                            <script> document.getElementById(review-div).style.backgroundColor = null; </script>
+                        <?php
+                        }
+                        ?>
+                        </div>
 
                     
-                            </div>
-
-                            <div id="user-review">
-                                <b><?php echo $row[5];?></b> 
-                                <p><?php 
-                                    if (strlen($row[6])>30) { //글자수 30 넘으면 ...
-                                        $row[6] = str_replace($row[6], mb_substr($row[6], 0, 30, "utf-8")."...",$row[6]);
-                                    } echo $row[6];?></p>
-                            </div>
-                            <?php
-                                }
-                                else{?>
-                            <script> document.getElementById(review-div).style.backgroundColor = null; </script>
-                        <?php
-                        }
-                        ?>
-                        </div>
-
                         <div id="div1" class="inner-div inner1">
                             <?php
                                 $row = mysqli_fetch_row($result_2);
+                                $row_tag = mysqli_fetch_row($result_tag);
                                 $cnt = $cnt + 1;
                                 if ($cnt <= $total){?>
                             
@@ -247,11 +591,26 @@ $total = mysqli_num_rows($result_2);
 
                             <div id="user-review">
                                 <b><?php echo $row[5];?></b> 
-                                <p><?php 
-                                    if (strlen($row[6])>30) { //글자수 30 넘으면 ...
-                                        $row[6] = str_replace($row[6], mb_substr($row[6], 0, 30, "utf-8")."...",$row[6]);
-                                    } echo $row[6];?></p>
+                                <p><?php echo $row[6];?></p>
                             </div>
+
+                            <div id="user-tag">
+                                <label id="user-info-tag">
+                                    <b>TAGS</b> : 
+                                    <?php
+                                        if ($row_tag[1] == 1){echo "재미있는  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
+                                    ?>
+                                </label>
+                            </div><br>
+
                             <?php
                                 }
                                 else{?>
@@ -264,6 +623,7 @@ $total = mysqli_num_rows($result_2);
                         <div id="div1" class="inner-div inner1">
                             <?php
                                 $row = mysqli_fetch_row($result_2);
+                                $row_tag = mysqli_fetch_row($result_tag);
                                 $cnt = $cnt + 1;
                                 if ($cnt <= $total){?>
                             
@@ -295,11 +655,26 @@ $total = mysqli_num_rows($result_2);
 
                             <div id="user-review">
                                 <b><?php echo $row[5];?></b> 
-                                <p><?php 
-                                    if (strlen($row[6])>30) { //글자수 30 넘으면 ...
-                                        $row[6] = str_replace($row[6], mb_substr($row[6], 0, 30, "utf-8")."...",$row[6]);
-                                    } echo $row[6];?></p>
+                                <p><?php echo $row[6];?></p>
                             </div>
+
+                            <div id="user-tag">
+                                <label id="user-info-tag">
+                                    <b>TAGS</b> : 
+                                    <?php
+                                        if ($row_tag[1] == 1){echo "재미있는  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
+                                    ?>
+                                </label>
+                            </div><br>
+
                             <?php
                                 }
                                 else{?>
@@ -312,6 +687,7 @@ $total = mysqli_num_rows($result_2);
                         <div id="div1" class="inner-div inner1">
                             <?php
                                 $row = mysqli_fetch_row($result_2);
+                                $row_tag = mysqli_fetch_row($result_tag);
                                 $cnt = $cnt + 1;
                                 if ($cnt <= $total){?>
                             
@@ -343,11 +719,26 @@ $total = mysqli_num_rows($result_2);
 
                             <div id="user-review">
                                 <b><?php echo $row[5];?></b> 
-                                <p><?php 
-                                    if (strlen($row[6])>30) { //글자수 30 넘으면 ...
-                                        $row[6] = str_replace($row[6], mb_substr($row[6], 0, 30, "utf-8")."...",$row[6]);
-                                    } echo $row[6];?></p>
+                                <p><?php echo $row[6];?></p>
                             </div>
+
+                            <div id="user-tag">
+                                <label id="user-info-tag">
+                                    <b>TAGS</b> : 
+                                    <?php
+                                        if ($row_tag[1] == 1){echo "재미있는  ";}
+                                        if ($row_tag[2] == 1){echo "유익한  ";}
+                                        if ($row_tag[3] == 1){echo "힐링되는  ";}
+                                        if ($row_tag[4] == 1){echo "스토리텔링  ";}
+                                        if ($row_tag[5] == 1){echo "몰입되는  ";}
+                                        if ($row_tag[6] == 1){echo "감동적인  ";}
+                                        if ($row_tag[7] == 1){echo "짧은 길이의  ";}
+                                        if ($row_tag[8] == 1){echo "킬링타임  ";}
+                                        if ($row_tag[9] == 1){echo "슬픈  ";}
+                                    ?>
+                                </label>
+                            </div><br>
+
                             <?php
                                 }
                                 else{?>
@@ -381,7 +772,7 @@ $total = mysqli_num_rows($result_2);
                     <div id="write_review">
                         <b>Review this Channel</b>
                     <!-- 리뷰작성.html로 넘기기 -->
-                        <a href=""><img src= "more.jpg" style="width=30; height=30;"></a>
+                        <a href=""><img src= "image/more.jpg" style="width=30; height=30;"></a>
                     </div>
 
 
