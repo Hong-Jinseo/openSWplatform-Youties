@@ -20,12 +20,12 @@
 				$result = $connect->query($query);
 		
 				if(!isset($_SESSION['my_name'])){ ?>   
-					<a class = "top_menu" href = "SignUp.php" target = "_top">SIGN UP</a> 
-					<a class = "top_menu" href = "SignIn.php" target = "_top">SIGN IN</a> 
+					<a class = "top_menu" href = "./sign_in_up_out/SignUp.php" target = "_top">SIGN UP</a> 
+					<a class = "top_menu" href = "./sign_in_up_out/SignIn.php" target = "_top">SIGN IN</a> 
 				<?php
 				}else { ?>              
-					<a class = "top_menu" href = "myPage_temp.html" target = "_top"><?php echo $_SESSION['my_name'];?></a> 
-					<a class = "top_menu" href = "SignOut.php" target = "_top">SIGN OUT</a> 
+					<a class = "top_menu" href = "./my_page/myPage.php" target = "_top"><?php echo $_SESSION['my_name'];?></a> 
+					<a class = "top_menu" href = "./sign_in_up_out/SignOut.php" target = "_top">SIGN OUT</a> 
 				<?php
 				}
 				?>

@@ -49,7 +49,7 @@ if($_POST['rating']==0){
     //table tags에 저장
     $sql_tag = "
     INSERT INTO tags
-        (tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8, tag9, email, parent)
+        (tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8, tag9, email, parent, rating)
     VALUES (
         '{$_POST['tag_hidden1']}',
         '{$_POST['tag_hidden2']}',
@@ -61,7 +61,8 @@ if($_POST['rating']==0){
         '{$_POST['tag_hidden8']}',
         '{$_POST['tag_hidden9']}',
         '{$_SESSION['my_email']}',
-        '{$_POST['parent-db']}'
+        '{$_POST['parent-db']}',
+        '{$_POST['rating']}'
     )
     ";
 

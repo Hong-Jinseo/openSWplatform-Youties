@@ -16,6 +16,28 @@
 
 
 
+
+
+#option{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 200px;
+}
+
+#o1{
+    grid-column: 1/2;
+}
+
+#o2{
+    grid-column: 2/3;
+}
+
+#o3{
+    grid-column: 3/4;
+}
+
+
+
 /*상단바*/
 #main_header_logo{
     display: grid;
@@ -54,6 +76,7 @@
     border-right: 60px solid #FFFFFF;
     height: 250px;
     float: center;
+    text-align: center;
 }
 
 

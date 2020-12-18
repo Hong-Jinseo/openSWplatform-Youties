@@ -330,7 +330,7 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 				<div id="div5" class="div-background div-background-full">					
 					<div id="div5-title" class="inner-div">
 						<form method="POST" action="../review/review_def.php">
-							<input type="submit" name="channel_key" value="<?php echo $get_you?>">
+							<input type="hidden" name="channel_key" value="<?php echo $get_you?>">
 							<h2>User reviews <button type="submit" id="gotoReview">>></button> </h2>
 						</form>
 					</div>

@@ -4,6 +4,8 @@ $host = 'localhost';
 $user = 'root';
 $pw = 'jinseo00';
 $dbName = 'youties';
+
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +15,7 @@ $dbName = 'youties';
   <meta name = "description" content = "search result page">
   <title></title> <!--사용자가 입력한 검색어를 타이틀로-->
   <link rel = "stylesheet" href = "search.css?after">
+  <link rel = "stylesheet" href = "main.css?after">
   <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
   <script type = "text/javascript">
@@ -25,9 +28,25 @@ $dbName = 'youties';
 </head>
 <body>
   <div id = "wrapper">
-    <header id = "main_header">
-      <a class = "top_menu" href = "./sign_in_up_out/SignUp.php" target = "_top">SIGN UP</a> <!--signup페이지로 연결-->
-      <a class = "top_menu" href = "./sign_in_up_out/SignIn.php" target = "_top">SIGN IN</a> <!--signin페이지로 연결-->
+  <header id = "main_header">
+      <!--로그아웃 기능-->
+				<?php
+				
+        $connect = mysqli_connect('127.0.0.1', 'root', 'jinseo00', 'youties') or die ("connect fail");
+        $query ="SELECT * FROM member ORDER BY id DESC";
+				$result = $connect->query($query);
+		
+				if(!isset($_SESSION['my_name'])){ ?>   
+					<a class = "top_menu" href = "./sign_in_up_out/SignUp.php" target = "_top">SIGN UP</a> 
+					<a class = "top_menu" href = "./sign_in_up_out/SignIn.php" target = "_top">SIGN IN</a> 
+				<?php
+				}else { ?>              
+					<a class = "top_menu" href = "./my_page/myPage.php" target = "_top"><?php echo $_SESSION['my_name'];?></a> 
+					<a class = "top_menu" href = "./sign_in_up_out/SignOut.php" target = "_top">SIGN OUT</a> 
+				<?php
+				}
+				?>
+      
     </header>
   </div>
   <form class = 'search', action = "search.php", method = "GET">
@@ -158,19 +177,15 @@ $dbName = 'youties';
   echo $input." channel reviews 검색 결과";
     if (mysqli_num_rows($result2) > 0) {
       while($row = mysqli_fetch_assoc($result2)) {
-
-
-        
         echo "<tr>";?>
-        
-        <td> <a href="./channel_intro/channel_intro.php?channel_key=<?=$row["id"]?>"> <?php echo $row["channel"]?> </a> </td><td> <?php //채널명에 채널 소개 링크
+    
+        <td> <a href="./channel_intro/channel_intro.php?channel_key=<?=$row["parent"]?>"> <?php echo $row["channel"]?> </a> </td><td> <?php //채널명에 채널 소개 링크
        
         echo "<p><b>";?>
         <style>
           a {text-decoration: none;}
-        </style>        
-        <a href="./review/review_def.php?channel_key=<?=$row["id"]?>"> <?php echo $row["title"]?> </a> </b></p> <?php //글 제목에 리뷰 링크
-
+        </style>
+        <a href="./review/review_def.php?channel_key=<?=$row["parent"]?>"> <?php echo $row["title"]?> </a> </b></p> <?php //글 제목에 리뷰 링크
         if (strlen($row["content"])>30) { //글자수 30 넘으면 ...
           $content = str_replace($row["content"], mb_substr($row["content"], 0, 30, "utf-8")."...",$row["content"]);
         }else{
@@ -190,7 +205,7 @@ $dbName = 'youties';
       echo "<p>"."<img src='img_warning.png'/>"."</p>";
       //warning text style
       echo "<p>"."No results found from channel reviews"."</p>";?>
-      <button type="button" id="setting" onClick="openAddChannel();">직접 저장하기</button>
+      <button type="button" id="add-channel-btn" onClick="openAddChannel();">직접 저장하기</button>
       <?php
     }
   ?>

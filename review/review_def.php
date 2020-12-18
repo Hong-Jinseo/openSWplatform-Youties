@@ -9,7 +9,12 @@ $conn = new mysqli($host, $user, $pw, $dbName) or die("Failed");
 //리뷰 최신순
 session_start();
 
-$get_you = $_POST["channel_key"];
+if(isset($_POST["channel_key"])){
+    $get_you = $_POST["channel_key"];
+}
+else {
+    $get_you = $_GET["channel_key"];
+}
 
 $result_2 = mysqli_query($conn, "SELECT * FROM reviews WHERE parent='$get_you' ORDER BY id DESC") or die(mysqli_error($conn));
 $result_tag = mysqli_query($conn, "SELECT * FROM tags WHERE parent='$get_you' ORDER BY id DESC") or die(mysqli_error($conn));
@@ -88,22 +93,22 @@ $total = mysqli_num_rows($result_2);
             <div class="main-container">
 
                 <div id="option" class="inner-div">
-                    <form action="review_opt.php" method="POST">
 
-                        <div id="sort-button">
-                            <button type="button" id="opt2" name="opt2" class="opt-btn" value=0 style="color: #ffffff; background: #c0412b;" onclick="location.href='./review_def.php'">Most recent</button>
-                            <input type="hidden" id="opt_hidden2" name="opt_hidden2" value=0>
-                            <button type="button" id="opt3" name="opt3" class="opt-btn"  value=0 onclick="location.href='./review_pos.php'">Positive</button>
-                            <input type="hidden" id="opt_hidden3" name="opt_hidden3" value=0>
-                            <button type="button" id="opt4" name="opt4" class="opt-btn"  value=0 onclick="location.href='./review_neg.php'">Negative</button>
-                            <input type="hidden" id="opt_hidden4" name="opt_hidden4" value=0>
-
-                        </div>
-
-                        
-
-                        
+                    <form id="o1" action="review_def.php" method="POST">
+                        <button type="submit" id="opt2" name="opt2" class="opt-btn" value="0" style="color: #ffffff; background: #c0412b;">Most recent</button>
+                        <input type="hidden" name="channel_key" value="<?php echo $get_you?>">
                     </form>
+
+                    <form id="o2" action="review_pos.php" method="POST">
+                        <button type="submit" id="opt3" name="opt3" class="opt-btn" value="0">Positive</button>
+                        <input type="hidden" name="channel_key" value="<?php echo $get_you?>">
+                    </form>
+
+                    <form id="o3" action="review_neg.php" method="POST">
+                        <button type="submit" id="opt4" name="opt4" class="opt-btn"  value="0">Negative</button>
+                        <input type="hidden" name="channel_key" value="<?php echo $get_you?>">
+                    </form>
+
                 </div>
 
 
