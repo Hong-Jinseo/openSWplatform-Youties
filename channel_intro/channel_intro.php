@@ -213,11 +213,13 @@ $result_review_decs = mysqli_query($conn, "SELECT * FROM reviews WHERE channel='
 					</div>
 					  
 					<div style="margin-top:15px;">
+						<?php if($num_rows>0){ ?>
 						<p>sexual : (<?php echo $kk1?>)</p>
 						<p>violent : (<?php echo $kk2?>)</p>
 						<p>crude : (<?php echo $kk3?>)</p>
-						<p><p>horror : (<?php echo $kk4?>)</p>
+						<p>horror : (<?php echo $kk4?>)</p>
 						<p>encourage imitative actions : (<?php echo $kk5?>)</p>
+						<?php } ?>
 					</div>
 				</div>
 
