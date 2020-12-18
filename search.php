@@ -1,3 +1,4 @@
+
 <?php
 //리뷰 DB에 저장된 정보 가져오기
 $host = 'localhost';
