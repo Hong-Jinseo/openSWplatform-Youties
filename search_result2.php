@@ -9,7 +9,7 @@
     //mysql 접속 계정 정보 설정
     $mysql_host = '127.0.0.1';
     $mysql_user = 'root';
-    $mysql_password = 'madsulie06';
+    $mysql_password = '';
     $mysql_db = 'youtube_info';
     //connetc 설정(host,user,password)
     $conn = mysqli_connect($mysql_host,$mysql_user,$mysql_password,$mysql_db)or die("fail");
